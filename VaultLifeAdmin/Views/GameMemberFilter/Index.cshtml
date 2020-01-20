@@ -1,0 +1,75 @@
+﻿@model IEnumerable<VaultLifeAdmin.ViewModels.GameMemberFilterViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Game.GameCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State.StateName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.CityID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.AgeBand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Territory.TerritoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberSubscriptionType.MemberSubscriptionTypeCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Game.GameCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.CountryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State.StateName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CityID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeBand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Territory.TerritoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberSubscriptionType.MemberSubscriptionTypeCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.GameMemberFilter.GameMemberFilterID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.GameMemberFilter.GameMemberFilterID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.GameMemberFilter.GameMemberFilterID })
+        </td>
+    </tr>
+}
+
+</table>

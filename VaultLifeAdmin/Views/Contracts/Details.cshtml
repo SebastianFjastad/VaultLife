@@ -1,0 +1,58 @@
+﻿@model VaultLifeAdmin.Models.Contract
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contract</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractDetail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractDetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContractID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

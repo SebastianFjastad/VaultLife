@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Drag and Drop Multiple file upload using Dropzone.js- InfoTuts</title>
+    <meta name="keyword" value="drag dropmultiple file upload, dropzone.js example"></meta>
+    <meta name="description" value="Drag and Drop multiple file upload with dropzone.js"></meta>
+    <link href="Content/dropzone.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <style type="text/css">
+        #main {
+            color: blue;
+            font-size: 24px;
+            position relative;
+            width: 700px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            border: 1px dotted;
+        }
+
+        #myad {
+            width: 728px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+
+    <script src="Scripts/dropzone.js"></script>
+    <!--<script type="text/javascript">
+        $("div#mydrop").dropzone({ url: "/file/post" });
+    </script>-->
+    <script type="text/javascript">
+        function imagepreview(input) {
+            debugger;
+            if(input.files && input.files[0])
+            {
+
+                var filedr = new FileReader();
+                filedr.onload = function(e) {
+                    $('imgprv').attr('src', e.target.result);
+                }
+                filedr.readAsDataURL(input.files[0]);
+            }
+
+
+        }
+    </script>
+
+
+
+</head>
+
+<body>
+    <div id="main">
+        <p> Drag n Drop Your image files below - <b>InfoTuts</b></p>
+        <span> Demo is not connected to Database. </span>
+    </div>
+    <!--<div id="mydrop" class="dropzone"></div>-->
+
+
+    <input type="file" name="fileupload" onchange="imagepreview(this);" />
+    <img id="imgprv" alt="image before upload" src=""/>
+</body>
+
+</html>

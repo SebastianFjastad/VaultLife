@@ -1,0 +1,25 @@
+﻿
+    @model VaultLifeAdmin.ViewModels.ImageViewModel
+
+    @{
+        ViewBag.Title = "Details";
+        var str = String.Format("/Image?imageId={0}", Model.Image.ImageID);
+        var Image = Model.Image;
+        
+    }
+
+    @Html.HiddenFor(model => model.Image.ImageID)
+    <tr>
+        <td>
+            <img src=@str style="width:50px" />
+        </td>
+        <td>@Model.Image.ImageName</td>
+         
+        <td>
+            <div class="checkbox">
+                @Html.EditorFor(model => model.DeleteOnSave)
+                @Html.ValidationMessageFor(model => model.DeleteOnSave, "", new { @class = "text-danger" })
+            </div>
+        </td>
+
+    </tr>

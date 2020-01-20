@@ -1,0 +1,1 @@
+alter table Product add ProductPrice decimal(10,2) null

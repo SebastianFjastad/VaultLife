@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Vaultlife.ViewModels.ProductViewModel>
+
+@{
+    ViewBag.Title = "My Vault Items";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="text-center text-uppercase">My <strong>Vault Items</strong></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="upcoming-vault-items col-xs-12">
+        @foreach (var item in Model)
+        {
+
+            
+
+            string src = "";
+
+            if (item.Product.Imagedetails.Count() > 0)
+            {
+                src = String.Format("/Images?imageId={0}", item.Product.Imagedetails.First().ImageID);
+
+                @*<a href="DetailsComingSoon/@item.Product.ProductID"><img width="60" src="@src" alt="@item.Product.ProductName" /></a>*@
+            }
+            else
+            {
+                @*<a href="DetailsComingSoon/@item.Product.ProductID">@item.Product.ProductName (No Image)</a>*@
+            }
+
+            string hrefToAddOrRemoveFromWatchlist = "";
+            if (!item.IsInMyWatchList)
+            {
+                hrefToAddOrRemoveFromWatchlist = "AddToWatchList/?ProductID=" + item.Product.ProductID + "&FromWhere=watchlist";
+            }
+            else
+            {
+                hrefToAddOrRemoveFromWatchlist = "RemoveFromWatchList/?ProductID=" + item.Product.ProductID + "&FromWhere=watchlist";
+            }
+
+            <div class="product" href="#">
+                <div class="product-image" style="background-image: url(@src);"></div>
+                <div class="product-info">
+                    <div class="unlocks-in">
+                        @Html.DisplayFor(modelItem => item.Product.ProductDescription)
+                    </div>
+                    <div class="date">
+                        @if (!item.IsInMyWatchList)
+                        {
+                            <a href="@hrefToAddOrRemoveFromWatchlist">
+                                <img alt="In Watch List" src="~/Content/Images/plus-7-32.png" title="Add" />
+
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@hrefToAddOrRemoveFromWatchlist">
+                                <img alt="In Watch List" src="~/Content/Images/star-32.png" title="Remove" />
+                            </a>
+
+                        }
+                    </div>
+                    <div class="product-info">
+                        <div class="unlocks-in">This item unlocks on</div>
+                        <div class="date"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

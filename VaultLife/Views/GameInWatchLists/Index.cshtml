@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Vaultlife.Models.ProductInWatchList>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.IdentityType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductSKUCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInserted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.IdentityType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.ProductSKUCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductInWatchListID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductInWatchListID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductInWatchListID })
+        </td>
+    </tr>
+}
+
+</table>

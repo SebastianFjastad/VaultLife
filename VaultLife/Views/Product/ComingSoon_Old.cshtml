@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Vaultlife.ViewModels.ComingSoonViewModel>
+
+@{
+    ViewBag.Title = "Coming Soon";
+}
+
+<h2>Coming Soon</h2>
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductDescription)
+
+            </td>
+
+            <td>
+                @{
+        if (item.Product.DisplayItems.Count() > 0)
+        {
+            string src = String.Format("/Content/ProductImages/{0}", item.Product.DisplayItems.First().DisplayItemURL);
+
+            <a href="DetailsComingSoon/@item.Product.ProductID"><img width="60" src="@src" alt="@item.Product.ProductName" /></a>
+        }
+        else
+        {
+            <a href="DetailsComingSoon/@item.Product.ProductID">@item.Product.ProductName (No Image)</a>
+        }
+
+                }
+            </td>
+            <td>
+                
+                @if (!item.IsInMyWatchList)
+                {
+                    <img alt="In Watch List" src="~/Content/Images/plus-7-32.png" />
+                    @Html.ActionLink("Add To WatchList", "AddToWatchList", "ProductInWatchLists", new { ProductID = item.Product.ProductID, FromWhere = "comingsoon" }, null)
+                }
+                else
+                {
+                    <img alt="In Watch List" src="~/Content/Images/star-32.png" />
+                    @Html.ActionLink("Remove From WatchList", "RemoveFromWatchList", "ProductInWatchLists", new { ProductID = item.Product.ProductID, FromWhere = "comingsoon" }, null)
+
+                }
+            </td>
+
+
+
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<VaultLifeAdmin.Models.Address>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressLine1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressLine2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressLine3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StateOrProvince)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipOrPostalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USR)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressLine1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressLine2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressLine3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StateOrProvince)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipOrPostalCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInserted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USR)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AddressID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AddressID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AddressID })
+        </td>
+    </tr>
+}
+
+</table>

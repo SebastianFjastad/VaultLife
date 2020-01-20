@@ -1,0 +1,389 @@
+﻿@using Vaultlife.Models;
+@using Microsoft.AspNet.Identity;
+@using System.Collections.Generic;
+@{
+    ViewBag.Title = "My Account";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="text-center">
+            <h1 class="text-center text-uppercase">My <strong>Account</strong></h1>
+            <p>You're logged in as <strong>@User.Identity.GetUserName()</strong>.</p>
+        </div>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-account">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#personal-information">
+                            <img src="../../Content/images/icons/account.png" alt="Your Account" class="img-panel-icon" />
+                            <span class="text">
+                                My Personal Information
+                            </span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="personal-information" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_EditPartial")
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-account">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#interests">
+                            <img src="../../Content/images/icons/star.png" alt="My Interests" class="img-panel-icon" />
+                            <span class="text">
+                                My Interests
+                            </span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="interests" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Html.Partial("_InterestsPartial")
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-account">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#change-password">
+                            <img src="../../Content/images/icons/lock.png" alt="Change Password" class="img-panel-icon" />
+                            <span class="text">
+                                Change Password
+                            </span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="change-password" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @if (ViewBag.HasLocalPassword)
+                        {
+                            @Html.Partial("_ChangePasswordPartial")
+                        }
+
+                    </div>
+                </div>
+            </div>
+            @{List<MemberSubscriptionType> mtypes = ViewBag.MembershipSubscriptionTypes;
+            if (mtypes.Count(t => t.MemberSubscriptionTypeCode.Trim() == "Tycoon") > 0)
+            {
+                <div class="panel panel-account">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#upgrade-status">
+                                <img src="../../Content/images/icons/upgrade.png" alt="Upgrade Status" class="img-panel-icon" /> Upgrade Status
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div id="upgrade-status" class="panel-collapse collapse">
+                        <div class="panel-body" id="upgrade-ui">
+                            <h2 class="text-center">Unlock the next level of exclusivity.</h2>
+                            <div class="upgrade-tiers">
+                                <div class="upgrade-tier">
+                                    <div class="price">
+                                        @{
+                MemberSubscriptionType type = mtypes.Find(m => m.MemberSubscriptionTypeCode.Trim() == "Tycoon");
+                String status = type.MemberSubscriptionTypeDescription;
+                String amount = type.amount.ToString("#######");
+
+                String id = type.MemberSubscriptionTypeID.ToString();
+                                        }
+                                        <div class="tier-price tycoon">
+                                            ZAR @{ if (amount.Length < 4)
+                                             {<br />} } @amount
+                                        </div>
+                                    </div>
+                                    <div class="description">
+                                        <h2>
+                                            @status
+                                            <strong>Status</strong>
+                                        </h2>
+                                        <p>
+                                            Secure one of the coveted 500 positions. @status members can play for all items and
+                                            we have saved the biggest and best for these members, priceless experiences, the
+                                            world's finest luxury items and the most sought-after destinations await – so, start
+                                            packing!
+                                        </p>
+                                    </div>
+                                    <div class="action">
+                                        <a href="/Payments/Pay?type=@id" class="btn btn-large btn-primary">Upgrade Now</a>
+                                    </div>
+                                </div>
+                                @{
+                if (mtypes.Count(t => t.MemberSubscriptionTypeCode.Trim() == "Luxury") > 0)
+                {
+                    <div class="upgrade-tier">
+                        <div class="price">
+                            @{
+                    type = mtypes.Find(m => m.MemberSubscriptionTypeCode.Trim() == "Luxury");
+                    status = type.MemberSubscriptionTypeDescription;
+                    amount = type.amount.ToString("#######");
+                    id = type.MemberSubscriptionTypeID.ToString();
+                            }
+                            <div class="tier-price luxury">
+                                ZAR @{ if (amount.Length < 4)
+                                 {<br />} } @amount
+                            </div>
+                        </div>
+                        <div class="description">
+                            <h2>@status <strong>Status</strong></h2>
+                            <p>
+                                @status status secures access to all items within @status, Life and the Free levels. As the
+                                name implies, luxury brands, unique experiences and sought after holidays can be
+                                secured daily. Membership is limited to 1500 per VAULT so, the world of luxury awaits.
+                            </p>
+                        </div>
+                        <div class="action">
+                            <a href="/Payments/Pay?type=@id" class="btn btn-large btn-primary">Upgrade Now</a>
+                        </div>
+                    </div>
+                }
+                                }
+                                @{
+                if (mtypes.Count(t => t.MemberSubscriptionTypeCode.Trim() == "Loving-Life") > 0)
+                {
+                    <div class="upgrade-tier">
+                        <div class="price">
+                            @{
+                    type = mtypes.Find(m => m.MemberSubscriptionTypeCode.Trim() == "Loving-Life");
+                    status = type.MemberSubscriptionTypeDescription;
+                    amount = type.amount.ToString("#######");
+                    id = type.MemberSubscriptionTypeID.ToString();
+                            }
+                            <div class="tier-price life">
+                                ZAR
+                                @{ if (amount.Length < 4)
+                                 {<br />} }
+                                @amount
+                            </div>
+                        </div>
+                        <div class="description">
+                            <h2>@status <strong>Status</strong></h2>
+                            <p>
+                                ZAR @amount for the year secures access to all items in this level as well as the free level.
+                                Membership is limited to 3000 members per VAULT allowing you to experience the
+                                satisfaction of securing luxury items and experiences from around the world.
+                            </p>
+                        </div>
+                        <div class="action">
+                            <a href="/Payments/Pay?type=@id" class="btn btn-large btn-primary">Upgrade Now</a>
+                        </div>
+                    </div>
+                }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            }
+            <div class="panel panel-account">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#my-transactions">
+                            <img src="../../Content/images/icons/card.png" alt="My Transactions" class="img-panel-icon" />
+                            <span class="text">
+                                My Transactions
+                            </span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="my-transactions" class="panel-collapse collapse">
+                    <div class="panel-body" id="transaction-history">
+                        <div class="table-responsive">
+                            @Html.Partial("_TransactionPartial")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        @*
+            This script enables us to jump to a specific collapse panel by passing the id value via the URL. eg: #upgrade-status opens the Upgrade Status panel on page load
+        *@
+        $(document).ready(function () {
+            // Opening accordion based on URL
+            var url = document.location.toString();
+            if (url.match('#')) {
+                $('#' + url.split('#')[1]).addClass('in');
+            }
+        });
+    </script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#StateBlock').hide();
+
+            $('#clickme').click(function () {
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Count")',
+                    data: $('form').serialize(),
+                    success: function (response) {
+                        $("#result").html(response);
+                    }
+                });
+            });
+            $('#Save').click(function () {
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Insert")',
+                    data: $('form').serialize(),
+                    success: function (response) {
+                        $("#result").html(response);
+                    }
+                });
+            });
+
+            $('#Country').change(function () {
+                var fd = $('#Country').serialize();
+                $('#State')
+                    .find('option')
+                    .remove()
+                    .end();
+                $('#City')
+                    .find('option')
+                    .remove()
+                    .end();
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("getStates")',
+                    data: $('form').serialize(),
+                    success: function (result) {
+                        if (result.length > 0) {
+                            $('#StateBlock').show();
+                            for (var key in result) {
+                                var value = result[key];
+                                $('#State')
+                                    .append('<option value="' + value.StateID + '">' + value.StateName + '</option>');
+                                //     .val('' + value.StateID + '');
+                            }
+                        }
+                        else { $('#StateBlock').hide(); }
+                    }
+
+                });
+            });
+
+            $('#State').change(function () {
+                var fd = $('#State').serialize();
+                $('#City')
+                    .find('option')
+                    .remove()
+                    .end();
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("getCities")',
+                    data: $('form').serialize(),
+                    success: function (result) {
+                        if (result.length > 0) {
+                            $('#CityBlock').show();
+                            for (var key in result) {
+                                var value = result[key];
+                                $('#City')
+                                    .append('<option value="' + value.CityID + '">' + value.CityName + '</option>');
+                                // .val('' + value.CityID + '');
+                            }
+                        }
+                        else { $('#CityBlock').hide(); }
+                    }
+
+
+                });
+            });
+
+            $('#CountryBill').change(function () {
+                var fd = $('#CountryBill').serialize();
+                $('#StateBill')
+                    .find('option')
+                    .remove()
+                    .end();
+
+                $('#CityBill')
+                    .find('option')
+                    .remove()
+                    .end();
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("getBillStates")',
+                    data: $('form').serialize(),
+                    success: function (result) {
+                        if (result.length > 0) {
+                            $('#StateBlock').show();
+                            for (var key in result) {
+                                var value = result[key];
+                                $('#StateBill')
+                                    .append('<option value="' + value.StateID + '">' + value.StateName + '</option>');
+                                //   .val('' + value.StateID + '');
+                            }
+                        }
+                        else { $('#StateBlock').hide(); }
+                    }
+
+                });
+            });
+
+            $('#StateBill').change(function () {
+                var fd = $('#StateBill').serialize();
+                $('#CityBill')
+                    .find('option')
+                    .remove()
+                    .end();
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("getBillCities")',
+                    data: $('form').serialize(),
+                    success: function (result) {
+                        if (result.length > 0) {
+                            $('#CityBlock').show();
+                            for (var key in result) {
+                                var value = result[key];
+                                $('#CityBill')
+                                    .append('<option value="' + value.CityID + '">' + value.CityName + '</option>');
+                                //     .val('' + value.CityID + '');
+                            }
+                        }
+                        else { $('#CityBlock').hide(); }
+                    }
+
+
+                });
+            });
+
+        });
+    </script>
+    <script type="text/javascript" language="JavaScript">
+        $.validator.addMethod(
+    'validateage',
+    function (value, element, params) {
+        return Date.parse(value) <= Date.parse(params.maximumdate);
+    });
+
+        $.validator.unobtrusive.adapters.add(
+            'validateage', ['maximumdate'], function (options) {
+                var params = {
+                    maximumdate: options.params.maximumdate
+                };
+                options.rules['validateage'] = params;
+                options.messages['validateage'] = options.message;
+            });
+    </script>
+
+
+
+}

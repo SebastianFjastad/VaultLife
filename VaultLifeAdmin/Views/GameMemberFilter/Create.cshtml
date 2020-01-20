@@ -1,0 +1,162 @@
+﻿@model VaultLifeAdmin.Models.GameMemberFilter
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>GameMemberFilter</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+               
+        <div class="form-group">
+            @Html.LabelFor(model => model.GameID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("GameID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.GameID)
+            </div>
+        </div>
+
+       
+        <div class="form-group">
+            @Html.LabelFor(model => model.CountryID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CountryID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CountryID)
+            </div>
+        </div>
+
+       
+        <div class="form-group" id="StateBlock">
+            @Html.LabelFor(model => model.StateID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StateID", null, "NA", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StateID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.Hidden("CityID", (object)1)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.CityID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                
+                @Html.EditorFor(model => model.CityID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CityID)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AgeBandID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("AgeBandID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AgeBandID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GenderID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("GenderID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.GenderID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Territory, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Territory", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Territory)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MemberSubscriptionTypeID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MemberSubscriptionTypeID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MemberSubscriptionTypeID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+      $(document).ready(function () {
+           $('#StateBlock').hide();
+          $('#clickme').click(function () {
+
+              $.ajax({
+                  type: "POST",
+                  url: '@Url.Action("Count")',
+                  data: $('form').serialize(),
+                  success: function (response) {
+                      $("#result").html(response);
+                  }
+              });
+          });
+          $('#Save').click(function () {
+
+              $.ajax({
+                  type: "POST",
+                  url: '@Url.Action("Insert")',
+                  data: $('form').serialize(),
+                  success: function (response) {
+                      $("#result").html(response);
+                  }
+              });
+          });
+
+          $('#CountryID').change(function () {
+              debugger;
+           var fd= $('#CountryID').serialize();
+           $('#StateID')
+                    .find('option')
+                    .remove()
+                    .end()
+                    .append('<option value="">Any</option>')
+                    .val('').attr('selected', 'selected');
+
+
+              $.ajax({
+                  type: "POST",
+                  url: '@Url.Action("getStates")',
+                  data: $('form').serialize(),
+                  success: function (result) {
+                      if (result.length > 0) {
+                          $('#StateBlock').show();
+                          for (var key in result) {
+                              var value = result[key];
+                              $('#StateID')
+                                  .append('<option value="' + value.StateID + '">' + value.StateName + '</option>')
+                                  .val('' + value.StateID + '');
+                          }
+                      }
+                      else { $('#StateBlock').hide(); }
+                  }
+
+              });
+          });
+      });
+    </script>
+}

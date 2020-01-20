@@ -1,0 +1,80 @@
+﻿@model VaultLifeAdmin.Models.ProductInGame
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProductInGame</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Currency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Currency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Game.GameCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Game.GameCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductSKUCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductSKUCode)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

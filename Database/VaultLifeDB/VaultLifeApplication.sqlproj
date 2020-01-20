@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>VaultLifeApplication</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{ece84d7e-f212-41a6-b7e2-a2a40968c876}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>VaultLifeDB</RootNamespace>
+    <AssemblyName>VaultLifeDB</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Latin1_General_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\Change Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Product.sql" />
+    <Build Include="dbo\Tables\ProductCategory.sql" />
+    <Build Include="dbo\Tables\ProductInCategory.sql" />
+    <Build Include="dbo\Tables\MemberInterest.sql" />
+    <Build Include="dbo\Tables\Event.sql" />
+    <Build Include="dbo\Tables\MemberAtEvent.sql" />
+    <Build Include="dbo\Tables\MemberSubscriptionType.sql" />
+    <Build Include="dbo\Tables\Address.sql" />
+    <Build Include="dbo\Tables\Member.sql" />
+    <Build Include="dbo\Tables\InteractionType.sql" />
+    <Build Include="dbo\Tables\MemberOwned.sql" />
+    <Build Include="dbo\Tables\WebsiteInteraction.sql" />
+    <Build Include="dbo\Tables\Territory.sql" />
+    <Build Include="dbo\Tables\MemberAcquisitionCampaign.sql" />
+    <Build Include="dbo\Tables\Contract.sql" />
+    <Build Include="dbo\Tables\TerritoryDefinition.sql" />
+    <Build Include="dbo\Tables\GameType.sql" />
+    <Build Include="dbo\Tables\GameTemplate.sql" />
+    <Build Include="dbo\Tables\Game.sql" />
+    <Build Include="dbo\Tables\GameSchedule.sql" />
+    <Build Include="dbo\Tables\NextGame.sql" />
+    <Build Include="dbo\Tables\GameRule.sql" />
+    <Build Include="dbo\Tables\GameTypeOwned.sql" />
+    <Build Include="dbo\Tables\ProductInWatchList.sql" />
+    <Build Include="dbo\Tables\MemberInGame.sql" />
+    <Build Include="dbo\Tables\ProductInGame.sql" />
+    <Build Include="dbo\Tables\ProductLocation.sql" />
+    <Build Include="dbo\Tables\Owner.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameScheduleUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameScheduleDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTemplateSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTemplateInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTemplateUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTemplateDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTypeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTypeInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTypeUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTypeDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTypeOwnedSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTypeOwnedInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTypeOwnedUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameTypeOwnedDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_InteractionTypeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_InteractionTypeInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_InteractionTypeUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_InteractionTypeDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberAcquisitionCampaignSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberAcquisitionCampaignInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberAcquisitionCampaignUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberAcquisitionCampaignDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberAtEventSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberAtEventInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberAtEventUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberAtEventDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberInGameSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberInGameInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberInGameUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberInGameDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberInterestSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberInterestInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberInterestUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberInterestDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberOwnedSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberOwnedInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberOwnedUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberOwnedDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberSubscriptionTypeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberSubscriptionTypeInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberSubscriptionTypeUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_MemberSubscriptionTypeDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_NextGameSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_NextGameInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_NextGameUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_NextGameDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_OwnerSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_OwnerInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_OwnerUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_OwnerDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductCategorySelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductCategoryInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductCategoryUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductCategoryDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInCategorySelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInCategoryInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInCategoryUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInCategoryDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInGameSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInGameInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInGameUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInGameDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInWatchListSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInWatchListInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInWatchListUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductInWatchListDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductLocationSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductLocationInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductLocationUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ProductLocationDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TerritorySelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TerritoryInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TerritoryUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TerritoryDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TerritoryDefinitionSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TerritoryDefinitionInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TerritoryDefinitionUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TerritoryDefinitionDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_WebsiteInteractionSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_WebsiteInteractionInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_WebsiteInteractionUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_WebsiteInteractionDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_AddressSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_AddressInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_AddressUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_AddressDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ContractSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ContractInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ContractUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ContractDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_EventSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_EventInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_EventUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_EventDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameRuleSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameRuleInsert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameRuleUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameRuleDelete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameScheduleSelect.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GameScheduleInsert.sql" />
+    <Build Include="dbo\Tables\DisplayItem.sql" />
+    <Build Include="dbo\Change Scripts\Alter_Address_23072014.1.sql" />
+    <Build Include="dbo\Change Scripts\Alter_DisplayItem_23072014.sql" />
+    <Build Include="dbo\Change Scripts\Alter_DisplayItem_25072014.sql" />
+    <Build Include="dbo\Change Scripts\Alter_Member_28072014.sql" />
+    <Build Include="dbo\Change Scripts\Alter_ProductInGame_Add_ReferencePrice.sql" />
+    <Build Include="dbo\Change Scripts\Alter_ProductInWatchList_16082014.sql" />
+    <Build Include="dbo\Change Scripts\Drop and Create GameMemberFilter.sql" />
+  </ItemGroup>
+</Project>

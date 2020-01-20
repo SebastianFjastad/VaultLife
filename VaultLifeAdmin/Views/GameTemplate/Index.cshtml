@@ -1,0 +1,75 @@
+﻿@model IEnumerable<VaultLifeAdmin.Models.GameTemplate>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameTemplateCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameRuleCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameRuleDetail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderInGame)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameType.GameTypeCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameTemplateCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInserted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameRuleCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameRuleDetail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderInGame)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameType.GameTypeCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GameTemplateID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GameTemplateID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GameTemplateID })
+        </td>
+    </tr>
+}
+
+</table>

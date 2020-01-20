@@ -1,0 +1,154 @@
+﻿@model VaultLifeAdmin.Models.Member
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Member</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdentityType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdentityType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelephoneHome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelephoneHome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelephoneOffice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelephoneOffice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelephoneMobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelephoneMobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ethnicity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ethnicity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActiveIndicator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActiveIndicator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RenewalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RenewalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Address.AddressType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.AddressType)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberSubscriptionType.MemberSubscriptionTypeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberSubscriptionType.MemberSubscriptionTypeCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MemberID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

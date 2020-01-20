@@ -1,0 +1,63 @@
+﻿@model IEnumerable<VaultLifeAdmin.Models.ProductCategory>
+
+@{
+    ViewBag.Title = "Product Categories";
+}
+
+<h2>Product Categories</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductCategoryCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductCategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductCategoryDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USR)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductCategoryCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductCategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductCategoryDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInserted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USR)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductCategoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductCategoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductCategoryID })
+        </td>
+    </tr>
+}
+
+</table>

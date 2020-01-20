@@ -1,0 +1,30 @@
+USE [VaultLifeApplication]
+GO
+
+/****** Object:  Table [dbo].[ImageType]    Script Date: 2014-12-09 05:27:07 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[ImageType](
+	[ImageTypeId] [int] NOT NULL,
+	[ImageTypeName] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_ImageType] PRIMARY KEY CLUSTERED 
+(
+	[ImageTypeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[ImageType] ADD  CONSTRAINT [DF_ImageType_ImageTypeId]  DEFAULT ((1)) FOR [ImageTypeId]
+GO
+

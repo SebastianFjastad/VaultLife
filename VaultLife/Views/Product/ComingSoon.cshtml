@@ -1,0 +1,466 @@
+﻿@model IEnumerable<Vaultlife.ViewModels.ComingSoonViewModel>
+
+@{
+    ViewBag.Title = "Coming Soon";
+}
+
+<h2>Coming Soon</h2>
+
+<div class="product-strip" id="tycoon-strip">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-uppercase">
+                    <strong>
+                        <span class="text-tycoon">Tycoon</span> Status
+                    </strong>
+                </h2>
+                <div class="product-carousel">
+                    <div class="carousel slide" id="tycoon-carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("tycoon")).Take(3))
+                                    {
+
+                                        string src = String.Format("/Image?imageId={0}", item.mainImage.ImageID);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("tycoon")).Skip(3).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("tycoon")).Skip(6).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <a class="carousel-control left" href="#tycoon-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control right" href="#tycoon-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ol class="carousel-indicators clearfix">
+                            <li data-target="#tycoon-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#tycoon-carousel" data-slide-to="1"></li>
+                            <li data-target="#tycoon-carousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="product-strip" id="luxury-strip">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-uppercase">
+                    <strong>
+                        <span class="text-luxury">Luxury</span> Status
+                    </strong>
+                </h2>
+                <div class="product-carousel">
+                    <div class="carousel slide" id="luxury-carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("luxury")).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("luxury")).Skip(3).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("luxury")).Skip(6).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#luxury-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control right" href="#luxury-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ol class="carousel-indicators clearfix">
+                            <li data-target="#luxury-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#luxury-carousel" data-slide-to="1"></li>
+                            <li data-target="#luxury-carousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-strip" id="life-strip">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-uppercase">
+                    <strong>
+                        <span class="text-life">Life</span> Status
+                    </strong>
+                </h2>
+                <div class="product-carousel">
+                    <div class="carousel slide" id="life-carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("life")).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("life")).Skip(3).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("life")).Skip(6).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#life-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control right" href="#life-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ol class="carousel-indicators clearfix">
+                            <li data-target="#life-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#life-carousel" data-slide-to="1"></li>
+                            <li data-target="#life-carousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-strip" id="free-strip">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-uppercase">
+                    <strong>
+                        <span class="text-free">Free</span> Status Items
+                    </strong>
+                </h2>
+                <div class="product-carousel">
+                    <div class="carousel slide" id="free-carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("free")).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("free")).Skip(3).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    @foreach (var item in Model.Where(x => x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("free")).Skip(6).Take(3))
+                                    {
+
+                                        string src = String.Format("/Content/ProductImages/{0}", item.MainDisplayItem.DisplayItemURL);
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-3">
+                                            <a href="#" class="product-block product-block-large" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductDescription</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        <div class="status status-tycoon"></div>
+                                                        <div class="flag"></div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#free-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control right" href="#free-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ol class="carousel-indicators clearfix">
+                            <li data-target="#free-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#free-carousel" data-slide-to="1"></li>
+                            <li data-target="#free-carousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

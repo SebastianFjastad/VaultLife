@@ -1,0 +1,56 @@
+﻿@model Vaultlife.Models.ProductLocation
+
+@{
+    ViewBag.Title = "Edit";
+
+}
+
+@Html.HiddenFor(model => model.ProductLocationID)
+@Html.HiddenFor(model => model.ProductInGameID)
+<tr>
+    @*<td>
+
+            <label class="form-control">@Model.ProductInGame.Product.ProductName</label>
+
+            <label class="form-control">@Model.ProductInGame.Game.GameCode</label>
+        </td>*@
+    <td>
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DeliveryAgentName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DeliveryAgentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </td>
+    @Html.HiddenFor(model => model.DateInserted)
+    @Html.HiddenFor(model => model.DateUpdated)
+    @Html.HiddenFor(model => model.USR)
+    <td>
+        @if(ViewBag.Source == null)
+        { 
+        @Html.ActionLink("Edit Vouchers and Serial Numbers", "EditFromProductInGame", "ProductLocations", new { id = Model.ProductLocationID, productInGameID = Model.ProductInGameID }, null)
+        }
+        else
+        {
+            @Html.ActionLink("Edit Vouchers and Serial Numbers", "EditFromProductInGameMakeGame", "ProductLocations", new { id = Model.ProductLocationID, productInGameID = Model.ProductInGameID }, null)
+        }
+        
+    </td>
+</tr>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

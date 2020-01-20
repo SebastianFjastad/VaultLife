@@ -1,0 +1,66 @@
+﻿@model VaultLifeAdmin.Models.GameType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GameType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameTypeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameTypeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GameTypeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

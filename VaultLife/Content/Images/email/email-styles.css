@@ -1,0 +1,75 @@
+﻿
+        * {
+            font-family: "segoe ui", "Calibri Light", Arial, Helvetica, sans-serif;
+        }
+
+        div {
+            padding: 15px;
+        }
+
+        div.content {
+            padding: 25px;
+        }
+
+        table {
+            border: 1px solid #999999;
+        }
+
+        table td {
+            border: 1px solid #efefef;
+            margin: 0px;
+            padding: 5px;
+        }
+
+        table.signature, table.signature td {
+            border: none;
+        }
+
+        table.signature td {
+            height: 220px;
+            width: 308px;
+            background: #161616;
+            vertical-align: top;
+            padding: 0px;
+        }
+
+        table.signature td.promo {
+            width: 228px;
+        }
+
+        table.signature td.details div.content {
+            padding: 0px 15px;
+            color: #efefef;
+            font-size: 12px;
+        }
+
+        table.signature td.details div.content strong, table.signature td.details div.content b {
+            font-weight: bold;
+            color: white;
+            font-size: 12px;
+            line-height: 1em;
+        }
+
+        table.signature td.details div.content h2 {
+            margin: 0px;
+            font-size: 22px;
+            font-weight: normal;
+            color: white;
+            margin-top: -5px;
+            margin-bottom: 5px;
+        }
+
+        table.signature td.details div.content strong, table.signature td.details div.content div {
+            padding: 0px;
+        }
+
+        table.signature td.details div.content strong, table.signature td.details div.content div a,
+        table.signature td.details div.content strong, table.signature td.details div.content div span {
+            color: #dfdfdf;
+        }
+
+        table.signature td.details div.content div span.small {
+            font-size: 11px;
+        }
+
+    

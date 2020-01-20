@@ -1,0 +1,128 @@
+﻿@model Vaultlife.ViewModels.ProductDisplayViewModel
+
+@{
+    ViewBag.Title = "Coming Soon Product Details";
+    Vaultlife.Models.Member member = new Vaultlife.Models.Member();
+
+}
+
+<h2>Coming Soon Product Details</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductDescription)
+        </dd>
+
+
+
+
+
+    </dl>
+    <p>
+        @if (!Model.IsInMyWatchList)
+        {
+            <img alt="In Watch List" src="~/Content/Images/plus-7-32.png" />
+            @Html.ActionLink("Add To WatchList", "AddToWatchList", "ProductInWatchLists", new { ProductID = Model.Product.ProductID, FromWhere = "detail" }, null)
+        }
+        else
+        {
+            <img alt="In Watch List" src="~/Content/Images/star-32.png" />
+            @Html.ActionLink("Remove From WatchList", "RemoveFromWatchList", "ProductInWatchLists", new { ProductID = Model.Product.ProductID, FromWhere = "detail" }, null)
+
+        }
+    </p><p>
+        @Html.ActionLink("Back to List", "ComingSoon")
+    </p>
+</div>
+<table>
+    <tr>
+        @foreach (var item in Model.DisplayItems)
+        {
+            string src = String.Format("/Content/ProductImages/{0}", item.DisplayItemURL);
+
+
+            <td>
+
+
+
+                <img width="100" src="@src" alt="@item.Product.ProductName" />
+
+
+            </td>
+
+        }
+    </tr>
+</table>
+<p></p>
+
+<div>
+    @{
+
+        if (Model.CurrentProductInGame != null)
+        {
+            <h3>Current Product in Game Details</h3>
+            <table>
+                <tr>
+                    <td>Game Name</td>
+                    <td>@Html.DisplayFor(model => model.CurrentProductInGame.Game.GameName)</td>
+                </tr>
+                <tr>
+                    <td>Game Description</td>
+                    <td>@Html.DisplayFor(model => model.CurrentProductInGame.Game.GameDescription)</td>
+                </tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td>@Html.DisplayFor(model => model.CurrentProductInGame.Quantity)</td>
+                </tr>
+                <tr>
+                    <td>Currency</td>
+                    <td>@Html.DisplayFor(model => model.CurrentProductInGame.Currency.CurrencyCode)</td>
+                </tr>
+
+            </table>
+            <h4>Locations</h4>
+            <ul>
+
+
+                @if (Model.CurrentProductInGame.ProductLocations != null)
+                {
+                    foreach (var location in Model.CurrentProductInGame.ProductLocations)
+                    {
+                        <li>@location.Address </li>
+
+
+                    }
+                }
+
+            </ul>
+        }
+        else
+        {
+            <h3>Product not currently in a game</h3>
+        }
+    }
+
+
+
+
+</div>
+
+<p>
+
+</p>

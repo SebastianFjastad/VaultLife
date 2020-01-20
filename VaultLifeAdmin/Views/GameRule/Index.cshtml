@@ -1,0 +1,93 @@
+﻿@model IEnumerable<VaultLifeAdmin.Models.GameRule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameRuleCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilterCriteria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Schedule)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChainGameRuleID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameRuleDetail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExcecuteTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Game.GameCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameTemplate.GameTemplateCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameRuleCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilterCriteria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schedule)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChainGameRuleID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameRuleDetail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExcecuteTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInserted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Game.GameCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameTemplate.GameTemplateCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GameRuleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GameRuleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GameRuleID })
+        </td>
+    </tr>
+}
+
+</table>

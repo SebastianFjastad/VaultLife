@@ -1,0 +1,13 @@
+﻿
+CREATE PROC [dbo].[usp_NextGameDelete] @GameID INT
+AS
+SET NOCOUNT ON
+SET XACT_ABORT ON
+
+BEGIN TRAN
+
+DELETE
+FROM [dbo].[NextGame]
+WHERE [GameID] = @GameID
+
+COMMIT

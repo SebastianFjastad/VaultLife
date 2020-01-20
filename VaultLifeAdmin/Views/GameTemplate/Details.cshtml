@@ -1,0 +1,82 @@
+﻿@model VaultLifeAdmin.Models.GameTemplate
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GameTemplate</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameTemplateCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameTemplateCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameRuleCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameRuleCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameRuleDetail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameRuleDetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderInGame)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderInGame)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameType.GameTypeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameType.GameTypeCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GameTemplateID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

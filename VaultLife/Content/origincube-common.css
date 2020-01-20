@@ -1,0 +1,22 @@
+﻿/*
+    ORIGIN CUBE COMMON 
+    ******************
+
+    v1.0.3
+
+    These are a common library of variables, mixins and style sets for use in LESS environment.
+    Author: Chad Botha
+    (c) 2014 Chad Botha t/a Origin Cube. All rights reserved.
+*/
+.uppercase {
+  text-transform: uppercase;
+}
+.normalcase {
+  text-transform: none;
+}
+.centred {
+  text-align: center;
+}
+.clear {
+  clear: both;
+}

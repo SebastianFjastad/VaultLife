@@ -1,0 +1,233 @@
+﻿@{
+    ViewBag.Title = "Access Denied";
+    Layout = "~/Views/Shared/_GameLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <div class="block-one game-block">
+                <div class="block-one-layout">
+                    <div class="left-block denied">
+                        <div id="main-product-view">
+                            <div id="product-info">
+                                <div class="product-header">
+                                    <div class="main-image">
+                                        <img src="@Url.Content("~/Image?imageId=")@ViewBag.MainImage" />
+                                    </div>
+                                    <div class="main-info">
+                                        <h1 class="text-uppercase">@ViewBag.ProductName</h1>
+                                        <div class="price">
+                                            <div class="old-price">
+                                                @ViewBag.Currency @ViewBag.OldPrice
+                                            </div>
+                                            <div class="special-price">
+                                                @ViewBag.Currency @ViewBag.PriceInGame
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-tabs">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+                                        <li><a href="#images" role="tab" data-toggle="tab">Images</a></li>
+                                        <li><a href="#delivery" role="tab" data-toggle="tab">Delivery</a></li>
+                                        <li><a href="#terms" role="tab" data-toggle="tab">T's &amp; C's</a></li>
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="description">
+                                            <p>
+                                                @ViewBag.Description
+                                            </p>
+
+                                        </div>
+                                        <div class="tab-pane fade" id="images">
+                                            @foreach (var item in Model)
+                                            {
+                                                <div class="item">
+                                                    <img src="@Url.Content("~/Image?imageId=")@item.ImageID">
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="tab-pane fade" id="delivery">
+                                            <p>
+                                                @ViewBag.Delivery
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane fade" id="terms">
+                                            <p>
+                                                Ts &amp; Cs
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="access-denied">&nbsp;</div>
+                        <div class="vault-locked">
+                            
+                        </div>
+                    </div>
+                    <div id ="failed" class="right-block play-block">
+                        <div class="countdown-block">
+                            <div class="text-center">
+                                Time to play
+                            </div>
+                            <div id="defaultCountdown2" class="countdown-canvas"></div>
+                        </div>
+                        <!--<div class="countdown-block denied-block">
+                            <div class="text">
+                                Access Denied
+                            </div>
+                            <div id="denied-countdown" class="countdown-canvas"></div>
+                        </div>-->
+                        <div class="play-pad">
+                            <div class="padded">
+                                <h1>You were too slow</h1>
+                                <p>Someone else is in the vault!</p>
+                              
+                            </div>
+                        </div>
+                    </div>
+                    <div ID ="fiveMin" class="right-block play-block hidden">
+                        <div class="countdown-block deal-block">
+                            <div class="text">
+                                5 minute deal starts in.
+                            </div>
+                            <div id="denied-countdown" class="countdown-canvas"></div>
+                        </div>
+                        <div class="play-pad">
+                            <div class="padded text-left">
+                                <p>
+                                    <strong>Unfortunately you were beaten and the item has been sold!</strong>
+                                </p>
+                                <p>
+                                    But not all is lost. We have a special deal on this or a similar item just for you.
+                                </p>
+                             <!--  <p class="text-center" id="Buy">
+                                    <a href="#" class="btn btn-large btn-in-game btn-in-game-orange">
+                                        Buy Now
+                                    </a>
+                                </p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="/Scripts/jquery.countdown.2.0.1/jquery.plugin.min.js"></script>
+<script src="/Scripts/jquery.countdown.2.0.1/jquery.countdown.min.js"></script>
+
+    <script>
+
+
+        $(document).ready(function () {
+                
+            window.gameID = getParameterByName('GameID')
+           
+            if (window.gameID != '') {
+                window.futdate = new Date();
+
+                window.expdate = futdate.getTime()
+                $.getJSON('/GameSessionService.svc/rest/GetGameStart?GameID=' + window.gameID,  function (json) {
+                   
+                    if (json == 0) {
+
+                        enableClick();
+                    }
+                   
+                   
+
+                    window.expdate += (json *1000);
+
+                    window.futdate.setTime(window.expdate);
+
+                    //test call to game display changes
+                    //$("#defaultCountdown2").countdown({ until: '+5s', onTick: rndmzr, onExpiry: enableClick });
+                    $("#denied-countdown").countdown({ until: window.futdate, onTick: rndmzr, onExpiry: enableClick });
+
+                    $("#failed").addClass('hidden');
+                    $("#fiveMin").removeClass('hidden');
+                    $(".left-block").removeClass('denied').addClass('sold');
+                    $(".access-denied").html("<h1>SOLD!</h1>");
+                });
+
+                
+            }
+            else {
+                    
+                $("#defaultCountdown2").countdown({ until: '+60s', onExpiry: resolve });
+
+            }
+
+            function resolve() {
+                if (window.gameID == '') {
+                  //  $('.play-block').html('<div class="countdown-block denied-block">&nbsp;</div><div class="play-pad"><div class="padded"><h1>You were too slow</h1><p>Someone else is in the vault!</p></div></div></div>');
+                    window.location.href = "/#browse-items/";
+                }
+                else
+                {
+                    // This needs to be active when game restart functionality is working - window.location.href = "/Games/NextGame?GameID=" + window.gameID
+                    window.location.href = "/Games/Deal?GameID=" + window.gameID
+                }
+            }
+
+            function rndmzr() { };
+            function enableClick() {
+
+                window.location.href = "/Games/Deal?GameID=" + window.gameID
+
+            }
+            
+            ///may not need
+            function CheckGameActive(gameID) {
+
+                $.getJSON('/GameSessionService.svc/rest/IsGameActive/?GameID=' + gameID, function (json) {
+
+                    if (json == true) {
+
+                        window.location.href = "/Games/PlayGame?GameID=" + window.gameID;
+                    }
+                    else {
+                        
+                        $('.play-pad').html('<div class="padded text-center"><h1>You were too slow</h1><p>Someone else is in the vault!</p><h2>Your 5 minute deal is being prepared..</h2><div class="submit-time"><img src="../../../Content/images/Preloader_2.gif" /></div></div>');
+
+                        $.getJSON('/GameSessionService.svc/rest/Get5MinGameStart?GameID=' + gameID, function (json) {
+
+                            window.expdate += (json * 1000);
+
+                            window.futdate.setTime(expdate);
+
+                            //test call to game display changes
+                            //$("#defaultCountdown2").countdown({ until: '+5s', onTick: rndmzr, onExpiry: enableClick });
+                            $("#defaultCountdown2").countdown({ until: window.futdate, onExpiry: enableClick });
+
+                        });
+                    }
+                    window.int = setInterval(function () { CheckGameActive(window.gameID); }, 10000)
+                });
+
+                function enableClick() {
+                    alert("show button");
+                }
+            }
+        });
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+ 
+      
+    
+       </script>
+}

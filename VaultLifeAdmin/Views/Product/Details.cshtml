@@ -1,0 +1,123 @@
+﻿@model VaultLifeAdmin.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductSKUCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductSKUCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailableSOH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvailableSOH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contract.ContractCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contract.ContractCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner.OwnerCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner.OwnerCode)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.terms)
+        </dd>
+
+    </dl>
+</div>
+
+<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr><th>Image</th><th>Image Name</th><th>Active</th></tr>
+    </thead>
+    <tbody>
+        @Html.DisplayFor(model => model.DisplayItems)
+        
+    </tbody>
+
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

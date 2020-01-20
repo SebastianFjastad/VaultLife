@@ -1,0 +1,129 @@
+﻿@model IEnumerable<VaultLifeAdmin.Models.Member>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Register","Account")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdentityType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelephoneHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelephoneOffice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelephoneMobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ethnicity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActiveIndicator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RenewalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USR)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Address.AddressType)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.MemberSubscriptionType.MemberSubscriptionTypeCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdentityType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelephoneHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelephoneOffice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelephoneMobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ethnicity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActiveIndicator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RenewalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInserted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USR)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Address.AddressType)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberSubscriptionType.MemberSubscriptionTypeCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MemberID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MemberID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MemberID })
+        </td>
+    </tr>
+}
+
+</table>

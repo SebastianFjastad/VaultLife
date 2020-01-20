@@ -1,0 +1,68 @@
+﻿@model Vaultlife.Models.GameRule
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+<tr>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.GameRuleID)
+    @Html.HiddenFor(model => model.DateInserted)
+    @Html.HiddenFor(model => model.DateUpdated)
+    @Html.HiddenFor(model => model.USR)
+    @Html.HiddenFor(model => model.GameID)
+    @Html.HiddenFor(model => model.FilterCriteria)
+    @Html.HiddenFor(model => model.Schedule)
+    @Html.HiddenFor(model => model.ChainGameRuleID)
+    @Html.HiddenFor(model => model.FilterCriteria)
+    @Html.HiddenFor(model => model.ExecuteHhMmSs)
+    @Html.HiddenFor(model => model.GameTemplateID)
+    @Html.HiddenFor(model => model.GameRuleCode)
+    @Html.HiddenFor(model => model.GameRuleDetail)
+    
+
+
+    <td>
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.GameRuleCode, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GameRuleCode, "", new { @class = "text-danger" })
+        </div>
+    </td>
+
+    <td>
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.GameRuleDetail, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GameRuleDetail, "", new { @class = "text-danger" })
+        </div>
+    </td>
+    <td>
+        <div class="col-md-10">
+            @* @@@if (Model.GameTemplate.OrderInGame != 10)
+    {
+        @Html.HiddenFor(model => model.ExcecuteTime)
+        @Html.DisplayFor(model => model.ExcecuteTime, new { htmlAttributes = new { @class = "form-control" } })
+    }
+    els*@
+            
+                @Html.EditorFor(model => model.ExcecuteTime, new { htmlAttributes = new { @class = "form-control" } })
+            
+            @Html.ValidationMessageFor(model => model.ExcecuteTime, "", new { @class = "text-danger" })
+        </div>
+    </td>
+    <td>
+        <div class="col-md-4">
+            @Html.DropDownList("Hours", null, htmlAttributes: new { @class = "form-control exechours" })
+        </div>
+        <div class="col-md-4">
+            @Html.DropDownList("Minutes", null, htmlAttributes: new { @class = "form-control execmins" })
+        </div>
+        <div class="col-md-4">
+            @Html.DropDownList("Seconds", null, htmlAttributes: new { @class = "form-control execsecs" })
+        </div>
+    </td>
+
+
+    
+

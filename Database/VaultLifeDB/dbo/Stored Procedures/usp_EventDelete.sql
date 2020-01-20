@@ -1,0 +1,13 @@
+﻿
+CREATE PROC [dbo].[usp_EventDelete] @EventID INT
+AS
+SET NOCOUNT ON
+SET XACT_ABORT ON
+
+BEGIN TRAN
+
+DELETE
+FROM [dbo].[Event]
+WHERE [EventID] = @EventID
+
+COMMIT

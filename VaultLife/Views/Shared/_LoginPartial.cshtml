@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNet.Identity
+
+
+    @if (Request.IsAuthenticated)
+    {
+        <li class="upgrade">
+            @Html.ActionLink("Upgrade", "Manage", "Account",null,null,"upgrade-status", routeValues: null, htmlAttributes: new { title = "Upgrade Your Status" })
+        </li>
+
+        <li class="login logoff">
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">
+                <i class="fa fa-power-off visible-sm visible-md"></i><span class="hidden-sm hidden-md">Log Off</span>
+            </a>
+        }
+    </li>
+    }
+    else
+    {
+
+       <li class="sign-up">@Html.ActionLink("Sign Up", "RegisterFull", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+       
+        <li class="login"><a href="#" data-toggle="modal" data-target="#loginModal">Log in</a></li>
+         
+    }
+
+

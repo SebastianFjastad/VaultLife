@@ -1,0 +1,136 @@
+﻿@model VaultLifeAdmin.Models.GameRule
+
+@{
+    ViewBag.Title = "Edit";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Enter the game start time:</h2>
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+
+                    <th>
+                        Execute Date
+                    </th>
+                    <th>
+                        Execute Time hh:mm:ss
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <td>
+                        <div class="col-md-10">
+                            @* @@@if (Model.GameTemplate.OrderInGame != 10)
+                    {
+                        @Html.HiddenFor(model => model.ExcecuteTime)
+                        @Html.DisplayFor(model => model.ExcecuteTime, new { htmlAttributes = new { @class = "form-control" } })
+                    }
+                    els*@
+
+                            @Html.EditorFor(model => model.ExcecuteTime, new { htmlAttributes = new { @class = "form-control" } })
+
+                            @Html.ValidationMessageFor(model => model.ExcecuteTime, "", new { @class = "text-danger" })
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-md-4">
+                            @Html.DropDownList("Hours", null, htmlAttributes: new { @class = "form-control exechours" })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DropDownList("Minutes", null, htmlAttributes: new { @class = "form-control execmins" })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DropDownList("Seconds", null, htmlAttributes: new { @class = "form-control execsecs" })
+                        </div>
+                    </td>
+                </tr>
+
+               
+
+            </tbody>
+
+        </table>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $(".exechours").each(function (index) {
+                hiddenHMS = $('#GameRules_' + index + '__ExecuteHhMmSs').val();
+                if (hiddenHMS == "") {
+                    hiddenHMS = "00:00:00";
+                }
+                var times = hiddenHMS.split(":");
+                var hrs = times[0];
+                var mins = times[1];
+                var secs = times[2];
+                $("#GameRules_" + index + "__Hours").val(hrs);
+                $("#GameRules_" + index + "__Minutes").val(mins);
+                $("#GameRules_" + index + "__Seconds").val(secs);
+            });
+
+
+            $('#clickme').click(function () {
+                debugger;
+                var hiddenHMS = '';
+
+
+                $(".exechours").each(function (index) {
+
+                    var test = $("#GameRules_" + index + "__Hours").val();
+
+                    hiddenHMS = $('#GameRules_' + index + '__ExecuteHhMmSs').val();
+                    if (hiddenHMS == "")
+                    {
+                        hiddenHMS = "00:00:00";
+                    }
+                    hiddenHMS = test + hiddenHMS.substring(2);
+                    hiddenHMS = hiddenHMS.substring(0, 3) + $("#GameRules_" + index + "__Minutes").val() + hiddenHMS.substring(5);
+                    hiddenHMS = hiddenHMS.substring(0, 6) + $("#GameRules_" + index + "__Seconds").val();
+                    $('#GameRules_' + index + '__ExecuteHhMmSs').val(hiddenHMS);
+
+                });
+                //$(".execmins").each(function (index) {
+                    //alert('selected min is:' + $(this).val());
+                  //  hiddenHMS = hiddenHMS.substring(0, 3) + $("#GameRules_" + index + "__Minutes").val() + hiddenHMS.substring(5);
+                    //alert(hiddenHMS);
+                //});
+                //$(".execsecs").each(function (index) {
+                    //alert('selected second is:' + $(this).val());
+
+                //});
+
+            });
+        });
+    </script>
+
+
+}
+
+
+
+

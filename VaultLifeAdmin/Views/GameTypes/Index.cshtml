@@ -1,0 +1,63 @@
+﻿@model IEnumerable<VaultLifeAdmin.Models.GameType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameTypeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameTypeDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USR)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameTypeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameTypeDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInserted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USR)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GameTypeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GameTypeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GameTypeID })
+        </td>
+    </tr>
+}
+
+</table>

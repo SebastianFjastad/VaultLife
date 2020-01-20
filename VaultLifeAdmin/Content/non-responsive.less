@@ -1,0 +1,57 @@
+﻿/* Template-specific stuff
+ *
+ * Customizations just for the template; these are not necessary for anything
+ * with disabling the responsiveness.
+ */
+
+@fixed-width:   1180px;
+
+/* Account for fixed navbar */
+body {
+  min-width: @fixed-width;
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+/* Don't let the lead text change font-size. */
+.lead {
+  font-size: 16px;
+}
+
+/* Finesse the page header spacing */
+.page-header {
+  margin-bottom: 30px;
+}
+.page-header .lead {
+  margin-bottom: 10px;
+}
+
+
+/* Non-responsive overrides
+ *
+ * Utilitze the following CSS to disable the responsive-ness of the container,
+ * grid system, and navbar.
+ */
+
+/* Reset the container */
+.container {
+  width: @fixed-width;
+  max-width: none !important;
+}
+
+/* Non-responsive navigation */
+.navbar {
+    min-width: @fixed-width + 30px;
+
+    .navbar-header {
+        display: inline-block;
+    }
+    .navbar-nav {
+        display: inline-block !important;
+
+        li {
+            display: inline-block !important;
+        }
+    }
+}
+    

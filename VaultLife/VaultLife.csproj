@@ -1,0 +1,1624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{90116050-63F2-4FC2-B0B2-1584CE4AD2A7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vaultlife</RootNamespace>
+    <AssemblyName>Vaultlife</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.2.3.1\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.5.0.0\lib\Net40\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JQueryUIHelpers">
+      <HintPath>..\packages\jQueryUIHelpers.Mvc5.2.2.0\lib\net45\JQueryUIHelpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.3.0.0\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\packages\Quartz.2.3\lib\net40\Quartz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountViewController.cs" />
+    <Compile Include="Controllers\Api\AccountController.cs" />
+    <Compile Include="Controllers\Api\GameSessionController.cs" />
+    <Compile Include="Controllers\CurrenciesController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
+    <Compile Include="Controllers\LanguateItemsController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\GameInWatchListsController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SerialNumbersController.cs" />
+    <Compile Include="Dao\GameDao.cs" />
+    <Compile Include="Dao\MemberDao.cs" />
+    <Compile Include="Dao\MembershipSubscriptionTypeDao.cs" />
+    <Compile Include="Dao\TransactionDao.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\EmailSendingJob.cs" />
+    <Compile Include="Handlers\httpsGuard.cs" />
+    <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\Cryptography.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\FileSystem.cs" />
+    <Compile Include="Helpers\FluentValidator.cs" />
+    <Compile Include="Helpers\HelperExtensions.cs" />
+    <Compile Include="Helpers\MemberHelper.cs" />
+    <Compile Include="Helpers\Logger.cs" />
+    <Compile Include="Helpers\PaymentHelper.cs" />
+    <Compile Include="Helpers\TableTracker.cs" />
+    <Compile Include="Helpers\UserEnums.cs" />
+    <Compile Include="Managers\EmailManager.cs" />
+    <Compile Include="Managers\EmailSendManager.cs" />
+    <Compile Include="Managers\CashCloudPaymentTransactionManager.cs" />
+    <Compile Include="Managers\SetcomPaymentTransactionManager.cs" />
+    <Compile Include="Managers\TrackingTransactionManager.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Address.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contract.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CountryCity.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CountryState.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Currency.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomModelMetadataProvider.cs" />
+    <Compile Include="Models\DisplayItem.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DisplayNames.cs" />
+    <Compile Include="Models\Email.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmailConfig.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmailErrorLog.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmailSendLog.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Event.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileUploadModel.cs" />
+    <Compile Include="Models\Game.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GameInteraction.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GameMemberFilter.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GameRule.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GameSchedule.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Games\FCFGame.cs" />
+    <Compile Include="Models\Games\FFFGame.cs" />
+    <Compile Include="Models\Games\GameEntity.cs" />
+    <Compile Include="Models\Games\GameResolveStatus.cs" />
+    <Compile Include="Models\Games\GameResultStatus.cs" />
+    <Compile Include="Models\Games\GameState.cs" />
+    <Compile Include="Models\GameTemplate.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GameType.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GameTypeOwned.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Imagedetail.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InteractionType.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Language.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LanguageItem.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Member.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberAcquisitionCampaign.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberAtEvent.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberInGame.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberInGameItem.cs" />
+    <Compile Include="Models\MemberInterest.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberOwned.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MembersInGamesModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\MemberSubscriptionType.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetadataPartials\AddressMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\AspNetRoleMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\AspNetUserClaimMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\AspNetUserLoginMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\AspNetUserMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\ContractMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\CountryMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\CountryStateMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\CurrencyMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\DisplayItemMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\EventMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\GameMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\GameRuleMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\GameScheduleMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\GameTemplateMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\GameTypeMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\GameTypeOwnedMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\InteractionTypeMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\MemberAcquisitionCampaignMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\MemberAtEventMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\MemberInGameMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\MemberInterestMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\MemberMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\MemberOwnedMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\MemberSubscriptionTypeMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\NextGameMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\OwnerMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\ProductCategoryMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\ProductInCategoryMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\ProductInGameMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\ProductInWatchListMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\ProductLocationMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\ProductMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\ProductPlayedMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\ProductProviderMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\SerialNumberMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\TerritoryDefinitionMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\TerritoryMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\VoucherMetadata.cs" />
+    <Compile Include="Models\MetadataPartials\WebsiteInteractionMetadata.cs" />
+    <Compile Include="Models\NextGame.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Owner.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaymentConfiguration.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaymentsModel.cs" />
+    <Compile Include="Models\PaymentTransaction.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlayableGamesByMember.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductCategory.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductInCategory.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductInfo.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductInGame.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductInWatchList.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductLocation.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductPlayed.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductProvider.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResponseCatalog.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SerialNumber.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShowWinner.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Territory.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TerritoryDefinition.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TrackingTransaction.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\usp_AddressInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_AddressSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_AddressUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ContractInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ContractSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ContractUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_EventInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_EventSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_EventUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameRuleInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameRuleSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameRuleUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameScheduleInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameScheduleSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameScheduleUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameTemplateInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameTemplateSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameTemplateUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameTypeInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameTypeOwnedInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameTypeOwnedSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameTypeOwnedUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameTypeSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameTypeUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GameUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_InteractionTypeInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_InteractionTypeSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_InteractionTypeUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberAcquisitionCampaignInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberAcquisitionCampaignSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberAcquisitionCampaignUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberAtEventInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberAtEventSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberAtEventUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberInGameInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberInGameSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberInGameUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberInterestInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberInterestSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberInterestUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberOwnedInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberOwnedSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberOwnedUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberSubscriptionTypeInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberSubscriptionTypeSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_MemberSubscriptionTypeUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_NextGameInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_NextGameSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_NextGameUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_OwnerInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_OwnerSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_OwnerUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductCategoryInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductCategorySelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductCategoryUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductInCategoryInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductInCategorySelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductInCategoryUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductInWatchListInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductInWatchListSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductInWatchListUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_ProductUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_TerritoryDefinitionInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_TerritoryDefinitionSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_TerritoryDefinitionUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_TerritoryInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_TerritorySelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_TerritoryUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_WebsiteInteractionInsert_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_WebsiteInteractionSelect_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_WebsiteInteractionUpdate_Result.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Validators.cs" />
+    <Compile Include="Models\VaultLifeApp.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VaultLifeApp.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VaultLifeApp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VaultLifeApp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VaultLifeApp.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Voucher.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WebsiteInteraction.cs">
+      <DependentUpon>VaultLifeApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\AccountService.cs" />
+    <Compile Include="Service\AddressService.cs" />
+    <Compile Include="Service\GameService.cs" />
+    <Compile Include="Service\GameSessionService.svc.cs">
+      <DependentUpon>GameSessionService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\PaymentService.cs" />
+    <Compile Include="Service\RuleJobFactory.cs" />
+    <Compile Include="Service\Rules\IRule.cs" />
+    <Compile Include="Service\Rules\NotifyGameParticpantsRule.cs" />
+    <Compile Include="Service\Rules\PrepareGameRule.cs" />
+    <Compile Include="Service\Rules\ResolveActualWinners.cs" />
+    <Compile Include="Service\Rules\ResolvePotentialWinners.cs" />
+    <Compile Include="Service\Rules\RuleType.cs" />
+    <Compile Include="Service\Rules\StartGameRule.cs" />
+    <Compile Include="Service\Rules\StartNewGameRule.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AccountManageViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\ComingSoonGameViewModel.cs" />
+    <Compile Include="ViewModels\GameMemberFilterViewModel.cs" />
+    <Compile Include="ViewModels\GameRuleViewModel.cs" />
+    <Compile Include="ViewModels\HomeAuthenticatedViewModel.cs" />
+    <Compile Include="ViewModels\MakeGameViewModel.cs" />
+    <Compile Include="ViewModels\PaymentsViewModel.cs" />
+    <Compile Include="ViewModels\ProductDisplayViewModel.cs" />
+    <Compile Include="ViewModels\GameViewModel.cs" />
+    <Compile Include="ViewModels\ProductLocationViewModel.cs" />
+    <Compile Include="ViewModels\ProductInGameViewModel.cs" />
+    <Compile Include="ViewModels\ComingSoonViewModel.cs" />
+    <Compile Include="ViewModels\MyVaultItemViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\UpgradePaymentViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootswatch-themes\Cosmo\bootstrap.css" />
+    <Content Include="Content\bootswatch-themes\Cosmo\bootstrap.min.css" />
+    <Content Include="Content\custom-variables.css" />
+    <Content Include="Content\custom-variables.min.css" />
+    <Content Include="Content\datepicker.css" />
+    <Content Include="Content\datepicker3.css" />
+    <Content Include="Content\dropzone.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\lcdn-webfont.svg" />
+    <Content Include="Content\Images\as-seen-on\702.png" />
+    <Content Include="Content\Images\as-seen-on\cliff-central.png" />
+    <Content Include="Content\Images\as-seen-on\forbes-africa.png" />
+    <Content Include="Content\Images\as-seen-on\kaya-fm.png" />
+    <Content Include="Content\Images\explore.png" />
+    <Content Include="Content\Images\facebook-color.png" />
+    <Content Include="Content\Images\favicon.ico" />
+    <Content Include="Content\Images\featured-brands\aston-martin-sandton.png" />
+    <Content Include="Content\Images\featured-brands\camelot-spa.png" />
+    <Content Include="Content\Images\featured-brands\cruises-international.png" />
+    <Content Include="Content\Images\featured-brands\ftv.png" />
+    <Content Include="Content\Images\featured-brands\jaguar.png" />
+    <Content Include="Content\Images\featured-brands\my-rhino.png" />
+    <Content Include="Content\Images\features\420-Bucket-List-Experiences.png" />
+    <Content Include="Content\Images\features\420-Jawbone-Feature-Banner.png" />
+    <Content Include="Content\Images\features\620-Bucket-List-Experiences.png" />
+    <Content Include="Content\Images\features\620-Jawbone-Feature-Banner.png" />
+    <Content Include="Content\Images\features\820-Bucket-List-Experiences.png" />
+    <Content Include="Content\Images\features\820-Jawbone-Feature-Banner.png" />
+    <Content Include="Content\Images\features\A-Z-boutique-420-v2.png" />
+    <Content Include="Content\Images\features\A-Z-boutique-620-v2.png" />
+    <Content Include="Content\Images\features\A-Z-boutique-820-v2.png" />
+    <Content Include="Content\Images\features\aston-martin-420x450-2.png" />
+    <Content Include="Content\Images\features\aston-martin-420x450.png" />
+    <Content Include="Content\Images\features\aston-martin-620x450-2.png" />
+    <Content Include="Content\Images\features\aston-martin-620x450.png" />
+    <Content Include="Content\Images\features\aston-martin-820x450-2.png" />
+    <Content Include="Content\Images\features\aston-martin-820x450.png" />
+    <Content Include="Content\Images\features\GATS-Disney-world-420-v3.png" />
+    <Content Include="Content\Images\features\GATS-Disney-world-620-v3.png" />
+    <Content Include="Content\Images\features\GATS-Disney-world-820-v3.png" />
+    <Content Include="Content\Images\features\GATS-Finland-420-v2.png" />
+    <Content Include="Content\Images\features\GATS-Finland-620-v2.png" />
+    <Content Include="Content\Images\features\GATS-Finland-820-v2.png" />
+    <Content Include="Content\Images\features\Marketing-campaign-feature-banner-420-v2.jpg" />
+    <Content Include="Content\Images\features\Marketing-campaign-feature-banner-620-v2.jpg" />
+    <Content Include="Content\Images\features\Marketing-campaign-feature-banner-820-v2.jpg" />
+    <Content Include="Content\Images\features\Morphy-Richards-feature-420-v2.png" />
+    <Content Include="Content\Images\features\Morphy-Richards-feature-620-v2.png" />
+    <Content Include="Content\Images\features\Morphy-Richards-feature-820-v2.png" />
+    <Content Include="Content\Images\features\signup-20-420x450.png" />
+    <Content Include="Content\Images\features\signup-20-620x450.png" />
+    <Content Include="Content\Images\features\signup-20-820x450.png" />
+    <Content Include="Content\Images\flags\Afghanistan.png" />
+    <Content Include="Content\Images\flags\Albania.png" />
+    <Content Include="Content\Images\flags\Algeria.png" />
+    <Content Include="Content\Images\flags\Andorra.png" />
+    <Content Include="Content\Images\flags\Antigua-and-Barbuda.png" />
+    <Content Include="Content\Images\flags\Argentina.png" />
+    <Content Include="Content\Images\flags\Armenia.png" />
+    <Content Include="Content\Images\flags\Australia.png" />
+    <Content Include="Content\Images\flags\Austria.png" />
+    <Content Include="Content\Images\flags\Azerbaijan.png" />
+    <Content Include="Content\Images\flags\Bahamas.png" />
+    <Content Include="Content\Images\flags\Bahrain.png" />
+    <Content Include="Content\Images\flags\Bangladesh.png" />
+    <Content Include="Content\Images\flags\Barbados.png" />
+    <Content Include="Content\Images\flags\Belarus.png" />
+    <Content Include="Content\Images\flags\Belgium.png" />
+    <Content Include="Content\Images\flags\Belize.png" />
+    <Content Include="Content\Images\flags\Benin.png" />
+    <Content Include="Content\Images\flags\Bhutan.png" />
+    <Content Include="Content\Images\flags\Bolivia.png" />
+    <Content Include="Content\Images\flags\Bosnia-and-Herzegovina.png" />
+    <Content Include="Content\Images\flags\Botswana.png" />
+    <Content Include="Content\Images\flags\Brazil.png" />
+    <Content Include="Content\Images\flags\Brunei.png" />
+    <Content Include="Content\Images\flags\Bulgaria.png" />
+    <Content Include="Content\Images\flags\Burkina-Faso.png" />
+    <Content Include="Content\Images\flags\Burundi.png" />
+    <Content Include="Content\Images\flags\Cambodia.png" />
+    <Content Include="Content\Images\flags\Cameroon.png" />
+    <Content Include="Content\Images\flags\Canada.png" />
+    <Content Include="Content\Images\flags\Cape-Verde.png" />
+    <Content Include="Content\Images\flags\Central-African-Republic.png" />
+    <Content Include="Content\Images\flags\Chad.png" />
+    <Content Include="Content\Images\flags\Chile.png" />
+    <Content Include="Content\Images\flags\China.png" />
+    <Content Include="Content\Images\flags\Colombia.png" />
+    <Content Include="Content\Images\flags\Comoros.png" />
+    <Content Include="Content\Images\flags\Congo-%28Democratic%29.png" />
+    <Content Include="Content\Images\flags\Congo-%28Republic%29.png" />
+    <Content Include="Content\Images\flags\Costa-Rica.png" />
+    <Content Include="Content\Images\flags\Cote-d%27Ivoire.png" />
+    <Content Include="Content\Images\flags\Croatia.png" />
+    <Content Include="Content\Images\flags\Cuba.png" />
+    <Content Include="Content\Images\flags\Cyprus.png" />
+    <Content Include="Content\Images\flags\Czech-Republic.png" />
+    <Content Include="Content\Images\flags\Denmark.png" />
+    <Content Include="Content\Images\flags\Djibouti.png" />
+    <Content Include="Content\Images\flags\Dominica.png" />
+    <Content Include="Content\Images\flags\Dominican-Republic.png" />
+    <Content Include="Content\Images\flags\East-Timor.png" />
+    <Content Include="Content\Images\flags\Ecuador.png" />
+    <Content Include="Content\Images\flags\Egypt.png" />
+    <Content Include="Content\Images\flags\El-Salvador.png" />
+    <Content Include="Content\Images\flags\Equatorial-Guinea.png" />
+    <Content Include="Content\Images\flags\Eritrea.png" />
+    <Content Include="Content\Images\flags\Estonia.png" />
+    <Content Include="Content\Images\flags\Ethiopia.png" />
+    <Content Include="Content\Images\flags\Fiji.png" />
+    <Content Include="Content\Images\flags\Finland.png" />
+    <Content Include="Content\Images\flags\France.png" />
+    <Content Include="Content\Images\flags\Gabon.png" />
+    <Content Include="Content\Images\flags\Gambia.png" />
+    <Content Include="Content\Images\flags\Georgia.png" />
+    <Content Include="Content\Images\flags\Germany.png" />
+    <Content Include="Content\Images\flags\Ghana.png" />
+    <Content Include="Content\Images\flags\Grecee.png" />
+    <Content Include="Content\Images\flags\Grenada.png" />
+    <Content Include="Content\Images\flags\Guatemala.png" />
+    <Content Include="Content\Images\flags\Guinea-Bissau.png" />
+    <Content Include="Content\Images\flags\Guinea.png" />
+    <Content Include="Content\Images\flags\Guyana.png" />
+    <Content Include="Content\Images\flags\Haiti.png" />
+    <Content Include="Content\Images\flags\Honduras.png" />
+    <Content Include="Content\Images\flags\Hungary.png" />
+    <Content Include="Content\Images\flags\Iceland.png" />
+    <Content Include="Content\Images\flags\India.png" />
+    <Content Include="Content\Images\flags\Indonesia.png" />
+    <Content Include="Content\Images\flags\Iran.png" />
+    <Content Include="Content\Images\flags\Iraq.png" />
+    <Content Include="Content\Images\flags\Ireland.png" />
+    <Content Include="Content\Images\flags\Israel.png" />
+    <Content Include="Content\Images\flags\Italy.png" />
+    <Content Include="Content\Images\flags\Jamaica.png" />
+    <Content Include="Content\Images\flags\Japan.png" />
+    <Content Include="Content\Images\flags\Jordan.png" />
+    <Content Include="Content\Images\flags\Kazakhstan.png" />
+    <Content Include="Content\Images\flags\Kenya.png" />
+    <Content Include="Content\Images\flags\Kiribati.png" />
+    <Content Include="Content\Images\flags\Korea,-North.png" />
+    <Content Include="Content\Images\flags\Korea,-South.png" />
+    <Content Include="Content\Images\flags\Kosovo.png" />
+    <Content Include="Content\Images\flags\Kuwait.png" />
+    <Content Include="Content\Images\flags\Kyrgyzstan.png" />
+    <Content Include="Content\Images\flags\Laos.png" />
+    <Content Include="Content\Images\flags\Latvia.png" />
+    <Content Include="Content\Images\flags\Lebanon.png" />
+    <Content Include="Content\Images\flags\Lesotho.png" />
+    <Content Include="Content\Images\flags\Liberia.png" />
+    <Content Include="Content\Images\flags\Libya.png" />
+    <Content Include="Content\Images\flags\Liechtenstein.png" />
+    <Content Include="Content\Images\flags\Lithuania.png" />
+    <Content Include="Content\Images\flags\Luxembourg.png" />
+    <Content Include="Content\Images\flags\Macedonia.png" />
+    <Content Include="Content\Images\flags\Madagascar.png" />
+    <Content Include="Content\Images\flags\Malawi.png" />
+    <Content Include="Content\Images\flags\Malaysia.png" />
+    <Content Include="Content\Images\flags\Maldives.png" />
+    <Content Include="Content\Images\flags\Mali.png" />
+    <Content Include="Content\Images\flags\Malta.png" />
+    <Content Include="Content\Images\flags\Marshall-Islands.png" />
+    <Content Include="Content\Images\flags\Mauritania.png" />
+    <Content Include="Content\Images\flags\Mauritius.png" />
+    <Content Include="Content\Images\flags\Mexico.png" />
+    <Content Include="Content\Images\flags\Micronesia-%28Federated%29.png" />
+    <Content Include="Content\Images\flags\Moldova.png" />
+    <Content Include="Content\Images\flags\Monaco.png" />
+    <Content Include="Content\Images\flags\Mongolia.png" />
+    <Content Include="Content\Images\flags\Montenegro.png" />
+    <Content Include="Content\Images\flags\Morocco.png" />
+    <Content Include="Content\Images\flags\Mozambique.png" />
+    <Content Include="Content\Images\flags\Myanmar.png" />
+    <Content Include="Content\Images\flags\Namibia.png" />
+    <Content Include="Content\Images\flags\Nauru.png" />
+    <Content Include="Content\Images\flags\Nepal.png" />
+    <Content Include="Content\Images\flags\Netherlands.png" />
+    <Content Include="Content\Images\flags\New-Zealand.png" />
+    <Content Include="Content\Images\flags\Nicaragua.png" />
+    <Content Include="Content\Images\flags\Niger.png" />
+    <Content Include="Content\Images\flags\Nigeria.png" />
+    <Content Include="Content\Images\flags\Norway.png" />
+    <Content Include="Content\Images\flags\Oman.png" />
+    <Content Include="Content\Images\flags\Pakistan.png" />
+    <Content Include="Content\Images\flags\Palau.png" />
+    <Content Include="Content\Images\flags\Panama.png" />
+    <Content Include="Content\Images\flags\Papua-New-Guinea.png" />
+    <Content Include="Content\Images\flags\Paraguay.png" />
+    <Content Include="Content\Images\flags\Peru.png" />
+    <Content Include="Content\Images\flags\Philippines.png" />
+    <Content Include="Content\Images\flags\Poland.png" />
+    <Content Include="Content\Images\flags\Portugal.png" />
+    <Content Include="Content\Images\flags\Qatar.png" />
+    <Content Include="Content\Images\flags\Romania.png" />
+    <Content Include="Content\Images\flags\Russia.png" />
+    <Content Include="Content\Images\flags\Rwanda.png" />
+    <Content Include="Content\Images\flags\Saint-Kitts-and-Nevis.png" />
+    <Content Include="Content\Images\flags\Saint-Lucia.png" />
+    <Content Include="Content\Images\flags\Saint-Vincent-and-the-Grenadines.png" />
+    <Content Include="Content\Images\flags\Samoa.png" />
+    <Content Include="Content\Images\flags\San-Marino.png" />
+    <Content Include="Content\Images\flags\Sao-Tome-and-Principe.png" />
+    <Content Include="Content\Images\flags\Saudi-Arabia.png" />
+    <Content Include="Content\Images\flags\Senegal.png" />
+    <Content Include="Content\Images\flags\Serbia.png" />
+    <Content Include="Content\Images\flags\Seychelles.png" />
+    <Content Include="Content\Images\flags\Sierra-Leone.png" />
+    <Content Include="Content\Images\flags\Singapore.png" />
+    <Content Include="Content\Images\flags\Slovakia.png" />
+    <Content Include="Content\Images\flags\Slovenia.png" />
+    <Content Include="Content\Images\flags\Solomon-Islands.png" />
+    <Content Include="Content\Images\flags\Somalia.png" />
+    <Content Include="Content\Images\flags\South-Africa.png" />
+    <Content Include="Content\Images\flags\South-Sudan.png" />
+    <Content Include="Content\Images\flags\Spain.png" />
+    <Content Include="Content\Images\flags\Sri-Lanka.png" />
+    <Content Include="Content\Images\flags\Sudan.png" />
+    <Content Include="Content\Images\flags\Suriname.png" />
+    <Content Include="Content\Images\flags\Swaziland.png" />
+    <Content Include="Content\Images\flags\Sweden.png" />
+    <Content Include="Content\Images\flags\Switzerland.png" />
+    <Content Include="Content\Images\flags\Syria.png" />
+    <Content Include="Content\Images\flags\Taiwan.png" />
+    <Content Include="Content\Images\flags\Tajikistan.png" />
+    <Content Include="Content\Images\flags\Tanzania.png" />
+    <Content Include="Content\Images\flags\Thailand.png" />
+    <Content Include="Content\Images\flags\Togo.png" />
+    <Content Include="Content\Images\flags\Tonga.png" />
+    <Content Include="Content\Images\flags\Trinidad-and-Tobago.png" />
+    <Content Include="Content\Images\flags\Tunisia.png" />
+    <Content Include="Content\Images\flags\Turkey.png" />
+    <Content Include="Content\Images\flags\Turkmenistan.png" />
+    <Content Include="Content\Images\flags\Tuvalu.png" />
+    <Content Include="Content\Images\flags\Uganda.png" />
+    <Content Include="Content\Images\flags\Ukraine.png" />
+    <Content Include="Content\Images\flags\United-Arab-Emirates.png" />
+    <Content Include="Content\Images\flags\United-Kingdom.png" />
+    <Content Include="Content\Images\flags\United-States-of-America-old.png" />
+    <Content Include="Content\Images\flags\United-States-of-America.png" />
+    <Content Include="Content\Images\flags\Uruguay.png" />
+    <Content Include="Content\Images\flags\Uzbekistan.png" />
+    <Content Include="Content\Images\flags\Vanuatu.png" />
+    <Content Include="Content\Images\flags\Vatican-City.png" />
+    <Content Include="Content\Images\flags\Venezuela.png" />
+    <Content Include="Content\Images\flags\Vietnam.png" />
+    <Content Include="Content\Images\flags\Yemen.png" />
+    <Content Include="Content\Images\flags\Zambia.png" />
+    <Content Include="Content\Images\flags\Zimbabwe.png" />
+    <Content Include="Content\Images\game-type-grid-of-glory.png" />
+    <Content Include="Content\Images\glyphicons-halflings-white.png" />
+    <Content Include="Content\Images\glyphicons-halflings.png" />
+    <Content Include="Content\Images\home-animation2_old.gif" />
+    <Content Include="Content\Images\home-animation2.gif" />
+    <Content Include="Content\Images\icons\account.png" />
+    <Content Include="Content\Images\icons\card.png" />
+    <Content Include="Content\Images\icons\edit.png" />
+    <Content Include="Content\Images\icons\lock.png" />
+    <Content Include="Content\Images\icons\star.png" />
+    <Content Include="Content\Images\icons\upgrade.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\mastercard.png" />
+    <Content Include="Content\Images\metal-texture-sm.jpg" />
+    <Content Include="Content\Images\my-vault-empty-icon.png" />
+    <Content Include="Content\Images\placeholders\630x450.gif" />
+    <Content Include="Content\Images\placeholders\640x350.gif" />
+    <Content Include="Content\Images\play.png" />
+    <Content Include="Content\Images\plus-7-32.png" />
+    <Content Include="Content\Images\Preloader_2.gif" />
+    <Content Include="Content\Images\sample-product-image.jpg" />
+    <Content Include="Content\Images\secure.png" />
+    <Content Include="Content\Images\sign-up.png" />
+    <Content Include="Content\Images\spritemap%402x.png" />
+    <Content Include="Content\Images\spritemap.png" />
+    <Content Include="Content\Images\star-32.png" />
+    <Content Include="Content\Images\successful.png" />
+    <Content Include="Content\Images\twitter-color.png" />
+    <Content Include="Content\Images\unsuccessful-time-exceeded.png" />
+    <Content Include="Content\Images\unsuccessful.png" />
+    <Content Include="Content\Images\vault-locked.png" />
+    <Content Include="Content\Images\Vault_life_logo.png" />
+    <Content Include="Content\Images\visa-electron.png" />
+    <Content Include="Content\Images\visa.png" />
+    <Content Include="Content\Images\youtube-color.png" />
+    <Content Include="Content\jquery.countdown.css" />
+    <Content Include="Content\non-responsive.css" />
+    <Content Include="Content\non-responsive.min.css" />
+    <Content Include="Content\origincube-common.css" />
+    <Content Include="Content\origincube-common.min.css" />
+    <Content Include="Content\ResourceTemplate\Resources.txt" />
+    <Content Include="Content\theme.css" />
+    <Content Include="Content\theme.min.2.css" />
+    <Content Include="Content\theme.min.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\Video\how-to-play-940.mp4" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GameSessionService.svc" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\WallImages\imagepath\017be4e7e5767bfc565270c34023007c.jpg" />
+    <Content Include="Images\WallImages\imagepath\27858920[1].jpg" />
+    <Content Include="Images\WallImages\imagepath\7f1758729ff9890a2b6615521c0d3d49.jpg" />
+    <Content Include="Images\WallImages\imagepath\9ee72bb86c8499cf4a69a2d3d4f253fb.jpg" />
+    <Content Include="Images\WallImages\imagepath\IMG_20140525_091404.jpg" />
+    <Content Include="Images\WallImages\imagepath\IMG_20140525_101557.jpg" />
+    <Content Include="Images\WallImages\imagepath\IMG_20140525_101627.jpg" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\components\affix.js" />
+    <Content Include="Scripts\components\alert.js" />
+    <Content Include="Scripts\components\button.js" />
+    <Content Include="Scripts\components\carousel.js" />
+    <Content Include="Scripts\components\collapse.js" />
+    <Content Include="Scripts\components\dropdown.js" />
+    <Content Include="Scripts\components\modal.js" />
+    <Content Include="Scripts\components\popover.js" />
+    <Content Include="Scripts\components\scrollspy.js" />
+    <Content Include="Scripts\components\tab.js" />
+    <Content Include="Scripts\components\tooltip.js" />
+    <Content Include="Scripts\components\transition.js" />
+    <Content Include="Scripts\dropzone\css\basic.css" />
+    <Content Include="Scripts\dropzone\css\dropzone.css" />
+    <Content Include="Scripts\dropzone\css\stylus\dropzone.styl" />
+    <EntityDeploy Include="Models\VaultLifeApp.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VaultLifeApp.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\VaultLifeApp.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VaultLifeApp.edmx</DependentUpon>
+      <LastGenOutput>VaultLifeApp.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\VaultLifeApp.edmx.diagram">
+      <DependentUpon>VaultLifeApp.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\VaultLifeApp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VaultLifeApp.edmx</DependentUpon>
+      <LastGenOutput>VaultLifeApp.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\custom-variables.less" />
+    <Content Include="Content\non-responsive.less" />
+    <Content Include="Content\origincube-common.less" />
+    <Content Include="Content\theme.less" />
+    <Content Include="Content\bootstrap\alerts.less" />
+    <Content Include="Content\bootstrap\badges.less" />
+    <Content Include="Content\bootstrap\bootstrap-edit.less" />
+    <Content Include="Content\bootstrap\bootstrap.less" />
+    <Content Include="Content\bootstrap\breadcrumbs.less" />
+    <Content Include="Content\bootstrap\button-groups.less" />
+    <Content Include="Content\bootstrap\buttons.less" />
+    <Content Include="Content\bootstrap\carousel.less" />
+    <Content Include="Content\bootstrap\close.less" />
+    <Content Include="Content\bootstrap\code.less" />
+    <Content Include="Content\bootstrap\component-animations.less" />
+    <Content Include="Content\bootstrap\dropdowns.less" />
+    <Content Include="Content\bootstrap\forms.less" />
+    <Content Include="Content\bootstrap\glyphicons.less" />
+    <Content Include="Content\bootstrap\grid.less" />
+    <Content Include="Content\bootstrap\input-groups.less" />
+    <Content Include="Content\bootstrap\jumbotron.less" />
+    <Content Include="Content\bootstrap\labels.less" />
+    <Content Include="Content\bootstrap\list-group.less" />
+    <Content Include="Content\bootstrap\media.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="Content\bootstrap\mixins\alerts.less" />
+    <Content Include="Content\bootstrap\mixins\background-variant.less" />
+    <Content Include="Content\bootstrap\mixins\border-radius.less" />
+    <Content Include="Content\bootstrap\mixins\buttons.less" />
+    <Content Include="Content\bootstrap\mixins\center-block.less" />
+    <Content Include="Content\bootstrap\mixins\clearfix.less" />
+    <Content Include="Content\bootstrap\mixins\forms.less" />
+    <Content Include="Content\bootstrap\mixins\gradients.less" />
+    <Content Include="Content\bootstrap\mixins\grid-framework.less" />
+    <Content Include="Content\bootstrap\mixins\grid.less" />
+    <Content Include="Content\bootstrap\mixins\hide-text.less" />
+    <Content Include="Content\bootstrap\mixins\image.less" />
+    <Content Include="Content\bootstrap\mixins\labels.less" />
+    <Content Include="Content\bootstrap\mixins\list-group.less" />
+    <Content Include="Content\bootstrap\mixins\nav-divider.less" />
+    <Content Include="Content\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="Content\bootstrap\mixins\opacity.less" />
+    <Content Include="Content\bootstrap\mixins\pagination.less" />
+    <Content Include="Content\bootstrap\mixins\panels.less" />
+    <Content Include="Content\bootstrap\mixins\progress-bar.less" />
+    <Content Include="Content\bootstrap\mixins\reset-filter.less" />
+    <Content Include="Content\bootstrap\mixins\resize.less" />
+    <Content Include="Content\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="Content\bootstrap\mixins\size.less" />
+    <Content Include="Content\bootstrap\mixins\tab-focus.less" />
+    <Content Include="Content\bootstrap\mixins\table-row.less" />
+    <Content Include="Content\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="Content\bootstrap\mixins\text-overflow.less" />
+    <Content Include="Content\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="Content\bootstrap\modals.less" />
+    <Content Include="Content\bootstrap\navbar.less" />
+    <Content Include="Content\bootstrap\navs.less" />
+    <Content Include="Content\bootstrap\normalize.less" />
+    <Content Include="Content\bootstrap\pager.less" />
+    <Content Include="Content\bootstrap\pagination.less" />
+    <Content Include="Content\bootstrap\panels.less" />
+    <Content Include="Content\bootstrap\popovers.less" />
+    <Content Include="Content\bootstrap\print.less" />
+    <Content Include="Content\bootstrap\progress-bars.less" />
+    <Content Include="Content\bootstrap\responsive-embed.less" />
+    <Content Include="Content\bootstrap\responsive-utilities.less" />
+    <Content Include="Content\bootstrap\scaffolding.less" />
+    <Content Include="Content\bootstrap\tables.less" />
+    <Content Include="Content\bootstrap\theme.less" />
+    <Content Include="Content\bootstrap\thumbnails.less" />
+    <Content Include="Content\bootstrap\tooltip.less" />
+    <Content Include="Content\bootstrap\type.less" />
+    <Content Include="Content\bootstrap\utilities.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\wells.less" />
+    <Content Include="Content\bootswatch-themes\Cosmo\bootswatch-nofonts.less" />
+    <Content Include="Content\bootswatch-themes\Cosmo\bootswatch.less" />
+    <Content Include="Content\bootswatch-themes\Cosmo\variables.less" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\lcdn-webfont.eot" />
+    <Content Include="Content\fonts\lcdn-webfont.ttf" />
+    <Content Include="Content\fonts\lcdn-webfont.woff" />
+    <Content Include="Config\basicAuthentication.config" />
+    <Content Include="Content\Video\how-to-play-940.webm" />
+    <Content Include="quartz.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\vl-prod - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\vl-prod - Web Deploy.pubxml" />
+    <Content Include="Scripts\dropzone\css\stylus\basic.styl" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\dropzone.js" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.js" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.min.js" />
+    <Content Include="Scripts\dropzone\dropzone.js" />
+    <Content Include="Scripts\dropzone\dropzone.min.js" />
+    <Content Include="Scripts\dropzone\images\spritemap%402x.png" />
+    <Content Include="Scripts\dropzone\images\spritemap.png" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.map" />
+    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2.js" />
+    <Content Include="Scripts\jquery-ui-1.11.2.min.js" />
+    <Content Include="Scripts\jquery-ui.unobtrusive-2.2.0.js" />
+    <Content Include="Scripts\jquery-ui.unobtrusive-2.2.0.min.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\countdownBasic.html" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\countdownGlowing.gif" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\countdownLED.png" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-ar.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-bg.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-bn.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-bs.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-ca.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-cs.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-cy.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-da.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-de.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-el.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-es.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-et.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-fa.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-fi.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-fo.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-fr.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-gl.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-gu.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-he.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-hr.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-hu.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-hy.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-id.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-is.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-it.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-ja.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-kn.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-ko.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-lt.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-lv.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-ml.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-ms.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-my.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-nb.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-nl.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-pl.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-pt-BR.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-ro.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-ru.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-sk.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-sl.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-sq.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-sr-SR.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-sr.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-sv.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-th.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-tr.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-uk.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-ur.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-uz.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-vi.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-zh-CN.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown-zh-TW.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown.css" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.countdown.min.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.plugin.js" />
+    <Content Include="Scripts\jquery.countdown.2.0.1\jquery.plugin.min.js" />
+    <Content Include="Scripts\jquery.countdown.min.js" />
+    <Content Include="Scripts\jquery.filedrop.js" />
+    <Content Include="Scripts\jquery.plugin.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-GB.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eu.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fo.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr-CH.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hy.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it-CH.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kh.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr-latin.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uk.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Service\GameSessionService.svc" />
+    <Content Include="Views\Games\AccessDenied.cshtml" />
+    <Content Include="Views\Games\BuyGame.cshtml" />
+    <Content Include="Views\Games\PaymentFailed.cshtml" />
+    <Content Include="Views\Games\PlayGame.cshtml" />
+    <Content Include="Views\Games\Sold.cshtml" />
+    <Content Include="Views\Games\SuccessfulPayment.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\EditOld.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DisplayItem.cshtml" />
+    <Content Include="Views\DisplayItems\Create.cshtml" />
+    <Content Include="Views\DisplayItems\Delete.cshtml" />
+    <Content Include="Views\DisplayItems\Details.cshtml" />
+    <Content Include="Views\DisplayItems\Edit.cshtml" />
+    <Content Include="Views\DisplayItems\Index.cshtml" />
+    <Content Include="Views\Home\DropZone.cshtml" />
+    <Content Include="Views\Product\DropZone.cshtml" />
+    <Content Include="Views\Product\Edit2.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DisplayItem.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\_MemberCount.cshtml" />
+    <Content Include="Views\Vouchers\Create.cshtml" />
+    <Content Include="Views\Vouchers\Delete.cshtml" />
+    <Content Include="Views\Vouchers\Details.cshtml" />
+    <Content Include="Views\Vouchers\Edit.cshtml" />
+    <Content Include="Views\Vouchers\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ProductLocation.cshtml" />
+    <Content Include="Views\Product\IndexFiltered.cshtml" />
+    <Content Include="Views\Vouchers\CreateForProductLocation.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SerialNumber.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Voucher.cshtml" />
+    <Content Include="Views\Currencies\Create.cshtml" />
+    <Content Include="Views\Currencies\Delete.cshtml" />
+    <Content Include="Views\Currencies\Details.cshtml" />
+    <Content Include="Views\Currencies\Edit.cshtml" />
+    <Content Include="Views\Currencies\Index.cshtml" />
+    <Content Include="Views\Language\Create.cshtml" />
+    <Content Include="Views\Language\Delete.cshtml" />
+    <Content Include="Views\Language\Details.cshtml" />
+    <Content Include="Views\Language\Edit.cshtml" />
+    <Content Include="Views\Language\Index.cshtml" />
+    <Content Include="Views\LanguageItems\Create.cshtml" />
+    <Content Include="Views\LanguageItems\Delete.cshtml" />
+    <Content Include="Views\LanguageItems\Details.cshtml" />
+    <Content Include="Views\LanguageItems\Edit.cshtml" />
+    <Content Include="Views\LanguageItems\Index.cshtml" />
+    <Content Include="Views\Language\Clone.cshtml" />
+    <Content Include="Views\Product\ComingSoon.cshtml" />
+    <Content Include="Views\Product\DetailsComingSoonOld.cshtml" />
+    <Content Include="Views\GameInWatchLists\Create.cshtml" />
+    <Content Include="Views\GameInWatchLists\Delete.cshtml" />
+    <Content Include="Views\GameInWatchLists\Details.cshtml" />
+    <Content Include="Views\GameInWatchLists\Edit.cshtml" />
+    <Content Include="Views\GameInWatchLists\Index.cshtml" />
+    <Content Include="Views\GameInWatchLists\MyWatchlist.cshtml" />
+    <Content Include="Views\Shared\_DivBottomPartial.cshtml" />
+    <Content Include="Views\Shared\_DivTopPartial.cshtml" />
+    <Content Include="Views\Shared\_FacebookPartial.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Shared\_MemberInGameSuccess.cshtml" />
+    <Content Include="Views\Account\_ExternalLogin.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginReg.cshtml" />
+    <Content Include="Views\Account\_LoginAccPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ProductInGame.cshtml" />
+    <Content Include="Views\Shared\_ProductInGame.cshtml" />
+    <Content Include="Views\Home\Loggedin.cshtml" />
+    <Content Include="Views\Shared\ProductInGame.cshtml" />
+    <Content Include="Views\Vouchers\CreateForProductLocationMakeGame.cshtml" />
+    <Content Include="Views\Home\FAQs.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Home\HowToPlay.cshtml" />
+    <Content Include="Views\Shared\_GameLayout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Account\MyVaultItems.cshtml" />
+    <Content Include="Views\Account\MyVaultItemsJquery.cshtml" />
+    <Content Include="Views\Product\ComingSoon_Old.cshtml" />
+    <Content Include="Views\Home\IndexHardCodedImages.cshtml" />
+    <Content Include="Views\Account\RegisterFull.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Home\_HomeAnonymousPartial.cshtml" />
+    <Content Include="Views\Home\_HomeAuthenticatedPartial.cshtml" />
+    <Content Include="Views\Home\FAQs.cshtml" />
+    <Content Include="Views\Home\HowToPlay.cshtml" />
+    <Content Include="Views\Product\ViewProduct.cshtml" />
+    <Content Include="Views\Product\DetailsComingSoon.cshtml" />
+    <Content Include="Views\GameInWatchLists\MyVaultItems.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GameRule.cshtml" />
+    <Content Include="Views\Shared\_FeaturedBrandsPartial.cshtml" />
+    <Content Include="Views\Account\_EditPartial.cshtml" />
+    <Content Include="Views\Home\TermsOfUse.cshtml" />
+    <Content Include="Views\Account\_InterestsPartial.cshtml" />
+    <Content Include="Views\Account\_TransactionPartial.cshtml" />
+    <Content Include="Views\Account\FBRegisterFull.cshtml" />
+    <Content Include="Views\Payments\Pay.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Scripts\jquery-2.1.3.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\ProductImages\" />
+    <Folder Include="Content\themes\base\minified\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Languaging\Languaging.csproj">
+      <Project>{fec9029c-ef7b-437f-9faa-e157a94126e6}</Project>
+      <Name>Languaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PaymentService\PaymentService.csproj">
+      <Project>{68f26ebb-8d2c-4f0e-b50e-fd5f3c716374}</Project>
+      <Name>PaymentService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>27603</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:27603/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

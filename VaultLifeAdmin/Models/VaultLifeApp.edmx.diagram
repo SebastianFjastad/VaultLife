@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b513c595abcf442f9ca77933463be503" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Address" Width="1.5" PointX="3.75" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.AspNetRole" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.AspNetUser" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Contract" Width="1.5" PointX="6" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.CountryState" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.DisplayItem" Width="1.5" PointX="10.5" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Event" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Game" Width="1.5" PointX="8.25" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.GameSchedule" Width="1.5" PointX="10.5" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.GameType" Width="1.5" PointX="6" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.GameTypeOwned" Width="1.5" PointX="11.25" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.InteractionType" Width="1.5" PointX="8.25" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Member" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.MemberAcquisitionCampaign" Width="1.5" PointX="5.25" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.MemberAtEvent" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.MemberInGame" Width="1.5" PointX="10.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.MemberInterest" Width="1.5" PointX="7.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.MemberOwned" Width="1.5" PointX="7.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.MemberSubscriptionType" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.NextGame" Width="1.5" PointX="10.5" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Owner" Width="1.5" PointX="6" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Product" Width="1.5" PointX="8.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.ProductCategory" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.ProductInCategory" Width="1.5" PointX="13.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.ProductInWatchList" Width="1.5" PointX="10.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.ProductPlayed" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.SerialNumber" Width="1.5" PointX="15" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Territory" Width="1.5" PointX="5.25" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.TerritoryDefinition" Width="1.5" PointX="7.5" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Voucher" Width="1.5" PointX="15" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.WebsiteInteraction" Width="1.5" PointX="10.5" PointY="14.875" IsExpanded="true" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Owner_Address_AddressID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Member_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_GameTypeOwned_Contract_ContractID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberAcquisitionCampaign_Contract_ContractID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Product_Contract_ContractID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Territory_Contract_ContractID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Member_CountryState" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_DisplayItem_Product_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberAtEvent_Event_EventID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Game_GameType_GameTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_GameSchedule_Game_GameID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberInGame_Game_GameID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_NextGame_Game_GameID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_GameTypeOwned_GameType_GameTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_GameTypeOwned_Owner_OwnerID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_WebsiteInteraction_InteractionType_InteractionTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Member_MemberSubscriptionType_MemberSubscriptionTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberAtEvent_Member_MemberID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberInGame_Member_MemberID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberInterest_Member_MemberID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberOwned_Member_MemberID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductInWatchList_Member_MemberID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_WebsiteInteraction_Member_MemberID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberAcquisitionCampaign_Owner_OwnerID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberOwned_MemberAcquisitionCampaign_MemberAcquisitionCampaignID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductPlayed_MemberInGame" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberInterest_ProductCategory_ProductCategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberOwned_Owner_OwnerID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_MemberOwned_Territory_TerritoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Product_Owner_OwnerID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Territory_Owner_OwnerID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductInCategory_Product_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductInWatchList_Product_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductInCategory_ProductCategory_ProductCategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_TerritoryDefinition_Territory_TerritoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="VaultLifeApplicationModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.ProductProvider" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.ProductLocation" Width="1.75" PointX="12.75" PointY="2.75" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_SerialNumber_ProductLocation" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Voucher_ProductLocation" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Country" Width="1.5" PointX="0.75" PointY="11.125" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Currency" Width="1.5" PointX="3" PointY="18.125" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_CountryState_Country" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Currency_Country" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Member_Country" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Language" Width="1.5" PointX="15.375" PointY="7.875" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.LanguageItem" Width="1.5" PointX="17.625" PointY="8.375" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_LanguageItem_Language" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.CountryCity" Width="1.5" PointX="8.25" PointY="3.125" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_CountryCity_Country" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_CountryCity_CountryState" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Owner_Currency" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_DisplayItem_Language" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductCategory_ProductCategory1" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.GameInteraction" Width="1.5" PointX="12.75" PointY="22" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_GameInteraction_GameSchedule" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_GameInteration_Member_MemberID" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.PaymentConfiguration" Width="1.5" PointX="16.375" PointY="15.75" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.ResponseCatalog" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.PaymentTransaction" Width="1.5" PointX="17.375" PointY="0.75" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_PaymentTransaction_MemberInGame" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.PlayableGamesByMember" Width="1.5" PointX="18.375" PointY="11.75" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.ProductInfo" Width="1.5" PointX="10.375" PointY="18.75" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.ShowWinner" Width="1.5" PointX="18.375" PointY="15.75" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.GameMemberFilter" Width="1.5" PointX="15.375" PointY="18.75" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.ProductInGame" Width="1.5" PointX="13.5" PointY="26.5" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductInGame_Currency" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductInGame_Game" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductInGame_Product_ProductID" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductLocation_ProductInGame" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductPlayed_ProductInGame" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.TrackingTransaction" Width="1.5" PointX="12.75" PointY="7" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_TrackingTransaction_MemberInGame" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.GameTemplate" Width="1.5" PointX="8.25" PointY="36.625" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_GameTemplate_GameType_GameTypeID" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.GameRule" Width="1.5" PointX="13.5" PointY="32.625" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_GameRule_Game_GameID" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_GameRule_GameTemplate" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Game_Game" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Game_Game1" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Game_MemberSubscriptionType" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_ProductInWatchList_GameID_GameID" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_TerritoryDefinition_Country_CountryID" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_TerritoryDefinition_city_cityID" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_TerritoryDefinition_State_StateID" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Email" Width="1.5" PointX="19.75" PointY="1.625" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.EmailConfig" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.EmailErrorLog" Width="1.5" PointX="22" PointY="1.125" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.EmailSendLog" Width="1.5" PointX="22" PointY="4.625" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Email_EmailErrorLog" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_EmailSendLog_Email" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK_Member_Owner_OwnerD" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.Imagedetail" Width="1.5" PointX="10.5" PointY="31.75" />
+        <AssociationConnector Association="VaultLifeApplicationModel.FK__Imagedeta__Produ__01BE3717" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.getRecentSale" Width="1.5" PointX="15.375" PointY="11.75" />
+        <EntityTypeShape EntityType="VaultLifeApplicationModel.MembersWhoPlayed" Width="1.5" PointX="12.375" PointY="18.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

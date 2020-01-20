@@ -1,0 +1,75 @@
+﻿@model IEnumerable<VaultLifeAdmin.Models.TerritoryDefinition>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TerritoryDefinitionCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountryID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StateID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Territory.TerritoryCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TerritoryDefinitionCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.CountryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryState.StateName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryCity.CityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInserted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Territory.TerritoryCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TerritoryDefinitionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TerritoryDefinitionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TerritoryDefinitionID })
+        </td>
+    </tr>
+}
+
+</table>

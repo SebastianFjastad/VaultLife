@@ -1,0 +1,9 @@
+drop trigger TRG_InsertSyncEmp;
+create TRIGGER TRG_InsertSyncEmp 
+ON dbo.[QRTZ_JOB_DETAILS]
+AFTER INSERT AS
+BEGIN
+UPDATE  QRTZ_JOB_DETAILS
+SET JOB_CLASS_NAME = ' Vaultlife.Service.Rules.IRule, Vaultlife' where job_class_name like '%VaultLifeAdmin%' 
+END
+GO

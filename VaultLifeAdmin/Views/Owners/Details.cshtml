@@ -1,0 +1,156 @@
+﻿@model VaultLifeAdmin.Models.Owner
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Details</h2>
+
+<div>
+    <h4>Owner</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankingDetailBank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankingDetailBank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankingDetailAccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankingDetailAccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankingDetailAccountType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankingDetailAccountType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankingDetailBranchCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankingDetailBranchCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankingDetailBranchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankingDetailBranchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankingDetailDefaultReference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankingDetailDefaultReference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactPerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelephoneOffice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelephoneOffice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelephoneMobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelephoneMobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.AddressType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.AddressType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OwnerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,129 @@
+﻿@model IEnumerable<Vaultlife.Models.LanguageItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    <div class="form-group">
+   
+        <div class="col-md-10">
+            @Html.DropDownList("LanguageID", String.Empty)
+            &nbsp;<button  id="export">Export to Resx</button>
+        </div>
+    </div>
+</p>
+
+<div id="DivGrid">
+    @{
+        var grid = new WebGrid(source: Model, canPage: true, rowsPerPage: 50000 ,defaultSort: "Language.LanguageID");
+        @grid.GetHtml(tableStyle: "table", alternatingRowStyle: "alternate",
+                      selectedRowStyle: "selected",
+                      headerStyle: "header", htmlAttributes: new { id = "DataTable" }, columns: grid.Columns(
+                        grid.Column("", 
+                    style: "col1", 
+                    format: @<text>
+                                <button class="edit-Item display-mode" id="@item.LanguageItemID">Edit</button>
+                                <button class="save-Item edit-mode" id="@item.LanguageItemID">Save</button>
+                                <input type="hidden" id="Hidden-@item.LanguageItemID" value="@item.LanguageID" />
+                            </text>),
+                      
+                          grid.Column("Language.LanguageName", "Language Name",  style: "col2"),
+                      grid.Column("LanguageItemKey",format: @<text>
+                                <span id="iKey" class="display-mode">@item.LanguageItemKey</span>
+                                @InputExtensions.TextBox(Html,"ikey",item.LanguageItemKey, new {@class="edit-mode", size = 45})
+                            </text>),
+        grid.Column("LanguageItemValue",format:@<text>
+                                <span id="iValue" class="display-mode">@item.LanguageItemValue</span>
+                                 @InputExtensions.TextBox(Html,"ivalue", item.LanguageItemValue, new {@class="edit-mode", size = 45})
+                            </text>)
+                
+       
+      ));
+    }
+
+</div>
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+      $(document).ready(function () {
+          $(function () {
+              $('.edit-mode').hide();
+              $('.edit-Item').on('click', function () {
+                  var tr = $(this).parents('tr:first');
+                  tr.find('.edit-mode, .display-mode').toggle();
+              });
+              $('.save-Item').on('click', function () {
+                    
+                  var tr = $(this).parents('tr:first');
+                  
+                  var LanguageItemID = $(this).prop('id');
+                  var LID = 'Hidden-' + LanguageItemID;
+                  var LangID = tr.find('#'+LID+'').val();
+                  var LanguageKey = tr.find('#ikey').val();
+                  var LanguageValue = tr.find('#ivalue').val();
+                 
+                  $.post(
+                      '/LanguageItems/Edit',
+                      {
+                          LanguageID: LangID,
+                          LanguageItemID: LanguageItemID,
+                          LanguageItemKey: LanguageKey,
+                          LanguageItemValue: LanguageValue
+                      }
+                     ).done(function () {
+                         tr.find('#iValue').text(LanguageValue);
+                         tr.pulse({ times: 4, duration: 100 });
+                     });
+                         tr.find('.edit-mode, .display-mode').toggle();
+              });
+              
+
+              $('#LanguageID').change(function () {
+                  var FilterValue = $('#LanguageID option:selected').text();
+                 
+                  $(".table td.col2:contains('" + FilterValue + "')").parent().show();
+                  $(".table td.col2:not(:contains('" + FilterValue + "'))").parent().hide();
+              });
+
+          })
+          $.fn.pulse = function (options) {
+
+              var options = $.extend({
+                  times: 3,
+                  duration: 1000
+              }, options);
+
+              var period = function (callback) {
+                  $(this).animate({ opacity: 0 }, options.duration, function () {
+                      $(this).animate({ opacity: 1 }, options.duration, callback);
+                  });
+              };
+              return this.each(function () {
+                  var i = +options.times, self = this,
+                  repeat = function () { --i && period.call(self, repeat) };
+                  period.call(this, repeat);
+              });
+          };
+
+          $('#export').on('click', function () {
+             var Value = $('#LanguageID option:selected').val();
+             alert('/LanguageItems/CreateResource/' + Value);
+             window.open('/LanguageItems/CreateResource/'+Value, "_self");
+          });
+
+
+      });
+    </script>
+}
+
+
+
+

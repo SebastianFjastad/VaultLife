@@ -1,0 +1,153 @@
+﻿
+@model Vaultlife.ViewModels.AccountManageViewModel
+
+@{
+    ViewBag.Title = "Interests";
+}
+
+@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+{
+    @Html.AntiForgeryToken()
+    <h2>What makes you tick?</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-layout">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsAutomotive) Automotive
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@ 
+                            @Html.CheckBoxFor(m => m.MemberInterestsEntertainment) Entertainment
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsFashionAccessories) Fashion and Accessories
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-layout">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsArtCollectibles) Arts and Collectibles
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsDecoreDesign) Decor and Design
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsExperiences) Experiences
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-layout">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsHomeAppliances) Home Appliances
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsHealthBeauty) Health and Beauty
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsTechnology) Technology
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-layout">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsToys) Toys
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsTravel) Travel
+                        </label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label class="checkbox-block">
+                            @*<input type="checkbox" />*@
+                            @Html.CheckBoxFor(m => m.MemberInterestsWiningDining) Wining and Dining
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-layout">
+                <div class="form-row">
+                    <div class="form-label">
+                        Other
+                    </div>
+                    <div class="form-field">
+                        @*<input type="text" class="form-control" />*@
+                        @Html.EditorFor(m => m.MemberInterestsOther, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center">
+            <input type="submit" name="submitinterests" value="Save" class="btn btn-primary btn-spaced" />
+            <a href="#" class="btn btn-default btn-spaced">Cancel</a>
+            <br />&nbsp;
+            @TempData["messageInterestSubmit"]
+        </div>
+    </div>
+}

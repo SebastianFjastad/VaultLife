@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Admin Index";
+    if (Request.Cookies["LoggedIn"] == null || Request.Cookies["LoggedIn"].Value == "" || Request.Cookies["LoggedIn"].Value == string.Empty)
+    {
+        Response.Redirect(Url.Action("LogIn", new { Controller = "Account" }));
+        // Response.Redirect("~/Account/LogIn");
+        //Html.RenderPartial("~/Account/LogIn");
+         Layout = "";
+
+    }
+    else
+    {
+      Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+   
+    <h2>Admin Index</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Products</h2>
+        <p>@Html.ActionLink("Product Categories", "Index", "ProductCategories", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Products", "Index", "Product", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Product in Game", "Index", "ProductInGames", new object { }, new { @class = "btn btn-default" })</p>
+        @*<p>@Html.ActionLink("My WatchList", "MyWatchlist", "ProductInWatchLists", new object { }, new { @class = "btn btn-default" })</p>*@
+        <p>@Html.ActionLink("Coming Soon", "ComingSoon", "Product", new object { }, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Games</h2>
+
+        <p>@Html.ActionLink("Make Game (old)", "MakeGame", "Games", new object { }, new { @class = "btn btn-default" }) </p>
+        <p>@Html.ActionLink("Make Game", "Create", "GamesAdmin", new object { }, new { @class = "btn btn-default" }) </p>
+        <p>@Html.ActionLink("Game Type", "Index", "GameTypes", new object { }, new { @class = "btn btn-default" }) </p>
+        <p>@Html.ActionLink("Game Template", "Index", "GameTemplate", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Game Rule", "Index", "GameRule", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Game", "Index", "Games", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Members in Game", "Index", "MembersInGames", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Game Member Filter", "Index", "GameMemberFilter", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Game Index", "IndexMakeGame", "Games", new object { }, new { @class = "btn btn-default" })</p>
+
+    </div>
+    <div class="col-md-4">
+        <h2>Misc</h2>
+
+        <p>@Html.ActionLink("Banners", "Index", "Banners", new object { }, new { @class = "btn btn-default" }) </p>
+
+        <p>@Html.ActionLink("Contracts", "Index", "Contracts", new object { }, new { @class = "btn btn-default" }) </p>
+        <p>@Html.ActionLink("Members", "Index", "Members", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Addresses", "Index", "Addresses", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Member Interests", "Index", "MemberInterests", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Territories", "Index", "Territory", new object { }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink("Territory Definitions", "Index", "TerritoryDefinition", new object { }, new { @class = "btn btn-default" })</p>
+
+    </div>
+</div>

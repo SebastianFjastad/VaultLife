@@ -1,0 +1,58 @@
+﻿@model Vaultlife.Models.ProductInWatchList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductInWatchList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.IdentityType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.IdentityType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductSKUCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductSKUCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductInWatchListID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

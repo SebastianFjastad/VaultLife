@@ -1,0 +1,82 @@
+﻿@model VaultLifeAdmin.Models.Territory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Territory</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TerritoryCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerritoryCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TerritoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerritoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TerritoryDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerritoryDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contract.ContractCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contract.ContractCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner.OwnerCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner.OwnerCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TerritoryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

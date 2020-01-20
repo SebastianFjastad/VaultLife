@@ -1,0 +1,78 @@
+﻿/*
+    ORIGIN CUBE COMMON 
+    ******************
+
+    v1.0.3
+
+    These are a common library of variables, mixins and style sets for use in LESS environment.
+    Author: Chad Botha
+    (c) 2014 Chad Botha t/a Origin Cube. All rights reserved.
+*/
+
+// COMMON VARIABLES
+//Colors
+@crimson:       #CC0000;
+@fbBlue:        #3b5998;
+@twitterBlue:   #0080a6;
+@pinterestRed:  #cc2027;
+@linkedinBlue:  #007fb1;
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.normalcase {
+    text-transform: none;
+}
+
+.centred {
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+}
+
+.transition(@trans: all .5s ease-in-out) {
+    -moz-transition: @trans;
+    -webkit-transition: @trans;
+    -o-transition: @trans;
+    transition: @trans;
+}
+
+.border-radius(@radius: 0px) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.background-size(@size: contain) {
+    -webkit-background-size: @size;
+    -moz-background-size: @size;
+    -o-background-size: @size;
+    background-size: @size;
+}
+
+.text-shadow(@shadow: 0px 0px 5px 2px rgba(0,0,0,0.5)) {
+    -webkit-text-shadow: @shadow;
+    text-shadow: @shadow;
+}
+
+
+.glassGradient(@angle: 9deg, @color: @brand-primary, @pos: 35%, @percentage: 10%) {
+    background: -moz-linear-gradient(@angle, lighten(@color, @percentage), lighten(@color, @percentage) @pos, @color @pos);
+    background: -webkit-linear-gradient(@angle, lighten(@color, @percentage), lighten(@color, @percentage) @pos, @color @pos);
+    background: -o-linear-gradient(@angle, lighten(@color, @percentage), lighten(@color, @percentage) @pos, @color @pos);
+    background: -khtml-linear-gradient(@angle, lighten(@color, @percentage), lighten(@color, @percentage) @pos, @color @pos);
+    background: -ms-linear-gradient(@angle, lighten(@color, @percentage), lighten(@color, @percentage) @pos, @color @pos);
+    background: linear-gradient(@angle, lighten(@color, @percentage), lighten(@color, @percentage) @pos, @color @pos);
+}
+
+.grayscale(@percentage) {
+    -webkit-filter: grayscale(@percentage);
+    -moz-filter: grayscale(@percentage);
+    -o-filter: grayscale(@percentage);
+    -ms-filter: grayscale(@percentage);
+    filter: grayscale(@percentage);
+}

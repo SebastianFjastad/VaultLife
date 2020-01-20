@@ -1,0 +1,68 @@
+﻿@model VaultLifeAdmin.Models.Voucher
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+
+
+ 
+        @Html.HiddenFor(model => model.VoucherID)
+     <tr>
+         <td>
+             <div class="form-group">
+                
+                 <div class="col-md-10">
+                     @Html.EditorFor(model => model.VoucherNumber, new { htmlAttributes = new { @class = "form-control" } })
+                     @Html.ValidationMessageFor(model => model.VoucherNumber, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+         </td>
+         <td>
+             <div class="form-group">
+                  <div class="col-md-10">
+                     <label>@Model.ProductLocation.Address</label>
+                     @Html.HiddenFor(model => model.ProductLocationID)
+                 </div>
+             </div>
+         </td>
+         <td>
+             <div class="form-group">
+                  <div class="col-md-10">
+                     <div class="checkbox">
+                         @Html.HiddenFor(model => model.Used)
+                         @Html.DisplayFor(model => model.Used)
+                         @Html.ValidationMessageFor(model => model.Used, "", new { @class = "text-danger" })
+                     </div>
+                 </div>
+             </div>
+         </td>
+         <td>
+             <div class="form-group">
+                 <div class="col-md-10">
+                     @Html.HiddenFor(model => model.DateInserted)
+                     @Html.DisplayFor(model => model.DateInserted, new { htmlAttributes = new { @class = "form-control" } })
+                     @Html.ValidationMessageFor(model => model.DateInserted, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+         </td>
+         <td>
+             <div class="form-group">
+                 <div class="col-md-10">
+                     @Html.HiddenFor(model => model.DateUsed)
+                     @Html.DisplayFor(model => model.DateUsed, new { htmlAttributes = new { @class = "form-control" } })
+                     @Html.ValidationMessageFor(model => model.DateUsed, "", new { @class = "text-danger" })
+                 </div>
+             </div>
+         </td>
+         
+        </tr>
+
+
+     
+
+     @section Scripts {
+         @Scripts.Render("~/bundles/jqueryval")
+     }

@@ -1,0 +1,67 @@
+﻿@model Vaultlife.Models.Language
+
+@{
+    ViewBag.Title = "Clone";
+}
+
+<h2>Clone</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Language</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+      
+
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.LanguageID, "LanguageID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("LanguageID", String.Empty)
+                @Html.ValidationMessageFor(model => model.LanguageID)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.LanguageName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LanguageName)
+                @Html.ValidationMessageFor(model => model.LanguageName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LanguageTwoLetters, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LanguageTwoLetters)
+                @Html.ValidationMessageFor(model => model.LanguageTwoLetters)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LanguageThreeLetters, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LanguageThreeLetters)
+                @Html.ValidationMessageFor(model => model.LanguageThreeLetters)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

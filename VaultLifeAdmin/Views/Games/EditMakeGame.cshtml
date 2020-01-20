@@ -1,0 +1,236 @@
+﻿@model VaultLifeAdmin.ViewModels.GameViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Game</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Game.GameID)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game.MemberSubscriptionType, "MemberSubscriptionType", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Game.MemberSubscriptionType", (SelectList)ViewBag.MemberSubscriptionType, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Game.MemberSubscriptionType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game.GameCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Game.GameCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Game.GameCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game.GameTypeID, "GameTypeID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Game.GameTypeID", (SelectList)ViewBag.GameTypeIDList, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Game.GameTypeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game.GameName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Game.GameName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Game.GameName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game.GameDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Game.GameDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Game.GameDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game.NumberOfWinners, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Game.NumberOfWinners, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Game.NumberOfWinners, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game.NextGameID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.DropDownList("Game.NextGameID", (SelectList)ViewBag.NextGameID, string.Empty)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game.DateInserted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.Game.DateInserted)
+                @Html.DisplayFor(model => model.Game.DateInserted, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Game.DateInserted, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game.DateUpdated, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.Game.DateUpdated)
+                @Html.DisplayFor(model => model.Game.DateUpdated, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Game.DateUpdated, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Game.USR, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="hidden" name="Game.USR" value="USR"/>
+                @Html.EditorFor(model => model.Game.USR, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Game.USR, "", new { @class = "text-danger" })
+            </div>
+        </div>
+       
+
+
+        <h3>Products in Game: @Model.Game.GameName</h3>
+        @Html.ValidationMessage("ProductInGameIDError", new { @class = "text-danger" })
+        @Html.ActionLink("+ Add New Product", "CreateForGame", "ProductInGames", new { gameID = @Model.Game.GameID }, null)
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+
+                    <th>
+                        Game
+                    </th>
+                    <th>
+                        Product
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Currency
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                        @Html.EditorFor(model=>model.ProductInGames)
+                 
+            </tbody>
+
+        </table>
+        <h3>Game Rules: @Model.Game.GameName</h3>
+        @Html.ValidationMessage("GameRuleIDError", new { @class = "text-danger" })
+        @Html.ActionLink("Set Game Rules", "CreateForGame", "GameRule", new { gameID = @Model.Game.GameID }, null)
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+
+                    <th>
+                        Game Rule Code
+                    </th>
+                    <th>
+                        Game Rule Detail
+                    </th>
+                    <th>
+                        Execute Date
+                    </th>
+                    <th>
+                        Execute Time hh:mm:ss
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @Html.EditorFor(model => model.GameRules)
+
+            </tbody>
+
+        </table>
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="clickme" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $(".exechours").each(function (index) {
+                hiddenHMS = $('#GameRules_' + index + '__ExecuteHhMmSs').val();
+                if (hiddenHMS == "") {
+                    hiddenHMS = "00:00:00";
+                }
+                var times = hiddenHMS.split(":");
+                var hrs = times[0];
+                var mins = times[1];
+                var secs = times[2];
+                $("#GameRules_" + index + "__Hours").val(hrs);
+                $("#GameRules_" + index + "__Minutes").val(mins);
+                $("#GameRules_" + index + "__Seconds").val(secs);
+            });
+
+
+            $('#clickme').click(function () {
+                debugger;
+                var hiddenHMS = '';
+                
+
+                $(".exechours").each(function (index) {
+                
+                    var test = $("#GameRules_" + index + "__Hours").val();
+                    
+                    hiddenHMS = $('#GameRules_' + index + '__ExecuteHhMmSs').val();
+                    if (hiddenHMS == "")
+                    {
+                        hiddenHMS = "00:00:00";     
+                    }
+                    hiddenHMS = test + hiddenHMS.substring(2);
+                    hiddenHMS = hiddenHMS.substring(0, 3) + $("#GameRules_" + index + "__Minutes").val() + hiddenHMS.substring(5);
+                    hiddenHMS = hiddenHMS.substring(0, 6) + $("#GameRules_" + index + "__Seconds").val();
+                    $('#GameRules_' + index + '__ExecuteHhMmSs').val(hiddenHMS);
+                    
+                });
+                //$(".execmins").each(function (index) {
+                    //alert('selected min is:' + $(this).val());
+                  //  hiddenHMS = hiddenHMS.substring(0, 3) + $("#GameRules_" + index + "__Minutes").val() + hiddenHMS.substring(5);
+                    //alert(hiddenHMS);
+                //});
+                //$(".execsecs").each(function (index) {
+                    //alert('selected second is:' + $(this).val());
+                  
+                //});
+
+            });
+        });
+       </script>
+
+
+}

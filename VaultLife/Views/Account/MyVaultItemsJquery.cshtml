@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "My Vault Items";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="text-center text-uppercase">My <strong>Vault Items</strong></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="upcoming-vault-items col-xs-12" id="cont">
+       
+    </div>
+</div>
+@section Scripts {
+    <script src="/Scripts/jquery.countdown.2.0.1/jquery.plugin.min.js"></script>
+<script src="/Scripts/jquery.countdown.2.0.1/jquery.countdown.min.js"></script>
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        window.content = ""
+        $.getJSON('/GameSessionService.svc/rest/GetItemsInGamesByMember?MemberID=8&MaxReturned=10', function (data) {
+           
+           var obj = $.parseJSON(data);
+          
+            
+            $.each(obj, function () {
+
+                window.content += ' <a class="product" href="#"><div class="product-image" style="background-image: url(\'@Url.Content("~/Image?imageId=")'+obj[0].ProductImage+'\')"></div><div class="product-info"><div class="unlocks-in">This item unlocks on</div><div class="date">12 Jan 2014</div></div></a>'
+                });
+                $("#cont").html(window.content);
+            });
+
+        });
+      </script>
+}

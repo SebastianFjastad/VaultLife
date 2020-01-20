@@ -1,0 +1,27 @@
+﻿@using Vaultlife.ViewModels
+@model Vaultlife.ViewModels.AccountManageViewModel
+
+@{
+    ViewBag.Title = "Transactions";
+   
+}
+
+@{
+    var grid = new WebGrid(ViewBag.Transactions);
+}
+
+
+@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+{
+    @Html.AntiForgeryToken()
+
+    <div id="grid">
+        @grid.GetHtml(tableStyle: "table table-striped table-bordered",
+        columns:
+        grid.Columns(
+        grid.Column("DateUpdated", header: "Date Of Transaction"),
+        grid.Column("USR", header: "Member"),
+        grid.Column("GameName", header: "Game Name"),
+        grid.Column("GameDescription", header: "Game Description")))
+    </div>
+}

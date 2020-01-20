@@ -1,0 +1,42 @@
+﻿@model Vaultlife.Models.LanguageItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LanguageItem</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LanguageItemKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanguageItemKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LanguageItemValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanguageItemValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Language.LanguageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language.LanguageName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LanguageItemID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "What is VaultLife.com?";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="how-to-play">
+    <div class="row">
+        <div class="col-xs-12 text-center text-uppercase">
+            <h1 class="spaced">What Is <strong>VaultLife.com?</strong></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <video controls poster="~/Content/Images/video-bucketlist.jpg" preload="metadata">
+                <source src="~/Content/Video/Vaultife-advert-940.webm" type="video/webm">
+                <source src="~/Content/Video/Vaultife-advert-940.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <br />
+            <p>
+                VAULTLife.com is a gamified online VAULT that offers once in a lifetime opportunities, luxury items and bucket list experiences, at
+                the push of a button. From the sandy shores of the world's most exotic beaches, to the summit of Mt. Everest, VAULTLife.com
+                gives you the opportunity to cross items off your bucket list, by mixing the thrill of competition with the satisfaction of a bargain.
+            </p>
+            <p>
+                This video shows you how VAULTLife.com will have you instantly replacing your "to-do list" with a "bucket list"!
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center text-uppercase">
+            <h1 class="spaced">How To <strong>Play</strong></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <video controls poster="~/Content/Images/video-howtoplay.jpg" preload="metadata">
+                <source src="~/Content/Video/how-to-play-940-v2.webm" type="video/webm">
+                <source src="~/Content/Video/how-to-play-940-v2.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <br />
+            <p>
+                You have logged onto the site and have your heart set on your dream item, now you just need to know how to play?<br />
+                The above video gives you a full explanation on how you can go about securing the item of your dreams!
+            </p>
+            &nbsp;<br />&nbsp;<br />
+
+            @Html.ActionLink("Membership Options", "MembershipOptions", "Home", routeValues: null, htmlAttributes: new { Class = "btn btn-default btn-large btn-spaced text-uppercase" })
+            &nbsp; &nbsp;
+            @Html.ActionLink("Sign Up Free", "RegisterFull", "Account", routeValues: null, htmlAttributes: new { Class = "btn btn-primary btn-large btn-spaced text-uppercase" })
+
+            <a href="#" class="btn btn-default btn-spaced btn-large text-uppercase hidden">Play Practice Game</a>
+            <br />&nbsp;<br />&nbsp;
+        </div>
+    </div>
+
+</div>

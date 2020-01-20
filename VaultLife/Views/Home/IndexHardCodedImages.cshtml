@@ -1,0 +1,1205 @@
+﻿@model IEnumerable<Vaultlife.ViewModels.ComingSoonViewModel>
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Welcome";}
+<div class="container">
+    <div class="above-fold">
+
+        @if (Request.IsAuthenticated)
+        {
+            @Html.Partial("_HomeAuthenticatedPartial")
+        }
+        else
+        {
+            @Html.Partial("_HomeAnonymousPartial")
+        }
+
+    </div>
+    <hr />
+</div>
+<div class="container" id="browse-items">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h1 class="text-uppercase">Coming <strong>Soon</strong></h1>
+        </div>
+    </div>
+</div>
+
+@foreach (var item in Model.Where(x=>x.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Contains("tycoon")))
+    {
+<div class="product-strip" id="tycoon-strip">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-uppercase">
+                    <strong>
+                        <span class="text-tycoon">Tycoon</span> Status
+                    </strong>
+                </h2>
+                <div class="product-carousel">
+                    <div class="carousel slide" id="tycoon-carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="product-set">
+                                    <div class="product product-3">
+                                        <a href="#" class="product-block product-block-large" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-3">
+                                        <a href="#" class="product-block product-block-large" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-3">
+                                        <a href="#" class="product-block product-block-large" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    <div class="product product-3">
+                                        <a href="#" class="product-block product-block-large" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-3">
+                                        <a href="#" class="product-block product-block-large" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-3">
+                                        <a href="#" class="product-block product-block-large" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    <div class="product product-3">
+                                        <a href="#" class="product-block product-block-large" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-3">
+                                        <a href="#" class="product-block product-block-large" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-3">
+                                        <a href="#" class="product-block product-block-large" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#tycoon-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control right" href="#tycoon-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ol class="carousel-indicators clearfix">
+                            <li data-target="#tycoon-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#tycoon-carousel" data-slide-to="1"></li>
+                            <li data-target="#tycoon-carousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+<div class="product-strip" id="luxury-strip">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-uppercase">
+                    <strong>
+                        <span class="text-luxury">Luxury</span> Status
+                    </strong>
+                </h2>
+                <div class="product-carousel">
+                    <div class="carousel slide" id="luxury-carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#luxury-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control right" href="#luxury-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ol class="carousel-indicators clearfix">
+                            <li data-target="#luxury-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#luxury-carousel" data-slide-to="1"></li>
+                            <li data-target="#luxury-carousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-strip" id="life-strip">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-uppercase">
+                    <strong>
+                        <span class="text-life">Life</span> Status
+                    </strong>
+                </h2>
+                <div class="product-carousel">
+                    <div class="carousel slide" id="life-carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#life-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control right" href="#life-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ol class="carousel-indicators clearfix">
+                            <li data-target="#life-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#life-carousel" data-slide-to="1"></li>
+                            <li data-target="#life-carousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-strip" id="free-strip">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-uppercase">
+                    <strong>
+                        <span class="text-free">Free</span> Status Items
+                    </strong>
+                </h2>
+                <div class="product-carousel">
+                    <div class="carousel slide" id="free-carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('../../Content/images/sample-product-image.jpg');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-free"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#free-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control right" href="#free-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ol class="carousel-indicators clearfix">
+                            <li data-target="#free-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#free-carousel" data-slide-to="1"></li>
+                            <li data-target="#free-carousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="recently-sold-items">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h2 class="text-uppercase">Recently Sold <strong>Items</strong></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="sold-products col-xs-12">
+            <div class="product">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="sold-for">
+                        Valued: ZAR 1000 &nbsp; Sold for
+                    </div>
+                    <div class="price">
+                        ZAR 250
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="sold-for">
+                        Valued: ZAR 1000 &nbsp; Sold for
+                    </div>
+                    <div class="price">
+                        ZAR 250
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="sold-for">
+                        Valued: ZAR 1000 &nbsp; Sold for
+                    </div>
+                    <div class="price">
+                        ZAR 250
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="sold-for">
+                        Valued: ZAR 1000 &nbsp; Sold for
+                    </div>
+                    <div class="price">
+                        ZAR 250
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="sold-for">
+                        Valued: ZAR 1000 &nbsp; Sold for
+                    </div>
+                    <div class="price">
+                        ZAR 250
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="news-item-canvas" class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h2 class="text-uppercase">Latest <strong>News</strong></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center news-items">
+            <a href="#" class="item">
+                <div class="item-info">
+                    <div class="item-title">
+                        News item title
+                    </div>
+                    <div class="view-more">
+                        View more
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="item">
+                <div class="item-info">
+                    <div class="item-title">
+                        News item title
+                    </div>
+                    <div class="view-more">
+                        View more
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="item">
+                <div class="item-info">
+                    <div class="item-title">
+                        News item title
+                    </div>
+                    <div class="view-more">
+                        View more
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="item">
+                <div class="item-info">
+                    <div class="item-title">
+                        News item title
+                    </div>
+                    <div class="view-more">
+                        View more
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="grey-bar" id="featured-brands">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h2 class="text-uppercase">Featured <strong>Brands</strong></h2>
+                <div class="brands">
+                    <div class="brand-item">
+                        &nbsp;
+                    </div>
+                    <div class="brand-item">
+                        &nbsp;
+                    </div>
+                    <div class="brand-item">
+                        &nbsp;
+                    </div>
+                    <div class="brand-item">
+                        &nbsp;
+                    </div>
+                    <div class="brand-item">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

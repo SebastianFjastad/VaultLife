@@ -1,0 +1,2 @@
+ALTER TABLE member
+ ALTER COLUMN DateOfBirth date NULL

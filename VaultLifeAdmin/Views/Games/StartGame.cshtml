@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "View1";
+}
+
+<h2>StartGame</h2>
+<div id="response"></div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" id="Create" value="Create Game" class="btn btn-default" />
+        <input type="button" id="Save" value="Start Game" class="btn btn-default" />
+        <input type="button" id="go" value="Go to Game" class="btn btn-default" />
+    </div>
+</div>
+
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        var x = 0;
+        $('#Create').click(function () {
+            x = '';
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("CreateGame")',
+
+                success: function (response) {
+                    alert('Game created')
+                    x = response;
+                }
+            });
+
+            $('#go').click(function () { document.location.href = '/Games/PlayGame/?GameID=' + x; })
+
+            $('#Save').click(function () {
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("StartGamego")',
+                    data: { GameID: x },
+                    success: function () {
+                        document.location.href = '/Home/Loggedin/';
+                    }
+                });
+            });
+
+        });
+    });
+    </script>
+}

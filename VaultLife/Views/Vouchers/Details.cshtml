@@ -1,0 +1,58 @@
+﻿@model Vaultlife.Models.Voucher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Voucher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VoucherNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VoucherNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Used)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Used)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUsed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUsed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductLocation.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductLocation.USR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VoucherID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

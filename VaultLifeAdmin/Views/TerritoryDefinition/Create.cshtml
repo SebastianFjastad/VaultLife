@@ -1,0 +1,187 @@
+﻿@model VaultLifeAdmin.Models.TerritoryDefinition
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>TerritoryDefinition</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TerritoryDefinitionCode, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TerritoryDefinitionCode)
+                @Html.ValidationMessageFor(model => model.TerritoryDefinitionCode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TerritoryID, "TerritoryID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TerritoryID", String.Empty)
+                @Html.ValidationMessageFor(model => model.TerritoryID)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CountryID, "Country", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CountryID", String.Empty)
+                @Html.ValidationMessageFor(model => model.CountryID)
+            </div>
+        </div>
+        <div class="form-group" ID="StateBlock">
+            @Html.LabelFor(model => model.StateID, "State", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StateID", String.Empty)
+                @Html.ValidationMessageFor(model => model.StateID)
+            </div>
+        </div>
+
+        <div class="form-group" id="CityBlock">
+            @Html.LabelFor(model => model.CityID, "City", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CityID", String.Empty)
+                @Html.ValidationMessageFor(model => model.CityID)
+            </div>
+        </div>
+@*
+     <div class="form-group">
+         @Html.LabelFor(model => model.ZipOrPostalCode, new { @class = "control-label col-md-2" })
+         <div class="col-md-10">
+             @Html.EditorFor(model => model.ZipOrPostalCode)
+             @Html.ValidationMessageFor(model => model.ZipOrPostalCode)
+         </div>
+     </div>
+
+     <div class="form-group">
+         @Html.LabelFor(model => model.IPAddress, new { @class = "control-label col-md-2" })
+         <div class="col-md-10">
+             @Html.EditorFor(model => model.IPAddress)
+             @Html.ValidationMessageFor(model => model.IPAddress)
+         </div>
+     </div>
+
+    <div class="form-group">
+         @Html.LabelFor(model => model.PhysicalCoordinates, new { @class = "control-label col-md-2" })
+         <div class="col-md-10">
+             @Html.EditorFor(model => model.PhysicalCoordinates)
+             @Html.ValidationMessageFor(model => model.PhysicalCoordinates)
+         </div>
+     </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateInserted, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateInserted)
+                @Html.ValidationMessageFor(model => model.DateInserted)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateUpdated, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateUpdated)
+                @Html.ValidationMessageFor(model => model.DateUpdated)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.USR, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.USR)
+                @Html.ValidationMessageFor(model => model.USR)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#StateBlock').hide();
+        $('#CityBlock').hide();
+        $('#CountryID').change(function () {
+           
+            $('#StateID')
+                     .find('option')
+                     .remove()
+                     .end()
+                     .append('<option value="0">Any</option>')
+                     .val('').attr('selected', 'selected');
+
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("getStates")',
+                data: $('form').serialize(),
+                success: function (result) {
+                    if (result.length > 0) {
+                        $('#StateBlock').show();
+                        for (var key in result) {
+                            var value = result[key];
+                            $('#StateID')
+                                .append('<option value="' + value.StateID + '">' + value.StateName + '</option>')
+                               // .val('' + value.StateID + '');
+                        }
+                    }
+                    else { $('#StateBlock').hide(); }
+                }
+
+            });
+        });
+         
+         $('#StateID').change(function () {
+               
+                $('#CityID')
+                         .find('option')
+                         .remove()
+                         .end()
+                         .append('<option value="0">Any</option>')
+                         .val('').attr('selected', 'selected');
+
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("getCities")',
+                    data: $('form').serialize(),
+                    success: function (result) {
+                        if (result.length > 0) {
+                            $('#CityBlock').show();
+                            for (var key in result) {
+                                var value = result[key];
+                               
+                                $('#CityID')
+                                    .append('<option value="' + value.CityID + '">' + value.CityName + '</option>')
+                                    //.val('' + value.CityID + '');
+                            }
+                        }
+                        else { $('#CityBlock').hide(); }
+                    }
+
+                });
+            });
+        });
+   
+    </script>    
+    }

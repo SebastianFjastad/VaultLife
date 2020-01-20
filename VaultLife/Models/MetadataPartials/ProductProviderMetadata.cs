@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+
+namespace Vaultlife.Models
+{
+    [MetadataType(typeof(ProductProviderMetadata))]
+    public partial class ProductProvider
+    {
+        // Note this class has nothing in it.  It's just here to add the class-level attribute.
+    }
+
+    public class ProductProviderMetadata
+    {
+        // Name the field the same as EF named the property - "FirstName" for example.
+        // Also, the type needs to match.  Basically just redeclare it.
+        // Note that this is a field.  I think it can be a property too, but fields definitely should work.
+        [Display(Name = "ProductProviderID", ResourceType = typeof(Languaging.Resources))]
+        public int ProductProviderID;
+
+        [Display(Name = "ProductProviderName", ResourceType = typeof(Languaging.Resources))]
+        public string ProductProviderName;
+
+        [Display(Name = "Currency", ResourceType = typeof(Languaging.Resources))]
+        public string Currency;
+
+    }
+}

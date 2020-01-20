@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "View";
+}
+
+<h2>Banner Upload</h2>
+@*@using (Html.BeginForm("UploadBanner", "Banner", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+    }*@
+
+<form action="/Banner/UploadBanner" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadFile" id="uploadFile" />
+    <input type="submit" name="uploadFile" value="Upload Banner">
+</form>

@@ -1,0 +1,84 @@
+﻿@using VaultLifeAdmin.Models
+@using VaultLifeAdmin.Helpers
+
+    
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title | Play the Game, Live the Lifestyle! - VaultLife&trade;</title>
+    <link rel="shortcut icon" href="~/Content/Images/favicon.ico" />
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/dropzonescss")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    @*<script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>*@
+
+</head>
+<body>
+    <div id="content">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="collapse-container">
+                    <div class="navbar-header">
+                        @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right" id="game-nav">
+                        <li>@Html.ActionLink("Exit Game", "Index", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-canvas">
+            @RenderBody()
+        </div>
+
+        @Html.Partial("../Account/_LoginAccPartial", new LoginViewModel())
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/dropzonescripts")
+    @Scripts.Render("~/bundles/components")
+    @Scripts.Render("~/bundles/jquery.countdown.2.0.1")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript" src="~/scripts/moment.js"></script>
+    <!--<script type="text/javascript" src="~/scripts/jquery-1.11.0.min.js"></script>-->
+    <!--<script type="text/javascript" src="~/scripts/bootstrap.min.js"></script>-->
+    <script type="text/javascript" src="~/scripts/jquery.countdown.2.0.1/jquery.plugin.min.js"></script>
+    <script type="text/javascript" src="~/scripts/jquery.countdown.2.0.1/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/bootstrap-datetimepicker.js")"></script>
+
+    <script>
+
+        function getISODateTime(d) {
+            // padding function
+            var s = function (a, b) { return (1e15 + a + "").slice(-b) };
+
+            // default date parameter
+            if (typeof d === 'undefined') {
+                d = new Date();
+            };
+
+            // return ISO datetime
+            return d.getFullYear() + '-' +
+                s(d.getMonth() + 1, 2) + '-' +
+                s(d.getDate(), 2) + ' ' +
+                s(d.getHours(), 2) + ':' +
+                s(d.getMinutes(), 2) + ':' +
+                s(d.getSeconds(), 2);
+        }
+    </script>
+
+    <!--<script src="..\js\jquery-1.11.0.min.js"></script>-->
+    <!--<script src="..\js\bootstrap.min.js"></script>-->
+
+</body>
+</html>

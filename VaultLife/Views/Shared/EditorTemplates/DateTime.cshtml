@@ -1,0 +1,51 @@
+﻿@model DateTime?
+<link href="~/Content/bootstrap-datepicker.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.js"></script>
+@*<script src="@Url.Content("~/Scripts/modernizr-2.6.2.js")" type="text/javascript"></script>*@
+
+@*<script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")" type="text/javascript"></script>*@
+
+@*<script src="@Url.Content("~/Scripts/jquery.event.drag-2.0.min.js")" type="text/javascript"></script>
+<script src="~/Scripts/ui/minified/jquery.ui.core.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="~/scripts/moment.js"></script>
+<script type="text/javascript" src="~/scripts/bootstrap.min.js"></script>
+
+<script src="@Url.Content("~/Scripts/bootswatch.js")" type="text/javascript"></script>*@
+@*<script type="text/javascript" src="~/scripts/moment.js"></script>
+<script type="text/javascript" src="@Url.Content("~/scripts/bootstrap-datetimepicker.js")"></script>*@
+@*<script type="text/javascript" src="~/scripts/locales/bootstrap-datetimepicker.ru.js"></script>*@
+<style>
+.datepicker {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    line-height: 1.42857;
+    color: black;
+}
+.timepicker
+ {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    line-height: 1.42857;
+    color: black;
+}
+
+</style>
+<div class='input-group date' id="@Html.IdForModel()" data-date-format="YYYY/MM/DD">
+   <span class="input-group-sm">
+      @Html.TextBox("", Model.HasValue ? Model.Value.ToString("yyyy/MM/dd") : String.Empty, new { @class = "form-control" })
+
+   </span>
+</div>
+<script type="text/javascript">
+    $(function () {
+        // target only the input in this editor template
+        $('#@Html.IdForModel()').datetimepicker({
+            pickTime: false,
+
+            
+        });
+    });
+</script>
+

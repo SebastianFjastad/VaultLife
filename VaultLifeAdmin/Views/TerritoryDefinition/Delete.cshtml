@@ -1,0 +1,88 @@
+﻿@model VaultLifeAdmin.Models.TerritoryDefinition
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TerritoryDefinition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TerritoryDefinitionCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerritoryDefinitionCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipOrPostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipOrPostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IPAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IPAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalCoordinates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalCoordinates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Territory.TerritoryCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Territory.TerritoryCode)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

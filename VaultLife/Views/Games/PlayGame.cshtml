@@ -1,0 +1,417 @@
+﻿  
+    
+    @{
+
+        ViewBag.Title = "Play a game";
+        Layout = "~/Views/Shared/_GameLayout.cshtml";
+    }
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div class="block-one game-block">
+                        <div class="block-one-layout">
+                            <div class="left-block">
+                                <div id="main-product-view">
+                                    <div id="product-info">
+                                        <div class="product-header">
+                                            <div class="main-image">
+                                                <img src="@Url.Content("~/Image?imageId=")@ViewBag.MainImage" />
+                                            </div>
+                                            <div class="main-info">
+                                                <h1 class="text-uppercase">@ViewBag.ProductName</h1>
+                                                <div class="price">
+                                                    <div class="old-price">
+                                                        @ViewBag.Currency @ViewBag.OldPrice
+                                                    </div>
+                                                    <div class="special-price">
+                                                        @ViewBag.Currency @ViewBag.PriceInGame
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="info-tabs">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-tabs" role="tablist">
+                                                <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+                                                <li><a href="#images" role="tab" data-toggle="tab">Images</a></li>
+                                                <li><a href="#delivery" role="tab" data-toggle="tab">Delivery</a></li>
+                                                <li><a href="#terms" role="tab" data-toggle="tab">T&amp;C's</a></li>
+                                            </ul>
+
+                                            <!-- Tab panes -->
+                                            <div class="tab-content">
+                                                <div class="tab-pane fade in active" id="description">
+                                                    <p>@ViewBag.Description</p>
+
+                                                </div>
+                                                <div class="tab-pane fade" id="images">
+                                                    <div class="row">
+                                                        @foreach (var item in Model)
+                                                        {
+                                                            <div class="image">
+                                                                <img src="@Url.Content("~/Image?imageId=")@item.ImageID" class="img-responsive">
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="delivery">
+                                                    <p>
+                                                        @ViewBag.Delivery
+                                                    </p>
+                                                </div>
+                                                <div class="tab-pane fade" id="terms">
+                                                    <p>
+                                                        Ts &amp; Cs
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="access-denied">&nbsp;</div>
+                                <div class="vault-locked">
+                                </div>
+                             </div>
+                          
+                            <div class="right-block play-block metal-block">
+                                <div class="countdown-block">
+                                    <div id="counter-label" class="text-center">
+                                        Time to play
+                                    </div>
+                                    <div id="defaultCountdown2" class="countdown-canvas">
+                                    </div>
+                                    <div id="submitTime" class="hidden countdown-canvas is-countdown">
+                                        <span class="countdown-row countdown-show3">
+                                            <span class="countdown-section">
+                                                <span class="countdown-amount" id="submitMinutes"></span>
+                                                <span class="countdown-period">Minutes</span>
+                                            </span>
+                                            <span class="countdown-section">
+                                                <span class="countdown-amount" id="submitSeconds"></span>
+                                                <span class="countdown-period">Seconds</span>
+                                            </span>
+                                            <span class="countdown-section">
+                                                <span class="countdown-amount" id="submitMilliseconds"></span>
+                                                <span class="countdown-period">Milliseconds</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="game-pad">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-1">1</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-2">2</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-3">3</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-4">4</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-5">5</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-6">6</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-7">7</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-8">8</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-9">9</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-star">*</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-0">0</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#" class="btn btn-default btn-keypad" id="keypad-hash">#</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="gamepad-cover">
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+
+
+    <!--
+    <div class="demo-block">
+        <div id="defaultCountdown2" class="countdown-canvas"></div>
+
+        <div id="game-pad">
+            <div class="row">
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-1">1</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-2">2</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-3">3</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-4">4</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-5">5</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-6">6</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-7">7</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-8">8</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-9">9</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-star">*</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-0">0</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="#" class="btn btn-default btn-keypad" id="keypad-hash">#</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        -->
+    @section Scripts {
+       <script src="/Scripts/jquery.countdown.2.0.1/jquery.plugin.min.js"></script>
+<script src="/Scripts/jquery.countdown.2.0.1/jquery.countdown.min.js"></script>
+
+        <script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#defaultCountdown").html('');
+        //window.gameID=getParameterByName('GameID')
+        window.gameID=@ViewBag.GameID;
+
+        window.futdate = new Date();
+
+        window.expdate = futdate.getTime()
+
+      /*  $.post('/GameSessionService.svc/rest/GetGameStart', { 'GameID': gameID } )
+               .done(function (json) {
+
+                   if (json == -1) {
+               
+                       window.location.replace("/Product/DetailsComingSoon/"+gameID);
+
+                   }
+                   if(json <= 0&&json != -1) { rndmzr(); enableClick();}
+
+                   window.expdate += (json *1000);
+
+                   window.futdate.setTime(expdate);
+
+                   //test call to game display changes
+                   //$("#defaultCountdown2").countdown({ until: '+5s', onTick: rndmzr, onExpiry: enableClick });
+                   $("#defaultCountdown2").countdown({ until: window.futdate, onTick: rndmzr, onExpiry: enableClick });
+
+               });
+               */
+
+
+          $.getJSON('/GameSessionService.svc/rest/GetGameStart?GameID=' + gameID,  function (json) {
+
+            if (json == -1) {
+               
+                window.location.replace("/Product/DetailsComingSoon/"+gameID);
+
+            }
+            if(json <= 0&&json != -1) { rndmzr(); enableClick();}
+
+            window.expdate += (json *1000);
+
+            window.futdate.setTime(expdate);
+
+            //test call to game display changes
+            //$("#defaultCountdown2").countdown({ until: '+5s', onTick: rndmzr, onExpiry: enableClick });
+            $("#defaultCountdown2").countdown({ until: window.futdate, onTick: rndmzr, onExpiry: enableClick });
+
+        });
+        
+
+       /*   $.getJSON('/GameSessionService.svc/rest/GetGameEnd?GameID=' + gameID,  function (json) {
+             
+              window.end= setTimeout(function () { window.location.href = "/Games/AccessDenied?CurrentGame="+window.gameID;},json*1000)
+             // alert(window.end);
+              
+          });
+        */
+
+        $("a .btn").click(function (e) {
+            //  e.preventDefault();
+        });
+    });
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    function rndmzr() {
+        var  randomnumber = Math.floor(Math.random() * 10)
+
+        //use .btn-random for pre game random button jumping ui
+        $("a").removeClass("btn-random");
+        var divID = "keypad-" + randomnumber;
+        $("#" + divID + "").addClass("btn-random");
+
+    }
+
+    function enableClick() {
+        //uncover keypad
+        $('.gamepad-cover').addClass('retract');
+
+        //use btn-random for pregame jumping, and btn-push-me for final click button
+        $(".btn-random").removeClass("btn-random").addClass("btn-push-me")
+
+        $(".btn-push-me").click(function (e) {
+
+            nowDate = new Date(); //time of click
+            clickTime = nowDate.getTime(); //convert to miliseconds
+            gamestartTime= window.futdate.getTime(); //Time the game started
+            offset = clickTime - gamestartTime; //difference
+            showClock(offset/1000);
+            $('.play-block').removeClass('metal-block')
+            $('#game-pad').html('<div class="padded text-center"><h2>Your time is being submitted</h2><div class="submit-time"><img src="../../../Content/images/Preloader_2.gif" /></div></div>');
+           
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("../GameSessionService.svc/rest/PersistUserInteraction/")',
+                dataType: 'json',
+                contentType:"application/json",
+                
+                data: JSON.stringify({"GameID": window.gameID,
+                                      "MemberID": @ViewBag.MemberID,
+                                       "OffSet": offset}),
+                success: function (result) {
+                    if(result.PersistUserInteractionResult == true) {
+                        window.int= setInterval(function () { checkWinner(window.gameID,@ViewBag.MemberID)},10000)
+                    } else { alert('Something went wrong')}
+                }
+
+            });
+        });
+    }
+
+
+    $.fn.pulse = function (options) {
+
+        var options = $.extend({
+            times: 3,
+            duration: 1000
+        }, options);
+
+        var period = function (callback) {
+            $(this).animate({ opacity: 0 }, options.duration, function () {
+                $(this).animate({ opacity: 1 }, options.duration, callback);
+            });
+        };
+        return this.each(function () {
+            var i = +options.times, self = this,
+            repeat = function () { --i && period.call(self, repeat) };
+            period.call(this, repeat);
+        });
+    };
+
+
+    function showClock(seconds){
+        var minutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60);
+        var seconds = (((seconds % 31536000) % 86400) % 3600) % 60;
+        var mseconds = seconds.toString();
+        var mseconds = mseconds.split(".");
+        
+        $("#counter-label").html('Your click time was');
+        $("#defaultCountdown2").addClass('hidden');
+        $("#submitTime").removeClass('hidden');     
+        $("#submitMinutes").html(minutes);
+        $("#submitSeconds").html(mseconds[0]);
+        $("#submitMilliseconds").html(mseconds[1]);
+        
+    }
+
+    function CheckGameActive(gameID) {
+
+        $('#game-pad').pulse();
+        $.getJSON('/GameSessionService.svc/rest/IsGameActive/?GameID=' + gameID , function (json) {
+
+            if(json == false) {
+                clearInterval(int);
+                checkWinner(window.gameID,@ViewBag.MemberID);
+            }
+
+        });
+     }
+
+        function checkWinner(GameID, MemberID) {
+
+           
+            $.getJSON('/GameSessionService.svc/rest/IsUserWinner/?MemberID='+MemberID+'&GameID='+GameID, function(json){
+                var obj = jQuery.parseJSON(json)
+             
+                if(obj.Winner == 2) {
+                    window.location.href = "/Games/BuyGame/?GameID="+GameID;
+                }
+                else if(obj.Winner == 1) {
+                    //Check for nextGameID
+                    if (obj.NextGame > 0 ){
+
+                        //next Game scree
+                        window.int= setInterval(function () { window.location.href = "/Games/AccessDenied?CurrentGame="+window.gameID+"&GameID="+obj.NextGame},10000)
+
+                    }
+                    else{
+                        window.location.href = "/Games/AccessDenied?CurrentGame="+window.gameID;
+                    }
+                } else if (obj.Winner == -1) {
+                    window.location.href = "/Games/AccessDenied?CurrentGame="+window.gameID;
+                }
+            });
+
+        }
+
+        </script>
+    }
+

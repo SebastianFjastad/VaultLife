@@ -1,0 +1,229 @@
+﻿
+@{
+    ViewBag.Title = "Membership Options";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="membership-options">
+    <div class="row">
+        <div class="col-xs-12 text-center text-uppercase">
+            <h1 class="spaced">Membership <strong>Options</strong></h1>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="col-md-3 col-sm-6">
+            <table class="table table-memberoptions">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="~/Content/Images/membership-options/bronze.png" alt="Bronze" class="img img-responsive" />
+                            <div class="pricing">
+                                Free
+                                <div class="per">&nbsp;</div>
+                            </div>
+                            <div class="description">
+                                Begin the journey of replacing your "To Do" List with your bucket list items.<br />&nbsp;<br />&nbsp;
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <small class="text-uppercase">&nbsp;</small>
+                                <span class="percentage">
+                                    <strong>NO</strong>
+                                </span>
+                                Minimum Discount
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2>Access</h2>
+                            <ul class="access-list">
+                                <li>
+                                    <span class="fa fa-check"></span> Bronze Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-times"></span> Silver Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-times"></span> Gold Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-times"></span> Platinum Items
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Sign Up Now", "RegisterFull", "Account", routeValues: null, htmlAttributes: new { Class = "btn btn-bronze btn-large text-uppercase" })
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <table class="table table-memberoptions">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="~/Content/Images/membership-options/silver.png" alt="Silver" class="img img-responsive" />
+                            <div class="pricing">
+                                <span class="currency">$</span>49
+                                <div class="per">per year</div>
+                            </div>
+                            <div class="description">
+                                Step up to Silver level and introduce yourself to a world of possibility with items from 50% off their retail price!<br />&nbsp;
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <small class="text-uppercase">Minimum</small>
+                                <span class="percentage">
+                                    <strong>50</strong>%
+                                </span>
+                                Discount on items
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2>Access</h2>
+                            <ul class="access-list">
+                                <li>
+                                    <span class="fa fa-check"></span> Bronze Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-check"></span> Silver Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-times"></span> Gold Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-times"></span> Platinum Items
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Sign Up Now", "RegisterFull", "Account", routeValues: null, htmlAttributes: new { Class = "btn btn-silver btn-large text-uppercase" })
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <table class="table table-memberoptions">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="~/Content/Images/membership-options/gold.png" alt="Gold" class="img img-responsive" />
+                            <div class="pricing">
+                                <span class="currency">$</span>199
+                                <div class="per">per year</div>
+                            </div>
+                            <div class="description">
+                                Imagine a world where your dreams are at your fingertips. With items from 65% off their retail price, let our Gold level be the portal to your new life.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <small class="text-uppercase">Minimum</small>
+                                <span class="percentage">
+                                    <strong>65</strong>%
+                                </span>
+                                Discount on items
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2>Access</h2>
+                            <ul class="access-list">
+                                <li>
+                                    <span class="fa fa-check"></span> Bronze Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-check"></span> Silver Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-check"></span> Gold Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-times"></span> Platinum Items
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Sign Up Now", "RegisterFull", "Account", routeValues: null, htmlAttributes: new { Class = "btn btn-gold btn-large text-uppercase" })
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <table class="table table-memberoptions">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="~/Content/Images/membership-options/platinum.png" alt="Platinum" class="img img-responsive" />
+                            <div class="pricing">
+                                <span class="currency">$</span>499
+                                <div class="per">per year</div>
+                            </div>
+                            <div class="description">
+                                Limitless opportunities await you in our Platinum level, with items from 80% off their retail price! Here there are no barriers between your dreams and reality!
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <small class="text-uppercase">Minimum</small>
+                                <span class="percentage">
+                                    <strong>80</strong>%
+                                </span>
+                                Discount on items
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2>Access</h2>
+                            <ul class="access-list">
+                                <li>
+                                    <span class="fa fa-check"></span> Bronze Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-check"></span> Silver Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-check"></span> Gold Items
+                                </li>
+                                <li>
+                                    <span class="fa fa-check"></span> Platinum Items
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Sign Up Now", "RegisterFull", "Account", routeValues: null, htmlAttributes: new { Class = "btn btn-platinum btn-large text-uppercase" })
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

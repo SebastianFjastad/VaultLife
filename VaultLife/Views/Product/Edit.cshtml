@@ -1,0 +1,257 @@
+﻿@model Vaultlife.ViewModels.ProductViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (@Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data", @class = "dropzone", id = "dropzoneForm" }))
+{
+    @*<form action="SaveUploadedFile" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">*@
+    @Html.AntiForgeryToken()
+    @Html.Hidden("hdnLoggedInUser", @User.Identity.Name)
+    
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Product.ProductID)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.ProductSKUCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.ProductSKUCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.ProductSKUCode, "", new { @class = "text-danger" })
+                @Html.ValidationMessage("ProductSKUCodeError", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.OwnerID, "OwnerID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.DropDownList("Product.OwnerID", (SelectList)ViewBag.OwnerIDList, String.Empty, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Product.OwnerID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.ContractID, "ContractID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+
+                @Html.DropDownList("Product.ContractID", (SelectList)ViewBag.ContractIDList, String.Empty, new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(model => model.Product.ContractID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.ProductName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.ProductDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.ProductDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.ProductDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.SOH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.SOH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.SOH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.AvailableSOH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.AvailableSOH, new { htmlAttributes = new { @class = "form-control" } })
+                
+                @Html.ValidationMessage("AvailableSOHError", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.ProductPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessage("Product.ProductPriceError", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.IsExclusive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.IsExclusive, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.IsExclusive, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.DateInserted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.Product.DateInserted)
+                @Html.DisplayFor(model => model.Product.DateInserted, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.DateInserted, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.DateUpdated, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.Product.DateUpdated)
+                @Html.DisplayFor(model => model.Product.DateUpdated, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.DateUpdated, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.USR, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.Product.USR)
+                @Html.EditorFor(model => model.Product.USR, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Product.USR, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr><th>Image</th><th>Image Name</th><th>Active</th><th>Delete On Save</th></tr>
+            </thead>
+            <tbody>
+                @Html.EditorFor(model => model.DisplayItems)
+                @*@if (Model.DisplayItems != null)
+                    {
+                        for (var n = 0; n < Model.DisplayItems.Count(); n++)
+                        {
+
+                            @Html.EditorFor(model => model.DisplayItems.ToList()[n])
+
+                        }
+                    }*@
+            </tbody>
+
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default clickMe" value="Accept Images" />
+                <input type="submit" value="Save Product" class="btn btn-default" />
+            </div>
+            <div class="col-md-offset-2 col-md-10">
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="dropzone-previews"></div> <!-- this is were the previews should be shown. -->
+    <div class="fallback">
+        <input name="file" type="file" multiple />
+        <input type="submit" value="Upload" />
+    </div>
+    <!-- Now setup your input fields -->
+
+
+
+    @*</form>*@
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<style type="text/css">
+    .dz-max-files-reached {
+        background-color: red;
+    }
+</style>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        //File Upload response from the server
+        Dropzone.options.dropzoneForm = {
+
+            // The configuration we've talked about above
+            autoProcessQueue: false,
+            uploadMultiple: true,
+            parallelUploads: 100,
+            maxFiles: 100,
+
+            init: function () {
+
+                var myDropzone = this;
+
+                // First change the button to actually tell Dropzone to process the queue.
+                this.element.querySelector(".clickMe").addEventListener("click", function (e) {
+                    debugger;
+                    // Make sure that the form isn't actually being sent.
+                    e.preventDefault();
+                    e.stopPropagation();
+                    myDropzone.processQueue();
+                });
+
+                this.on("maxfilesexceeded", function (data) {
+                    var res = eval('(' + data.xhr.responseText + ')');
+
+                });
+
+                this.on('sending', function (file, xhr, formData) {
+                    var pid = $('#Product_ProductID').val();
+                    formData.append('productid', pid);
+                });
+
+                this.on("addedfile", function (file) {
+
+                    // Create the remove button
+                    var removeButton = Dropzone.createElement("<button>Remove file</button>");
+
+
+                    // Capture the Dropzone instance as closure.
+                    var _this = this;
+
+                    // Listen to the click event
+                    removeButton.addEventListener("click", function (e) {
+                        // Make sure the button click doesn't submit the form:
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // Remove the file preview.
+                        _this.removeFile(file);
+                        // If you want to the delete the file on the server as well,
+                        // you can do the AJAX request here.
+                    });
+
+                    // Add the button to the file preview element.
+                    file.previewElement.appendChild(removeButton);
+                });
+            }
+        };
+
+
+
+
+
+
+    </script>
+    <script id="CheckForChanges">
+
+
+        var isChanged= false;
+        $('input,select,textarea').change(function () {
+            isChanged = true;
+            var currentDate = getISODateTime(new Date());
+            $("#Product_DateUpdated").val(currentDate);
+            $("#Product_USR").val($('#hdnLoggedInUser').val());
+        });
+        //
+
+    </script>
+}

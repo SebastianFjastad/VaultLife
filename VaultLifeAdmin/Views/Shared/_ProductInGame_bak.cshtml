@@ -1,0 +1,104 @@
+﻿@model Vaultlife.Models.ProductInGame
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+<tr>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ProductInGameID)
+   
+
+    @*<td>
+            @Html.LabelFor(model => model.ProductOwnerID, "ProductOwnerID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProductOwnerID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProductOwnerID, "", new { @class = "text-danger" })
+            </div>
+        </td>*@
+
+    @*<td>
+            @Html.LabelFor(model => model.ProductInGame.ProductID, "ProductID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProductInGame.ProductID", (SelectList)ViewBag.ProductID, String.Empty, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProductInGame.ProductID, "", new { @class = "text-danger" })
+            </div>
+        </td>*@
+
+    <td>
+        <div class="col-md-10">
+            @Html.DisplayFor(model=>model.Game.GameCode)
+            
+        </div>
+    </td>
+
+    <td>
+     
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+     
+            @Html.ValidationMessage("QuantityError", new { @class = "text-danger" })
+        </div>
+    </td>
+    <td>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PriceInGame, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessage("PriceInGameError", "", new { @class = "text-danger" })
+        </div>
+    </td>
+    <td>
+
+        <div class="col-md-10">
+            @Html.DropDownList("CurrencyID", (SelectList)ViewBag.CurrencyIDList, String.Empty, htmlAttributes: new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.CurrencyID, "", new { @class = "text-danger" })
+        </div>
+</td>
+
+
+    @Html.HiddenFor(model => model.DateInserted)
+
+
+
+    @Html.HiddenFor(model => model.DateUpdated)
+
+
+
+    @Html.HiddenFor(model => model.USR)
+
+
+</tr>
+@*<h3>Product Locations</h3>
+    @Html.ValidationMessage("ProductInGameIDError", new { @class = "text-danger" })
+    @Html.ActionLink("+ Create New Product Location", "CreateForProductInGame", "ProductLocations", new { productInGameID = @Model.ProductInGame.ProductInGameID }, null)
+    <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+
+                <th>
+                    AddressID
+                </th>
+                <th>
+                    DeliveryAgentName
+                </th>
+                <th>
+                    DateInserted
+                </th>
+                <th>
+                    DateUpdated
+                </th>
+                <th>USR</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.EditorFor(model => model.ProductLocations)
+
+        </tbody>
+
+    </table>*@
+
+
+

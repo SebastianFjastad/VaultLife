@@ -1,0 +1,382 @@
+﻿@model Vaultlife.ViewModels.HomeAuthenticatedViewModel
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Welcome";
+
+    string src = "";
+}
+<div class="container">
+
+    <div class="above-fold">
+
+        @if (Request.IsAuthenticated)
+        {
+            @Html.Partial("_HomeAuthenticatedPartial", Model)
+        }
+        else
+        {
+            @Html.Partial("_HomeAnonymousPartial")
+        }
+
+    </div>
+    <hr />
+</div>
+<div class="container" id="browse-items">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h1 class="text-uppercase">Coming <strong>Soon</strong></h1>
+            <br />&nbsp;
+        </div>
+    </div>
+</div>
+
+
+@foreach (var GameView in Model.ComingSoon)
+{
+
+    if (GameView.ComingSoonGameVM.Count > 0)
+    {
+        string memberType = GameView.MemberSubscriptionType.MemberSubscriptionTypeCode.ToLower().Trim();
+        string memberLevel = GameView.MemberSubscriptionType.MemberSubscriptionTypeDescription.ToLower().Trim();
+
+        int memberSubsCode = GameView.MemberSubscriptionType.MemberSubscriptionTypeID;
+        int slideCount = 4; //default slide count is 4
+        string displayColumns = "4"; //default column split is 4
+        string specialStyle = "";// default blocks are devoid of alternate styling
+
+        int totalDisplayItems = GameView.ComingSoonGameVM.Count(); //used to determine display dots
+
+        if (memberSubsCode == 1)
+        {
+            slideCount = 8; //Free tier gets 8 items per slider
+        }
+        else if (memberSubsCode == 6)
+        {
+            slideCount = 3; //Platinum tier gets 3 items per slider
+            specialStyle = "product-block-large"; //Platinum tier has bigger product blocks
+            displayColumns = "3"; //three items per row
+        }
+
+        <div class="product-strip product-strip-@memberSubsCode.ToString()" id="@memberType-strip">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="text-uppercase">
+                            <strong>
+                                <span class="text-@memberType">@memberLevel.ToUpperInvariant()</span> Status
+                            </strong>
+                        </h2>
+
+                        <div class="product-carousel">
+                            <div class="carousel slide" id="@memberType-carousel">
+                                <div class="carousel-inner">
+                                    @{int counter = 0;
+                                    foreach (var item in GameView.ComingSoonGameVM)
+                                    {
+
+                                        if (counter % slideCount == 0)
+                                        {
+                                            @Html.Raw("<div class=\"item " + (counter == 0 ? "active" : "") + "\">");
+                                        @Html.Raw("<div class=\"product-set\">");
+                                        }
+                                        if (item.mainImage != null) { src = String.Format("/Image?imageId={0}", item.mainImage.ImageID); }
+                                        string highPrice = ((decimal)(item.ProductInGame.ReferencePrice ?? 0.00M)).ToString("0");
+                                        string price = ((decimal)(item.ProductInGame.PriceInGame ?? 0.00M)).ToString("0");
+
+                                        <div class="product product-@displayColumns">
+                                            <div class="overlay hidden-xs">
+                                                <div class="content">
+
+
+
+                                                    @if (Request.IsAuthenticated)
+                                                    {
+                                                        if (!@item.IsInMyWatchList)
+                                                        {
+                                                            <a href="~/GameInWatchLists/AddToWatchList?FromWhere=ComingSoon&GameID=@item.ProductInGame.GameID" class="btn btn-default btn-black btn-block text-center">
+                                                                <i class="fa fa-star"></i> Add To My Vault
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="~/GameInWatchLists/RemoveFromWatchList?FromWhere=ComingSoon&GameID=@item.ProductInGame.GameID" class="btn btn-default btn-black btn-block text-center">
+                                                                <i class="fa fa-star"></i> Remove From My Vault
+                                                            </a>
+
+                                                        }
+                                                    }
+                                                    <a href="../Product/DetailsComingSoon/@item.ProductInGame.GameID" data-item2="@item.ProductInGame.GameID" data-item1="@item.GameScheduleStartJquery" class="countdown-block">
+                                                        <div class="text-center">
+                                                            This item unlocks in
+                                                        </div>
+                                                        <div class="product-countdown countdown-canvas countdown-green" id="Countdown-@item.ProductInGame.GameID"></div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <a href="../Product/DetailsComingSoon/@item.ProductInGame.GameID" data-item2="@item.ProductInGame.GameID" data-item1="@item.GameScheduleStartJquery" class="product-block @specialStyle" style="background-image: url('../../@src');">
+                                                <div class="product-info">
+                                                    <div class="product-name">@item.ProductInGame.Product.ProductName</div>
+                                                    <div class="old-price">@item.ProductInGame.Currency.CurrencyCode @highPrice </div>
+                                                    <div class="price">
+                                                        @item.ProductInGame.Currency.CurrencyCode @price
+                                                    </div>
+                                                    <div class="meta-tags">
+                                                        @{if (@item.Game.NextGameID != null)
+                                                        {
+                                                            <div class="fivemin-deal">
+                                                                <img src="~/Content/Images/5min-deal-sm.png" alt="5 minute deal" />
+                                                            </div>
+                                                        }
+                                                        }
+                                                        <div class="status status-@memberType"></div>
+                                                        <div class="flag">
+                                                            @{
+                                        if (@item.Game.Global == true)
+                                        {
+                                            <img src="~/Content/Images/flags/world.png" alt="World" />
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Content/Images/flags/South-Africa.png" alt="South Africa" />
+                                        }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        if (counter % slideCount == (slideCount - 1) || GameView.ComingSoonGameVM.Count() == counter + 1)
+                                        { @Html.Raw("</div>");
+                                        @Html.Raw("</div>");
+                                        }
+                                        counter++;
+
+                                    }
+                                    }
+
+                                </div>
+                                @{
+                                if (totalDisplayItems > slideCount)
+                                {
+                                    <a class="carousel-control left" href="#@memberType-carousel" data-slide="prev">
+                                        <span class="circle">
+                                            <i class="fa fa-angle-left"></i>
+                                        </span>
+                                        <span class="labelled">Previous</span>
+                                    </a>
+                                    <a class="carousel-control right" href="#@memberType-carousel" data-slide="next">
+                                        <span class="labelled">Next</span>
+                                        <span class="circle">
+                                            <i class="fa fa-angle-right"></i>
+                                        </span>
+                                    </a>
+                                    <ol class="carousel-indicators clearfix">
+                                        @{
+                                            var numSlides = Math.Ceiling((decimal)totalDisplayItems/(decimal)slideCount);
+                                        }
+                                        @for(int i = 0; i < numSlides; i++)
+                                        {
+                                            string activeString = (i==0? "active" : "");
+                                            <li data-target="#@memberType-carousel" data-slide-to="@i" class="@activeString"></li>
+                                        }
+                                        @*
+                                            <li data-target="#@memberType-carousel" data-slide-to="0" class="active"></li>
+                                            <li data-target="#@memberType-carousel" data-slide-to="1"></li>
+                                            <li data-target="#@memberType-carousel" data-slide-to="2"></li>
+                                        *@
+                                    </ol>
+
+                                }
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+<!--
+<div class="container" id="recently-sold-items">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h2 class="text-uppercase">Recently Sold <strong>Items</strong></h2>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="sold-products col-xs-12">
+        @foreach (dynamic rc in Model.recentWinners) { 
+                <div class="product">
+                <div class="product-image" style="background-image: url(@String.Format("../../Image?imageId={0}", rc.GetType().GetProperty("ImageID").GetValue(rc, null)))">
+
+                </div>
+                <div class="product-info">
+                    <div class="sold-for">
+                        Valued: ZAR @rc.GetType().GetProperty("ReferencePrice").GetValue(rc, null)&nbsp;Sold for
+                    </div>
+                    <div class="price">
+                        ZAR @rc.GetType().GetProperty("PriceInGame").GetValue(rc, null)
+                    </div>
+                </div>
+            </div>
+        }
+            
+        </div>
+    </div>
+</div>
+<div id="news-item-canvas" class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h2 class="text-uppercase">Latest <strong>News</strong></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center news-items">
+            <a href="#" class="item">
+                <div class="item-info">
+                    <div class="item-title">
+                        News item title
+                    </div>
+                    <div class="view-more">
+                        View more
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="item">
+                <div class="item-info">
+                    <div class="item-title">
+                        News item title
+                    </div>
+                    <div class="view-more">
+                        View more
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="item">
+                <div class="item-info">
+                    <div class="item-title">
+                        News item title
+                    </div>
+                    <div class="view-more">
+                        View more
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="item">
+                <div class="item-info">
+                    <div class="item-title">
+                        News item title
+                    </div>
+                    <div class="view-more">
+                        View more
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div> -->
+
+@Html.Partial("~/Views/Shared/_FeaturedBrandsPartial.cshtml")
+
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/jquery.countdown.2.0.1/jquery.plugin.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.countdown.2.0.1/jquery.countdown.js"></script>
+
+    <script type="text/javascript">
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        $(document).ready(function () {
+
+
+            $('a.product-block').mouseenter(function () {
+                var Time = 0;
+                var cdown = $(this).attr("data-Item2")
+                Time = $(this).attr("data-Item1");
+               
+                           
+                
+                $('#Countdown-'+cdown).countdown({ until: Time });
+
+
+            });
+            //TEMPORARY JQUERY FOR NEW COUNTER TESTING
+            
+
+            window.upgrade = getParameterByName('l');
+            // if(window.gameCounter) {
+            for (i = 0; i < window.gameCounter ; i++) {
+
+                var gamesScheduleStart = $('#GameScheduleStartJquery-' + i).val();
+                if (gamesScheduleStart == '0') {
+                    $('#Unlocked-' + i).attr("style", "visibility:visible");
+                    $('#Locked-' + i).hide();
+
+                }
+                else {
+                    $('#Unlocked-' + i).hide();
+                    $('#unlockCountdown-' + i).countdown({ until: gamesScheduleStart, onExpiry: ShowStuff, onTick: update, alwaysExpire: true });
+                }
+            }
+
+            function update(periods) {
+                var s = periods[4] + 'h' + periods[5] + 'm' + periods[6] + 's';
+                var x = this.id.substr(this.id.length - 1, this.id.length);
+                $('#GameScheduleStartJquery-' + x).attr("value", s);
+            }
+
+            function ShowStuff() {
+                for (showCounter = 0; showCounter < window.gameCounter ; showCounter++) {
+                    var gamesScheduleStart = $('#GameScheduleStartJquery-' + showCounter).val();
+
+                    if (gamesScheduleStart == "0h0m0s") {
+                        $('#Unlocked-' + showCounter).attr("style", "visibility:visible");
+                        $('#Locked-' + showCounter).hide();
+
+                    }
+                }
+            }
+
+
+            // Show popup success message
+            msg = '';
+            switch (window.upgrade) {
+                case '4':
+                    msg = 'Congratulations!\n You\'ve upgraded to a Silver Account!';
+                    break;
+                case '5':
+                    msg = 'Congratulations!\n You\'ve upgraded to a Gold Account!';
+                    break;
+                case '6':
+                    msg = 'Congratulations!\n You\'ve upgraded to a Platimun Account!';
+                    break;
+            }
+            if (msg != '') {
+
+                alert(msg);
+            }
+            window.content = ""
+            if ($("#cont").length) {
+                $.getJSON('/GameSessionService.svc/rest/GetItemsInGamesByMember?MemberID=8&MaxReturned=5', function (data) {
+
+                    var obj = $.parseJSON(data);
+
+
+                    $.each(obj, function () {
+
+                        window.content += ' <a class="product" href="#"><div class="product-image" style="background-image: url(\'@Url.Content("~/Image?imageId=")' + obj[0].ImageID + '\')"></div><div class="product-info"><div class="unlocks-in">This item unlocks on</div><div class="date">12 Jan 2014</div></div></a>'
+                    });
+                    $("#cont").html(window.content);
+                });
+            }
+        });
+    </script>
+}
+

@@ -1,0 +1,64 @@
+﻿
+
+
+//Font Family Import
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,400italic,500);
+
+//Local font import
+@font-face {
+    font-family: 'lcdnormal';
+    src: url('fonts/lcdn-webfont.eot');
+    src: url('fonts/lcdn-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lcdn-webfont.woff') format('woff'),
+         url('fonts/lcdn-webfont.ttf') format('truetype'),
+         url('fonts/lcdn-webfont.svg#lcdnormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//Customise Variable Values
+
+@brand-primary:         #009245;
+@brand-grey:            #424242;
+@brand-grey-light:      #cccbcb;
+@brand-gold:            #B8984B;
+
+@brand-bright-green:    #6FBE45;
+@bold-green:            #009245;
+
+@brand-purple:          #662D91;
+@brand-tycoon:          @brand-purple;
+
+@brand-turquoise:       #00A99D;
+@brand-luxury:          @brand-turquoise;
+
+@brand-orange:          #F29100;
+@brand-life:            @brand-orange;
+
+@brand-blue:            #0071BC;
+@brand-free:            @brand-blue;
+
+@grey-luxury:           #E6E6E6;
+@grey-life:             #CCCCCC;
+@grey-free:             #B3B3B3;
+
+
+@brand-success:         #3FB618;
+@brand-info:            #9954BB;
+@brand-warning:         #FF7518;
+@brand-danger:          #FF0039;
+
+
+@grid-float-breakpoint: @screen-tablet;
+
+//Font Families
+@font-family-sans-serif:    "Roboto", Calibri, Candara, Arial, sans-serif;
+@font-family-serif:         Georgia, "Times New Roman", Times, serif;
+@font-family-lcd:           'lcdnormal', @font-family-sans-serif;
+
+@input-border-focus:    @brand-primary;
+
+//used for component sizing relative to view widths (after padding)
+@size-sm:           720px;
+@size-md:           940px;
+@size-lg:           1140px;

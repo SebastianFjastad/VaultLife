@@ -1,0 +1,12 @@
+Delete from productLocation
+Delete from ProductPlayed
+Delete from Productingame
+Delete from DisplayItem
+Delete from ProductPlayed
+Delete from ProductInWatchList
+DELETE from Imagedetails
+Delete from Product
+DELETE from GameRule
+Delete from Memberingame
+Delete from Game
+DELETE from TrackingTransaction

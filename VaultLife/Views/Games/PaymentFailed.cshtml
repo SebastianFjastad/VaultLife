@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Oh No! Your Payment wasn't succesfful.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <h1 class="text-uppercase"><strong>Oh No!</strong></h1>
+        <p>Your Payment was unsuccessful. You may need a little more practice!</p>
+        <br />
+        <img src="~/Content/Images/unsuccessful.png" class="center-block img-responsive" />
+        <p class="small text-center">
+            <br />
+            Details for unsuccessful purchase will be sent to you shortly.
+        </p>
+        @Html.ActionLink("Return to Homepage", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-large btn-default btn-spaced text-uppercase" })
+        &nbsp; <a href="#" class="btn btn-large btn-default btn-spaced text-uppercase hidden">Play Practice Game</a>
+        <p>
+            <br />&nbsp;
+        </p>
+    </div>
+</div>
+

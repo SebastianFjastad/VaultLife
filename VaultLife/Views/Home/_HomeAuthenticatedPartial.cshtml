@@ -1,0 +1,325 @@
+﻿@model Vaultlife.ViewModels.HomeAuthenticatedViewModel
+@{
+    int gameBlockCounter = 0;
+    int gameThumbnailCounter = 0;
+
+}
+<div class="row">
+
+    <div class="col-xs-12 text-center" id="tabbed-vault-ui">
+        <!-- Tab panes -->
+        <form id="GameForm" action="/Games/PlayGame/"  method="Post">
+            <input type="Hidden" name ="GameID" id="GameID" value="">
+        </form>
+        <div class="tab-content">
+            @foreach (var topSectionItem in Model.TopSection)
+            {
+              
+                string src = String.Format("/Image?imageId={0}", topSectionItem.Product.Imagedetails.First().ImageID);
+
+                if (gameBlockCounter == 0)
+                {
+                    @Html.HiddenFor(model => topSectionItem.GameScheduleStartJquery, new { @id = "GameScheduleStartJquery-" + @gameBlockCounter});
+                   
+                <div class="tab-pane active" id="game-block-@gameBlockCounter">
+                        <div class="block-one game-block">
+                            <div class="block-one-layout">
+                                <div class="left-block">
+                                    <div class="game-product-view">
+                                        <div id="product-info" class="product-info">
+                                            <div class="product-header">
+                                                <div class="main-image">
+                                                    <img src=@src />
+                                                </div>
+                                                <div class="main-info">
+                                                    <h1 class="text-uppercase">@topSectionItem.Product.ProductName</h1>
+                                                    <div class="price">
+                                                        <div class="old-price">
+                                                            @topSectionItem.CurrentProductInGame.Currency.CurrencyCode
+                                                            @topSectionItem.CurrentProductInGame.ReferencePrice
+                                                        </div>
+                                                        <div class="special-price">
+                                                            @topSectionItem.CurrentProductInGame.Currency.CurrencyCode  
+                                                            @topSectionItem.CurrentProductInGame.PriceInGame <div class="status status-tycoon"></div>
+                                                            @{if (topSectionItem.Game.NextGameID != null)
+                                                            {
+                                                            <img src="~/Content/Images/5min-deal-icon.png" alt="5 minute deal" />
+                                                            }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info-tabs hidden-xs hidden-sm">
+                                                <!-- Nav tabs -->
+                                                @{
+                                                    string description = "description" + gameBlockCounter.ToString();
+                                                    string images = "images" + gameBlockCounter.ToString();
+                                                    string delivery = "delivery" + gameBlockCounter.ToString();
+                                                    string terms = "terms" + gameBlockCounter.ToString();
+                                                    
+                                                    
+                                                }
+                                                <ul class="nav nav-tabs" role="tablist">
+                                                    <li class="active"><a href="#@description" role="tab" data-toggle="tab">Description</a></li>
+                                                    <li><a href="#@images" role="tab" data-toggle="tab">Images</a></li>
+                                                    <li><a href="#@delivery" role="tab" data-toggle="tab">Delivery</a></li>
+                                                    <li><a href="#@terms" role="tab" data-toggle="tab">T's &amp; C's</a></li>
+                                                </ul>
+
+                                                <!-- Tab panes -->
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade in active" id="@description">
+                                                        <p>
+                                                            @topSectionItem.Product.ProductDescription
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="@images">
+                                                        <p>
+                                                            Images
+                                                            @foreach (var image in topSectionItem.Product.Imagedetails)
+                                                            {
+                                                                string src2 = String.Format("/Image?imageId={0}", image.ImageID);
+                                                                <img src="@src2" width="50" />
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="@delivery">
+                                                        <p>
+                                                            <ul>
+                                                                @foreach (var location in topSectionItem.CurrentProductInGame.ProductLocations)
+                                                                {
+                                                                    <li>@location.Address - @location.DeliveryAgentName</li>
+                                                                }
+                                                            </ul>
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="@terms">
+                                                        <p>
+                                                            @topSectionItem.Product.terms
+                                                          
+                                                        </p>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-block play-block metal-block">
+                                    <div class="countdown-block">
+                                        <img src="../../Content/images/game-type-grid-of-glory.png" alt="Grid of Glory" />
+                                    </div>
+                                    <div class="play-pad">
+                                        <div class="big-actions">
+                                            <div class="unlocks-in" id="Locked-@gameBlockCounter">
+                                                Game initiates in:
+                                                <div id="unlockCountdown-@gameBlockCounter" class="countdown-canvas countdown-green"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="play-pad" id="Unlocked-@gameBlockCounter" style="visibility:hidden">
+                                        <!--<a href="../../Games/PlayGame?GameID=@topSectionItem.Game.GameID" class="btn btn-in-game btn-large">-->
+                                        <a href="" onclick="populate(@topSectionItem.Game.GameID);return false;" class="btn btn-in-game btn-large">
+                                            click to <br /> Unlock
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    @Html.HiddenFor(model => topSectionItem.GameScheduleStartJquery, new { @id = "GameScheduleStartJquery-" + @gameBlockCounter });
+                      <div class="tab-pane" id="game-block-@gameBlockCounter">
+                        <div class="block-one game-block">
+                            <div class="block-one-layout">
+                                <div class="left-block">
+                                    <div class="game-product-view">
+                                        <div id="product-info">
+                                            <div class="product-header">
+                                                <div class="main-image">
+                                                    <img src=@src />
+                                                </div>
+                                                <div class="main-info">
+                                                    <h1 class="text-uppercase">@topSectionItem.Product.ProductName</h1>
+                                                    <div class="price">
+                                                        <div class="old-price">
+                                                            @topSectionItem.CurrentProductInGame.Currency.CurrencyCode
+                                                            @topSectionItem.CurrentProductInGame.ReferencePrice
+                                                        </div>
+                                                        <div class="special-price">
+                                                            @topSectionItem.CurrentProductInGame.Currency.CurrencyCode
+                                                            @topSectionItem.CurrentProductInGame.PriceInGame <div class="status status-tycoon"></div>
+                                                            @{if (topSectionItem.Game.NextGameID != null)
+                                                            {
+                                                                <img src="~/Content/Images/5min-deal-icon.png" alt="5 minute deal" />
+                                                            }}       
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="info-tabs">
+                                                <!-- Nav tabs -->
+                                                <ul class="nav nav-tabs" role="tablist">
+                                                    <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+                                                    <li><a href="#images" role="tab" data-toggle="tab">Images</a></li>
+                                                    <li><a href="#delivery" role="tab" data-toggle="tab">Delivery</a></li>
+                                                    <li><a href="#terms" role="tab" data-toggle="tab">T's &amp; C's</a></li>
+                                                </ul>
+
+                                                <!-- Tab panes -->
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade in active" id="description">
+                                                        <p>
+                                                            @topSectionItem.Product.ProductDescription
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="images">
+                                                        <p>
+                                                            Images
+                                                            @foreach (var image in topSectionItem.Product.Imagedetails)
+                                                            {
+                                                                string src2 = String.Format("/Image?imageId={0}", image.ImageID);
+                                                                <img src="@src2" width="50" />
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="delivery">
+                                                        <p>
+                                                            <ul>
+                                                                @foreach (var location in topSectionItem.CurrentProductInGame.ProductLocations)
+                                                                {
+                                                                    <li>@location.Address - @location.DeliveryAgentName</li>
+                                                                }
+                                                            </ul>
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="terms">
+                                                        <p>
+                                                            @topSectionItem.Product.terms
+                                                        </p>
+                                                       
+                                                    </div>                                                   
+
+                                                </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-block play-block metal-block">
+                                    <div class="countdown-block">
+                                        <img src="../../Content/images/game-type-grid-of-glory.png" alt="Grid of Glory" />
+                                    </div>
+                                    <div class="play-pad">
+                                        <div class="big-actions">
+                                            <div class="unlocks-in" id="Locked-@gameBlockCounter">
+                                                Game initiates in:
+                                                <div id="unlockCountdown-@gameBlockCounter" class="countdown-canvas countdown-green"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="play-pad" id="Unlocked-@gameBlockCounter">
+                                        <a href="#" onclick="populate(@topSectionItem.Game.GameID);" class="btn btn-in-game btn-large">
+                                            click to <br /> Unlock
+                                        </a>
+                                        <!--
+                                          <a href="../../Games/PlayGame?GameID=@topSectionItem.Game.GameID" class="btn btn-in-game btn-large">
+                                            Click To <br /> Unlock
+                                        </a>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                gameBlockCounter++;
+            }
+                                            </div>
+        <ul class="nav nav-tabs vault-tabs" role="tablist">
+            @foreach (var topSectionItem in Model.TopSection)
+            {
+                string src3 = String.Format("/Image?imageId={0}", topSectionItem.Product.Imagedetails.ToList().First().ImageID);
+
+                if (gameThumbnailCounter == 0)
+                {
+            <li class="active">
+                        <a href="#game-block-@gameThumbnailCounter" role="tab" data-toggle="tab">
+                            <img src="@src3" />
+                </a>
+            </li>
+                }
+                else
+                {
+                    <li class="">
+                        <a href="#game-block-@gameThumbnailCounter" role="tab" data-toggle="tab">
+                            <img src="@src3" />
+                </a>
+            </li>
+                }
+                gameThumbnailCounter++;
+            }
+            
+        </ul>
+
+    </div>
+</div>
+<div class="row">
+    @*<div class="col-xs-12 text-center">
+        <small class="learn-more">
+            scroll to learn more<br />
+            <i class="fa fa-angle-down"></i>
+        </small>
+    </div>*@
+</div>
+<div class="row" id="upcoming-vault-items">
+    <div class="col-xs-12 text-center">
+        <h1 class="text-uppercase">My Upcoming <strong>Vault Items</strong></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="upcoming-vault-items col-xs-12" id="">
+      
+        @foreach (var upcoming in Model.UpcomingVaultItems)
+            {
+                string src4 = String.Format("/Image?imageId={0}", upcoming.Product.Imagedetails.First().ImageID);
+
+          <a class="product" href="#">
+            <div class="product-image" style="background-image: url(@src4);"></div>
+            <div class="product-info">
+                <div class="unlocks-in">
+                    This item unlocks on
+                </div>
+                <div class="date">
+                    @upcoming.GameScheduleStart.ToString("dd MMM yyyy")
+                </div>
+            </div>
+        </a>
+        }
+            
+        
+        
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center topmargin25">
+        <a href="../../GameInWatchLists/MyVaultItems" class=" btn btn-default btn-large text-uppercase">My Vault Items</a>
+    </div>
+</div>
+<script>
+    //For multiCounter DO NOT REMOVE
+    window.gameCounter=@gameBlockCounter;
+    function populate(GameID){
+       
+        
+        document.getElementById("GameID").value=GameID;
+     
+        document.forms['GameForm'].submit();
+    
+    }
+</script>

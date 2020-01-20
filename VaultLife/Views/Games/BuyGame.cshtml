@@ -1,0 +1,235 @@
+﻿@model Vaultlife.ViewModels.PaymentsViewModel
+@{
+    ViewBag.Title = "BuyGame";
+}
+
+<h2>BuyGame</h2>
+
+<div id="content-canvas">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <div class="block-one game-block">
+                    <div class="block-one-layout">
+                        <div class="left-block">
+                            <div id="main-product-view">
+                                <div id="product-info">
+                                    <div class="product-header">
+                                        <div class="main-image">
+                                            <img src="@Url.Content("~/Image?imageId=")@ViewBag.MainImage" />
+                                        </div>
+                                        <div class="main-info">
+                                            <h1 class="text-uppercase">@ViewBag.ProductName</h1>
+                                            <div class="price">
+                                                <div class="old-price">
+                                                    ZAR 40 000
+                                                </div>
+                                                <div class="special-price">
+                                                    ZAR @ViewBag.PriceInGame
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info-tabs">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+                                            <li><a href="#images" role="tab" data-toggle="tab">Images</a></li>
+                                            <li><a href="#delivery" role="tab" data-toggle="tab">Delivery</a></li>
+                                            <li><a href="#terms" role="tab" data-toggle="tab">T's &amp; C's</a></li>
+                                        </ul>
+
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade in active" id="description">
+
+                                                <p>
+                                                    @ViewBag.Description
+                                                  
+                                                </p>
+
+                                            </div>
+                                            <div class="tab-pane fade" id="images">
+                                                @foreach (var item in ViewBag.images)
+                                                {
+                                                    <p> <img src="@Url.Content("~/Image?imageId=")@item.ImageID">.</p>
+                                                }
+                                            </div>
+                                            <div class="tab-pane fade" id="delivery">
+                                                <p>
+                                                    Pancetta brisket kielbasa tongue bresaola. Pork chop andouille shank, ham ground round meatball pork loin sausage beef jowl tri-tip salami frankfurter fatback ball tip. Tail salami chuck strip steak, ground round flank venison short ribs cow drumstick. Biltong turkey hamburger venison doner corned beef sausage ball tip pork frankfurter bresaola bacon. Frankfurter drumstick flank tongue, t-bone ribeye beef ribs andouille chicken ground round swine sirloin boudin. Turkey tongue tri-tip t-bone filet mignon, sirloin beef ribs ribeye meatball porchetta flank pork chop corned beef short ribs beef.
+                                                </p>
+                                            </div>
+                                            <div class="tab-pane fade" id="terms">
+                                                <p>
+                                                    Tenderloin bresaola pork belly, boudin shoulder pork chop turkey bacon strip steak capicola meatball kevin turducken frankfurter. Venison meatloaf tail, jerky prosciutto biltong kielbasa pork belly chicken sirloin. Tenderloin shank beef ribs pancetta boudin jerky turkey rump swine ground round strip steak. Tri-tip pork belly salami, shank ground round bacon beef ribs shankle doner brisket filet mignon shoulder. Beef fatback brisket tri-tip ribeye turducken ham hock venison pork belly meatball.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { name = "frm", id = "frm" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.Hidden("GameID", Request.QueryString["GameID"])
+                            <div class="right-block buy-block">
+                                <div class="countdown-block purchase">
+                                    <div class="text-center">
+                                        Time left to purchase
+                                    </div>
+                                    <div id="defaultCountdown2" class="countdown-canvas"></div>
+                                </div>
+                                <div class="field-set text-center">
+                                    <div id="error-message" class="alert alert-warning"></div>
+                                </div>
+                                <div id="buy-pad">
+                                    <form>
+                                        <div class="field-set radio-buttons">
+                                            @Html.LabelFor(model => model.PaymentsModel.CardType, htmlAttributes: new { @class = "form-label" })
+                                            @Html.ValidationMessageFor(model => model.PaymentsModel.CardType, "", new { @class = "text-danger" })
+
+                                            @Html.RadioButtonFor(model => model.PaymentsModel.CardType, "Visa", new { id = "Visa" })
+                                            @Html.Label("Visa", "Visa")
+
+                                            @Html.RadioButtonFor(model => model.PaymentsModel.CardType, "MasterCard", new { id = "MasterCard" })
+                                            @Html.Label("Master Card", "MasterCard")
+
+                                        </div>
+                                        <div class="field-set">
+                                            @Html.LabelFor(model => model.PaymentsModel.CardNumber, htmlAttributes: new { @class = "form-label" })
+
+                                            @Html.EditorFor(model => model.PaymentsModel.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.PaymentsModel.CardNumber, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="field-set">
+                                            @Html.LabelFor(model => model.PaymentsModel.NameOnCard, htmlAttributes: new { @class = "form-label" })
+
+                                            @Html.EditorFor(model => model.PaymentsModel.NameOnCard, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.PaymentsModel.NameOnCard, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="field-set row">
+                                            <div class="col-xs-7">
+                                                <label class="form-label">Expiry Date</label>
+
+
+
+                                                <div class="side-by-side form-month">
+                                                    @Html.EditorFor(model => model.PaymentsModel.ExpiryDateM, new { htmlAttributes = new { @class = "form-control", @Placeholder = "MM" } })
+                                                    @Html.ValidationMessageFor(model => model.PaymentsModel.ExpiryDateM, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="side-by-side">
+                                                    @Html.EditorFor(model => model.PaymentsModel.ExpiryDateY, new { htmlAttributes = new { @class = "form-control", @Placeholder = "YY" } })
+                                                    @Html.ValidationMessageFor(model => model.PaymentsModel.ExpiryDateY, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-5">
+                                                @Html.LabelFor(model => model.PaymentsModel.CVCNumber, htmlAttributes: new { @class = "form-label" })
+                                                @Html.EditorFor(model => model.PaymentsModel.CVCNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.PaymentsModel.CVCNumber, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="field-set">
+                                            <label class="form-label">
+                                                <input type="checkbox" id="terms" /> I accept the terms and conditions
+                                            </label>
+                                        </div>
+                                       
+                                        <div class="field-set text-center">
+                                            <input type="button" value="Confirm" id="Pay" class="btn btn-primary btn-large hidden"  />
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+    <script src="/Scripts/jquery.countdown.2.0.1/jquery.plugin.min.js"></script>
+<script src="/Scripts/jquery.countdown.2.0.1/jquery.countdown.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var Time = '@ViewBag.RemainingTime';
+            $(":checkbox").change(function(){
+                if($(this).is(":checked"))
+                {
+                    $('#Pay').removeClass('hidden');
+                }
+                else
+                {
+                    $('#Pay').addClass('hidden');
+                }
+            });
+        
+            if (Time == '0') {
+                window.location.href = "/Games/PaymentFailed";
+
+            }
+               window.futdate = new Date();
+
+                window.expdate = futdate.getTime();
+
+                window.expdate += (Time*1000);
+
+                window.futdate.setTime(expdate);
+
+
+            $("#defaultCountdown2").countdown({ until: futdate , onExpiry: expired });
+            $("#Pay").click(function () {
+                $("#Pay").attr("disabled", true);
+
+                $("#defaultCountdown2").countdown('pause');
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Purchase")',
+                    data: $('form').serialize(),
+
+                    success: function (response) {
+                        var obj = jQuery.parseJSON(response);
+
+                        if (obj.outcome == "APPROVED") {
+                            window.location.href = "/Games/SuccessfulPayment";
+                        }
+                        else if (obj.outcome != "APPROVED" && obj.timeRemaining != "0") {
+                            //if (obj.responsecode != "000" && obj.responsecode != "001" && obj.timeRemaining !="0") {
+                            $("#Pay").attr("disabled", false);
+                            window.futdate = new Date();
+                            window.expdate = futdate.getTime();
+                            window.expdate += (response.remainingTime * 1000);
+                            window.futdate.setTime(expdate);
+                            $("#defaultCountdown2").countdown({ until: futdate, onExpiry: expired });
+                            $("#error-message").html("Your transaction failed. Try Again before the timer runs out!!");
+                            $("#defaultCountdown2").countdown('resume');
+                        }
+                        else if (obj.outcome != "APPROVED" && obj.timeRemaining == "0") {//(obj.responsecode != "000" && obj.responsecode != "001" && obj.timeRemaining =="0") {
+                            window.location.href = "/Games/PaymentFailed";
+                        }
+                       
+
+                    }
+                });
+
+            })
+
+            function expired() {
+
+                window.location.href = "/Games/PaymentFailed";
+                // $('.buy-block').html('<div class="countdown-block denied-block">&nbsp;</div><div class="play-pad"><div class="padded"><h2>You ran out of Time!</h2><div class="submit-time"><img src="../../Content/images/Preloader_2.gif" /></div></div></div>');
+            }
+        });
+
+
+    </script>
+
+}

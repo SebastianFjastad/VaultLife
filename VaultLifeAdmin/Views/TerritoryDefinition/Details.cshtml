@@ -1,0 +1,82 @@
+﻿@model VaultLifeAdmin.Models.TerritoryDefinition
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TerritoryDefinition</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TerritoryDefinitionCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerritoryDefinitionCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipOrPostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipOrPostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IPAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IPAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalCoordinates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalCoordinates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Territory.TerritoryCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Territory.TerritoryCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TerritoryDefinitionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

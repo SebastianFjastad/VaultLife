@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Sold";
+    Layout = "~/Views/Shared/_GameLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <div class="block-one game-block">
+                <div class="block-one-layout">
+                    <div class="left-block sold">
+                        <div id="main-product-view">
+                            <div id="product-info">
+                                <div class="product-header">
+                                    <div class="main-image">
+                                        <img src="http://placehold.it/540x450/E8117F/ffffff" />
+                                    </div>
+                                    <div class="main-info">
+                                        <h1 class="text-uppercase">Bulova Accutron Watch</h1>
+                                        <div class="price">
+                                            <div class="old-price">
+                                                ZAR 40 000
+                                            </div>
+                                            <div class="special-price">
+                                                ZAR <span class="price-value">12 250</span> <div class="status status-tycoon"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-tabs">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+                                        <li><a href="#images" role="tab" data-toggle="tab">Images</a></li>
+                                        <li><a href="#delivery" role="tab" data-toggle="tab">Delivery</a></li>
+                                        <li><a href="#terms" role="tab" data-toggle="tab">T's &amp; C's</a></li>
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="description">
+                                            <p>
+                                                Bacon ipsum dolor sit amet chicken biltong shoulder ground round hamburger. Bresaola tenderloin fatback porchetta shank swine. Swine chicken drumstick turkey boudin. Ham hock chuck pork belly frankfurter ham bacon shank boudin biltong strip steak short ribs. Frankfurter ground round flank pig sirloin.
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane fade" id="images">
+                                            <p>
+                                                Images Pancetta brisket kielbasa tongue bresaola. Pork chop andouille shank, ham ground round meatball pork loin sausage beef jowl tri-tip salami frankfurter fatback ball tip. Tail salami chuck strip steak, ground round flank venison short ribs cow drumstick. Biltong turkey hamburger venison doner corned beef sausage ball tip pork frankfurter bresaola bacon. Frankfurter drumstick flank tongue, t-bone ribeye beef ribs andouille chicken ground round swine sirloin boudin. Turkey tongue tri-tip t-bone filet mignon, sirloin beef ribs ribeye meatball porchetta flank pork chop corned beef short ribs beef.
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane fade" id="delivery">
+                                            <p>
+                                                Pancetta brisket kielbasa tongue bresaola. Pork chop andouille shank, ham ground round meatball pork loin sausage beef jowl tri-tip salami frankfurter fatback ball tip. Tail salami chuck strip steak, ground round flank venison short ribs cow drumstick. Biltong turkey hamburger venison doner corned beef sausage ball tip pork frankfurter bresaola bacon. Frankfurter drumstick flank tongue, t-bone ribeye beef ribs andouille chicken ground round swine sirloin boudin. Turkey tongue tri-tip t-bone filet mignon, sirloin beef ribs ribeye meatball porchetta flank pork chop corned beef short ribs beef.
+                                            </p>
+                                        </div>
+                                        <div class="tab-pane fade" id="terms">
+                                            <p>
+                                                Tenderloin bresaola pork belly, boudin shoulder pork chop turkey bacon strip steak capicola meatball kevin turducken frankfurter. Venison meatloaf tail, jerky prosciutto biltong kielbasa pork belly chicken sirloin. Tenderloin shank beef ribs pancetta boudin jerky turkey rump swine ground round strip steak. Tri-tip pork belly salami, shank ground round bacon beef ribs shankle doner brisket filet mignon shoulder. Beef fatback brisket tri-tip ribeye turducken ham hock venison pork belly meatball.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="access-denied">
+                            <h1>Sold</h1>
+                        </div>
+                        <div class="vault-locked"></div>
+                    </div>
+                    <div class="right-block play-block">
+                        <div class="countdown-block deal-block">
+                            <div class="text">
+                                5 minute deal expires in
+                            </div>
+                            <div id="denied-countdown" class="countdown-canvas"></div>
+                        </div>
+                        <div class="play-pad">
+                            <div class="padded text-left">
+                                <p>
+                                    <strong>Unfortunately you were beaten and the item has been sold!</strong>
+                                </p>
+                                <p>
+                                    But not all is lost. We have a special deal on this or a similar item just for you.
+                                </p>
+                                <p class="text-center">
+                                    <a href="#" class="btn btn-large btn-in-game btn-in-game-blue" id="deal-button">
+                                        5 Minute<br />Deal
+                                    </a>
+                                    <a href="#" class="btn btn-large btn-in-game btn-in-game-orange hidden" id="buy-deal-button">
+                                        Buy Now
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+
+            $('#denied-countdown').countdown({ until: '+5m' });
+
+            //use Bootstrap classes to hide deal-button
+            $('#deal-button').click(function () {
+                //clicking on the deal button changes the ui, as follows
+
+                //Update Price point
+                $('.main-info .price .special-price .price-value').text("25 000");
+
+                //remove sold class to reveal new product price
+                $('.left-block').removeClass('sold');
+
+                //use bootstrap styles to hide deal button
+                $('#deal-button').addClass('hidden');
+
+                //make buy button visible 
+                $('#buy-deal-button').removeClass('hidden');
+            });
+
+                
+
+        });
+    </script>
+
+}

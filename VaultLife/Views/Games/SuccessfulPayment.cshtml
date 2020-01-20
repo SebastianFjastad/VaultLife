@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "SuccessfulPayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <h1 class="text-uppercase"><strong>Congratulations</strong></h1>
+        <p>Your Payment was successful. The item is all yours!</p>
+        <br />
+        <img src="~/Content/Images/successful.png" class="center-block img-responsive" />
+        <p class="small text-center">
+            <br />
+            The item will be delivered to you as per the delivery details.
+        </p>
+        @Html.ActionLink("Return to Homepage", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-large btn-default btn-spaced text-uppercase" })
+        <p>
+            <br />&nbsp;
+        </p>
+    </div>
+</div>
+

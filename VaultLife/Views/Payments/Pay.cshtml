@@ -1,0 +1,147 @@
+﻿@model Vaultlife.ViewModels.UpgradePaymentViewModel
+@{
+    ViewBag.Title = "Upgrade Membership";
+}
+
+<div id="upgrade-payment" >
+    @{if (Model.MembershipSubscriptionCode.Equals("Loving-Life"))
+      { 
+    <div class="row topmargin">
+        <div class="col-sm-4">
+            <img src="~/Content/Images/silver.png" class="img-responsive" alt="Upgrade to Silver!" />
+        </div>
+        <div class="col-sm-8">
+            <h1 class="text-uppercase">Silver Membership</h1>
+            <h2 class="price">ZAR @Model.amount</h2>
+            <p>
+                R @Model.amount for the year secures access to all items in this level as well as the Bronze level.
+                Membership is limited to 3000 members per VAULT allowing you to experience the satisfaction of
+                securing luxury items and experiences from around the world.
+            </p>
+        </div>
+    </div>
+    } }
+    @{if (Model.MembershipSubscriptionCode.Equals("Luxury")) { 
+    <div class="row topmargin">
+        <div class="col-sm-4">
+            <img src="~/Content/Images/gold.png" class="img-responsive" alt="Upgrade to Silver!" />
+        </div>
+        <div class="col-sm-8">
+            <h1 class="text-uppercase">Gold Membership</h1>
+            <h2 class="price">ZAR @Model.amount</h2>
+            <p>
+                Gold status secures access to all items within Gold, Silver and the Bronze levels.
+                Luxury brands, unique experiences and sought after holidays can be secured daily.
+                Membership is limited to 1500 per VAULT.
+            </p>
+        </div>
+    </div>
+    } }
+    @{if (Model.MembershipSubscriptionCode.Equals("Tycoon")) { 
+    <div class="row topmargin">
+        <div class="col-sm-4">
+            <img src="~/Content/Images/platinum.png" class="img-responsive" alt="Upgrade to Platinum!" />
+        </div>
+        <div class="col-sm-8">
+            <h1 class="text-uppercase">Platinum Membership</h1>
+            <h2 class="price">ZAR @Model.amount</h2>
+            <p>
+                Secure one of the coveted 500 positions. Platinum members can play for all items and we have
+                saved the biggest and best for these members, priceless experiences, the world’s finest luxury
+                items and the most sought-after destinations await – so, start packing!
+            </p>
+        </div>
+    </div>  
+    } }
+    <div class="row topmargin">
+        <div class="col-xs-12 col-md-10">
+
+        @using (Html.BeginForm("Pay", "Payments", FormMethod.Post, new { name = "frm", id = "frm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="right-block buy-block">
+                <div id="buy-pad">
+                    <form>
+                        @Html.ValidationMessage("ErrorMessage", new { @class = "text-danger" })
+                        @Html.Hidden("MembershipSubscriptionType", Model.MembershipSubscriptionType)
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="field-set radio-buttons payment-types">
+                                    @Html.LabelFor(model => model.PaymentsModel.CardType, htmlAttributes: new { @class = "form-label" })
+                                    @Html.ValidationMessageFor(model => model.PaymentsModel.CardType, "", new { @class = "text-danger" })
+
+                                    @Html.RadioButtonFor(model => model.PaymentsModel.CardType, "Visa", new { id = "Visa" })
+                                    @Html.Label("Visa", "VISA", htmlAttributes: new { @class = "radio-label" })
+
+                                    @Html.RadioButtonFor(model => model.PaymentsModel.CardType, "MasterCard", new { id = "MasterCard" })
+                                    @Html.Label("Master Card", "MasterCard", htmlAttributes: new { @class = "radio-label" })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="field-set">
+                                    @Html.LabelFor(model => model.PaymentsModel.CardNumber, htmlAttributes: new { @class = "form-label" })
+
+                                    @Html.EditorFor(model => model.PaymentsModel.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.PaymentsModel.CardNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="field-set">
+                                    @Html.LabelFor(model => model.PaymentsModel.NameOnCard, htmlAttributes: new { @class = "form-label" })
+
+                                    @Html.EditorFor(model => model.PaymentsModel.NameOnCard, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.PaymentsModel.NameOnCard, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>                       
+                        
+                        <div class="field-set row">
+                            <div class="col-sm-7">
+                                <label class="form-label">Expiry Date</label>
+
+
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <div class="side-by-side form-month">
+                                            @Html.EditorFor(model => model.PaymentsModel.ExpiryDateM, new { htmlAttributes = new { @class = "form-control", @Placeholder = "MM" } })
+                                            @Html.ValidationMessageFor(model => model.PaymentsModel.ExpiryDateM, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="side-by-side">
+                                            @Html.EditorFor(model => model.PaymentsModel.ExpiryDateY, new { htmlAttributes = new { @class = "form-control", @Placeholder = "YY" } })
+                                            @Html.ValidationMessageFor(model => model.PaymentsModel.ExpiryDateY, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="col-sm-5">
+                                @Html.LabelFor(model => model.PaymentsModel.CVCNumber, htmlAttributes: new { @class = "form-label" })
+                                @Html.EditorFor(model => model.PaymentsModel.CVCNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PaymentsModel.CVCNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="field-set">
+                            <label class="form-label">
+                                <input type="checkbox" id="terms" />&nbsp; I accept the terms and conditions
+                            </label>
+                        </div>
+                        <div class="field-set text-center">
+                            <input type="submit" value="Confirm" id="Pay" class="btn btn-primary btn-in-game btn-large" />
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        }
+        <p>&nbsp;</p>
+    </div>
+
+    </div>
+</div>

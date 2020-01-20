@@ -1,0 +1,74 @@
+﻿@*@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+<style>
+    .col-md-6.col-md-offset-3 {
+        WIDTH: 300px;
+        background-color: rgb(219, 215, 172);
+        padding-left: 20px;
+        padding-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        border: grey 1px solid;
+    }
+</style>
+
+
+
+@using VaultLifeAdmin.Models
+@model VaultLifeAdmin.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+<div class="blue-bar color-bar">
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
+</div>
+<div class="grey-bar color-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                @{using (Html.BeginForm("CheckCredentials", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))  
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="text-center">
+                        <h2>Log in.</h2>
+                        
+                      
+                    </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.username, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.username, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.username, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <input type="submit" value="Log in" class="btn btn-default" />
+                        </div>
+                    </div>
+                } }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

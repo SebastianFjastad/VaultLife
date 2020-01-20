@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessFailedCount" xml:space="preserve">
+    <value>Access Failed Count</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="ActiveIndicator" xml:space="preserve">
+    <value>Active Indicator</value>
+  </data>
+  <data name="AddressID" xml:space="preserve">
+    <value>Address I D</value>
+  </data>
+  <data name="AddressLine1" xml:space="preserve">
+    <value>Address Line1</value>
+  </data>
+  <data name="AddressLine2" xml:space="preserve">
+    <value>Address Line2</value>
+  </data>
+  <data name="AddressLine3" xml:space="preserve">
+    <value>Address Line3</value>
+  </data>
+  <data name="AddressType" xml:space="preserve">
+    <value>Address Type</value>
+  </data>
+  <data name="ASPUserId" xml:space="preserve">
+    <value>A S P User Id</value>
+  </data>
+  <data name="BankingDetailAccountNumber" xml:space="preserve">
+    <value>Banking Detail Account Number</value>
+  </data>
+  <data name="BankingDetailAccountType" xml:space="preserve">
+    <value>Banking Detail Account Type</value>
+  </data>
+  <data name="BankingDetailBank" xml:space="preserve">
+    <value>Banking Detail Bank</value>
+  </data>
+  <data name="BankingDetailBranchCode" xml:space="preserve">
+    <value>Banking Detail Branch Code</value>
+  </data>
+  <data name="BankingDetailBranchName" xml:space="preserve">
+    <value>Banking Detail Branch Name</value>
+  </data>
+  <data name="BankingDetailDefaultReference" xml:space="preserve">
+    <value>Banking Detail Default Reference</value>
+  </data>
+  <data name="ChainGameRuleID" xml:space="preserve">
+    <value>Chain Game Rule I D</value>
+  </data>
+  <data name="ClaimType" xml:space="preserve">
+    <value>Claim Type</value>
+  </data>
+  <data name="ClaimValue" xml:space="preserve">
+    <value>Claim Value</value>
+  </data>
+  <data name="ContactPerson" xml:space="preserve">
+    <value>Contact Person</value>
+  </data>
+  <data name="ContractCode" xml:space="preserve">
+    <value>Contract Code</value>
+  </data>
+  <data name="ContractDetail" xml:space="preserve">
+    <value>Contract Detail</value>
+  </data>
+  <data name="ContractID" xml:space="preserve">
+    <value>Contract I D</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CountryID" xml:space="preserve">
+    <value>Country I D</value>
+  </data>
+  <data name="CountryName" xml:space="preserve">
+    <value>Country Name</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="DateFrom" xml:space="preserve">
+    <value>Date From</value>
+  </data>
+  <data name="DateInserted" xml:space="preserve">
+    <value>Date Inserted</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date Of Birth</value>
+  </data>
+  <data name="DateTo" xml:space="preserve">
+    <value>Date To</value>
+  </data>
+  <data name="DateUpdated" xml:space="preserve">
+    <value>Date Updated</value>
+  </data>
+  <data name="DateUsed" xml:space="preserve">
+    <value>Date Used</value>
+  </data>
+  <data name="definition" xml:space="preserve">
+    <value>definition</value>
+  </data>
+  <data name="DeleteOnSave" xml:space="preserve">
+    <value>Delete On Save</value>
+  </data>
+  <data name="DeliveryAgentName" xml:space="preserve">
+    <value>Delivery Agent Name</value>
+  </data>
+  <data name="DeliveryAgentReferenceNumber" xml:space="preserve">
+    <value>Delivery Agent Reference Number</value>
+  </data>
+  <data name="diagram_id" xml:space="preserve">
+    <value>diagram_id</value>
+  </data>
+  <data name="DisplayItemID" xml:space="preserve">
+    <value>Display Item I D</value>
+  </data>
+  <data name="DisplayItemType" xml:space="preserve">
+    <value>Display Item Type</value>
+  </data>
+  <data name="DisplayItemURL" xml:space="preserve">
+    <value>Display Item U R L</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="EmailConfirmed" xml:space="preserve">
+    <value>Email Confirmed</value>
+  </data>
+  <data name="Ethnicity" xml:space="preserve">
+    <value>Ethnicity</value>
+  </data>
+  <data name="EventCode" xml:space="preserve">
+    <value>Event Code</value>
+  </data>
+  <data name="EventDate" xml:space="preserve">
+    <value>Event Date</value>
+  </data>
+  <data name="EventDescription" xml:space="preserve">
+    <value>Event Description</value>
+  </data>
+  <data name="EventID" xml:space="preserve">
+    <value>Event I D</value>
+  </data>
+  <data name="EventName" xml:space="preserve">
+    <value>Event Name</value>
+  </data>
+  <data name="ExclusiveIndicator" xml:space="preserve">
+    <value>Exclusive Indicator</value>
+  </data>
+  <data name="FilterCriteria" xml:space="preserve">
+    <value>Filter Criteria</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="GameCode" xml:space="preserve">
+    <value>Game Code</value>
+  </data>
+  <data name="GameDescription" xml:space="preserve">
+    <value>Game Description</value>
+  </data>
+  <data name="GameID" xml:space="preserve">
+    <value>Game I D</value>
+  </data>
+  <data name="GameName" xml:space="preserve">
+    <value>Game Name</value>
+  </data>
+  <data name="GameRuleCode" xml:space="preserve">
+    <value>Game Rule Code</value>
+  </data>
+  <data name="GameRuleDetail" xml:space="preserve">
+    <value>Game Rule Detail</value>
+  </data>
+  <data name="GameRuleID" xml:space="preserve">
+    <value>Game Rule I D</value>
+  </data>
+  <data name="GameScheduleCode" xml:space="preserve">
+    <value>Game Schedule Code</value>
+  </data>
+  <data name="GameScheduleID" xml:space="preserve">
+    <value>Game Schedule I D</value>
+  </data>
+  <data name="GameTemplateCode" xml:space="preserve">
+    <value>Game Template Code</value>
+  </data>
+  <data name="GameTemplateID" xml:space="preserve">
+    <value>Game Template I D</value>
+  </data>
+  <data name="GameTypeCode" xml:space="preserve">
+    <value>Game Type Code</value>
+  </data>
+  <data name="GameTypeDescription" xml:space="preserve">
+    <value>Game Type Description</value>
+  </data>
+  <data name="GameTypeID" xml:space="preserve">
+    <value>Game Type I D</value>
+  </data>
+  <data name="GameTypeName" xml:space="preserve">
+    <value>Game Type Name</value>
+  </data>
+  <data name="GameTypeOwnedCode" xml:space="preserve">
+    <value>Game Type Owned Code</value>
+  </data>
+  <data name="GameTypeOwnedID" xml:space="preserve">
+    <value>Game Type Owned I D</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="IdentityType" xml:space="preserve">
+    <value>Identity Type</value>
+  </data>
+  <data name="InteractionTypeCode" xml:space="preserve">
+    <value>Interaction Type Code</value>
+  </data>
+  <data name="InteractionTypeDescription" xml:space="preserve">
+    <value>Interaction Type Description</value>
+  </data>
+  <data name="InteractionTypeID" xml:space="preserve">
+    <value>Interaction Type I D</value>
+  </data>
+  <data name="InteractionTypeName" xml:space="preserve">
+    <value>Interaction Type Name</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>I P Address</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="LockoutEnabled" xml:space="preserve">
+    <value>Lockout Enabled</value>
+  </data>
+  <data name="LockoutEndDateUtc" xml:space="preserve">
+    <value>Lockout End Date Utc</value>
+  </data>
+  <data name="LoginProvider" xml:space="preserve">
+    <value>Login Provider</value>
+  </data>
+  <data name="MemberAcquisitionCampaignCode" xml:space="preserve">
+    <value>Member Acquisition Campaign Code</value>
+  </data>
+  <data name="MemberAcquisitionCampaignDescription" xml:space="preserve">
+    <value>Member Acquisition Campaign Description</value>
+  </data>
+  <data name="MemberAcquisitionCampaignID" xml:space="preserve">
+    <value>Member Acquisition Campaign I D</value>
+  </data>
+  <data name="MemberAcquisitionCampaignName" xml:space="preserve">
+    <value>Member Acquisition Campaign Name</value>
+  </data>
+  <data name="MemberAtEventID" xml:space="preserve">
+    <value>Member At Event I D</value>
+  </data>
+  <data name="MemberID" xml:space="preserve">
+    <value>Member I D</value>
+  </data>
+  <data name="MemberInGameID" xml:space="preserve">
+    <value>Member In Game I D</value>
+  </data>
+  <data name="MemberInterestID" xml:space="preserve">
+    <value>Member Interest I D</value>
+  </data>
+  <data name="MemberOwnedID" xml:space="preserve">
+    <value>Member Owned I D</value>
+  </data>
+  <data name="MemberSubscriptionTypeCode" xml:space="preserve">
+    <value>Member Subscription Type Code</value>
+  </data>
+  <data name="MemberSubscriptionTypeDescription" xml:space="preserve">
+    <value>Member Subscription Type Description</value>
+  </data>
+  <data name="MemberSubscriptionTypeID" xml:space="preserve">
+    <value>Member Subscription Type I D</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NextGameID" xml:space="preserve">
+    <value>Next Game I D</value>
+  </data>
+  <data name="OwnerCode" xml:space="preserve">
+    <value>Owner Code</value>
+  </data>
+  <data name="OwnerID" xml:space="preserve">
+    <value>Owner I D</value>
+  </data>
+  <data name="OwnerName" xml:space="preserve">
+    <value>Bobs Name</value>
+  </data>
+  <data name="OwnerType" xml:space="preserve">
+    <value>Owner Type</value>
+  </data>
+  <data name="PasswordHash" xml:space="preserve">
+    <value>Password Hash</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="PhoneNumberConfirmed" xml:space="preserve">
+    <value>Phone Number Confirmed</value>
+  </data>
+  <data name="PhysicalCoordinates" xml:space="preserve">
+    <value>Physical Coordinates</value>
+  </data>
+  <data name="principal_id" xml:space="preserve">
+    <value>principal_id</value>
+  </data>
+  <data name="ProductCategoryCode" xml:space="preserve">
+    <value>Product Category Code</value>
+  </data>
+  <data name="ProductCategoryDescription" xml:space="preserve">
+    <value>Product Category Description</value>
+  </data>
+  <data name="ProductCategoryID" xml:space="preserve">
+    <value>Product Category I D</value>
+  </data>
+  <data name="ProductCategoryName" xml:space="preserve">
+    <value>Product Category Name</value>
+  </data>
+  <data name="ProductDescription" xml:space="preserve">
+    <value>Product Description</value>
+  </data>
+  <data name="ProductID" xml:space="preserve">
+    <value>Product I D</value>
+  </data>
+  <data name="ProductInCategoryID" xml:space="preserve">
+    <value>Product In Category I D</value>
+  </data>
+  <data name="ProductInGameID" xml:space="preserve">
+    <value>Product In Game I D</value>
+  </data>
+  <data name="ProductInWatchListID" xml:space="preserve">
+    <value>Product In Watch List I D</value>
+  </data>
+  <data name="ProductLocationID" xml:space="preserve">
+    <value>Product Location I D</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="ProductPlayedID" xml:space="preserve">
+    <value>Product Played I D</value>
+  </data>
+  <data name="ProductSKUCode" xml:space="preserve">
+    <value>Product S K U Code</value>
+  </data>
+  <data name="ProviderKey" xml:space="preserve">
+    <value>Provider Key</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="RenewalDate" xml:space="preserve">
+    <value>Renewal Date</value>
+  </data>
+  <data name="RoleId" xml:space="preserve">
+    <value>Role Id</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="ScheduledDateTime" xml:space="preserve">
+    <value>Scheduled Date Time</value>
+  </data>
+  <data name="SecurityStamp" xml:space="preserve">
+    <value>Security Stamp</value>
+  </data>
+  <data name="SequenceNumber" xml:space="preserve">
+    <value>Sequence Number</value>
+  </data>
+  <data name="Serial" xml:space="preserve">
+    <value>Serial</value>
+  </data>
+  <data name="SerialNumberID" xml:space="preserve">
+    <value>Serial Number I D</value>
+  </data>
+  <data name="StateID" xml:space="preserve">
+    <value>State I D</value>
+  </data>
+  <data name="StateName" xml:space="preserve">
+    <value>State Name</value>
+  </data>
+  <data name="StateOrProvince" xml:space="preserve">
+    <value>State Or Province</value>
+  </data>
+  <data name="TelephoneHome" xml:space="preserve">
+    <value>Telephone Home</value>
+  </data>
+  <data name="TelephoneMobile" xml:space="preserve">
+    <value>Telephone Mobile</value>
+  </data>
+  <data name="TelephoneOffice" xml:space="preserve">
+    <value>Telephone Office</value>
+  </data>
+  <data name="TerritoryCode" xml:space="preserve">
+    <value>Territory Code</value>
+  </data>
+  <data name="TerritoryDefinitionCode" xml:space="preserve">
+    <value>Territory Definition Code</value>
+  </data>
+  <data name="TerritoryDefinitionID" xml:space="preserve">
+    <value>Territory Definition I D</value>
+  </data>
+  <data name="TerritoryDescription" xml:space="preserve">
+    <value>Territory Description</value>
+  </data>
+  <data name="TerritoryID" xml:space="preserve">
+    <value>Territory I D</value>
+  </data>
+  <data name="TerritoryName" xml:space="preserve">
+    <value>Territory Name</value>
+  </data>
+  <data name="TwoFactorEnabled" xml:space="preserve">
+    <value>Two Factor Enabled</value>
+  </data>
+  <data name="Used" xml:space="preserve">
+    <value>Used</value>
+  </data>
+  <data name="UserId" xml:space="preserve">
+    <value>User Id</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="USR" xml:space="preserve">
+    <value>U S R</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>version</value>
+  </data>
+  <data name="VoucherID" xml:space="preserve">
+    <value>Voucher I D</value>
+  </data>
+  <data name="VoucherNumber" xml:space="preserve">
+    <value>Voucher Number</value>
+  </data>
+  <data name="WebsiteInteractionID" xml:space="preserve">
+    <value>Website Interaction I D</value>
+  </data>
+  <data name="ZipOrPostalCode" xml:space="preserve">
+    <value>Zip Or Postal Code</value>
+  </data>
+  <data name="HomePageSubHeader1" xml:space="preserve">
+    <value>FRENCH!</value>
+  </data>
+  <data name="HomePageSubHeader1Content" xml:space="preserve">
+    <value>Welcome to the Future of Online marketing, Smartphones, Gaming, Shopping, Advertising and Social Interaction.
+            VaultLife is the platform to access some of the coolest items, once in a life experiences, and top luxury products starting at 1$ and reaching discounts of 70% off!
+            All you need to do is play the game and be the fastest finger!
+            Get ready to play your way to an experience of a lifetime!</value>
+  </data>
+  <data name="HomePageSubHeader2" xml:space="preserve">
+    <value>What’s the catch?</value>
+  </data>
+  <data name="HomePageSubHeader2Content" xml:space="preserve">
+    <value>If you don’t play you can’t win!
+            VaultLife is not just a game but an amazing online shopping portal available to you 24/7 where you can get exclusive products and experiences at the touch of a button. Anything from the most incredible travel experiences to the most prestigious brands in the world.
+            VaultLife has made the internet fun again!
+            Whether you are a member engaging or a company wanting to expose your product and brand in the vault, you will be blown away at the power and reach of VaultLife</value>
+  </data>
+  <data name="HomePageSubHeader3" xml:space="preserve">
+    <value>Playing for an item</value>
+  </data>
+  <data name="HomePageSubHeader3Content" xml:space="preserve">
+    <value>The Play area is on the Home Page; all items scheduled for today will be listed on this page.
+
+When the game begins the item status will change to ACTIVE Play Now. This part of the game lasts 3 minutes, for members to join the game.
+
+Then the 3 minute countdown reaches 0, the BUY IT button will appear. Now click the Buy it button as fast as you can, the Timekeeper will evaluate all the players click times. The player who clicked the BUY IT button the fastest is the winner and will be taken through to the official and secure payment portal where they will have a maximum of 1 minute and 45 seconds with which to enter their credit card details correctly in order to secure payment for the item.</value>
+  </data>
+  <data name="AgeGroup" xml:space="preserve">
+    <value>Age Group</value>
+  </data>
+  <data name="AvailableSOH" xml:space="preserve">
+    <value>AvailableSOH</value>
+  </data>
+  <data name="SOH" xml:space="preserve">
+    <value>Stock On Hand</value>
+  </data>
+  <data name="IsExclusive" xml:space="preserve">
+    <value>IsExclusive</value>
+  </data>
+  <data name="CurrencyCode" xml:space="preserve">
+    <value>Currency Code</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="CurrencyID" xml:space="preserve">
+    <value>CurrencyID</value>
+  </data>
+  <data name="CurrencySymbol" xml:space="preserve">
+    <value>Currency Symbol</value>
+  </data>
+</root>

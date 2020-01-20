@@ -1,0 +1,98 @@
+﻿@model IEnumerable<VaultLifeAdmin.Models.Game>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "../GamesAdmin/Create")
+    <a class="Save" href="./StartAll">Start All Games</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameDescription)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.GameType.GameTypeCode)
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameDescription)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.GameType.GameTypeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextGame.USR)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditMakeGame", new { id=item.GameID }) <br /><!--<input type="button" id="@item.GameID" value="Start Game" class="btn btn-default Save" />-->
+@if (item.GameTypeID != 2)
+{ @Html.ActionLink("Add Members", "../MembersInGames", new { GameID = item.GameID }) <br />
+           <!-- Html.ActionLink("Start Game", null, new { GameID=item.GameID } , htmlAttributes: new { class = "Save" })-->
+          <a class="Save" href="#" id="@item.GameID">Start Game</a>}
+     
+        </td>
+    </tr>
+   }
+
+</table>
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.Save').click(function () {
+                var x = this.id;
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("StartGamego")',
+                    data: { GameID: this.id },
+                    success: function () {
+                        alert('Game' + x + ' has been started.');
+                        //document.location.href = '/Home/Loggedin/';
+                    }
+                });
+            });
+
+            $('.AddMember').click(function () {
+                var x = this.id;
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("../MembersInGames")',
+                    data: { GameID: this.id },
+                    success: function () {
+                        alert('Game' + x + ' has been started.');
+                        //document.location.href = '/Home/Loggedin/';
+                    }
+                });
+            });
+
+                });
+       
+    </script>
+}

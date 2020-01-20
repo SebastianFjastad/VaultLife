@@ -1,0 +1,35 @@
+﻿@model Vaultlife.Models.DisplayItem
+
+@{
+    ViewBag.Title = "Details";
+    var str = String.Format("/Image?imageId={0}", Model.ImageID);
+
+}
+
+
+@Html.HiddenFor(model => model.DisplayItemID)
+@Html.HiddenFor(model => model.DisplayItemType)
+@Html.HiddenFor(model => model.ProductID)
+@Html.HiddenFor(model => model.DisplayItemURL)
+<tr>
+    <td>
+        <img src=@str style="width:50px" />
+    </td>
+    <td>@Model.DisplayItemURL</td>
+   <td>
+        <div class="checkbox">
+            @Html.EditorFor(model => model.Active)
+            @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+        </div>
+    </td>
+    <td>
+        <div class="checkbox">
+            @Html.EditorFor(model => model.DeleteOnSave)
+            @Html.ValidationMessageFor(model => model.DeleteOnSave, "", new { @class = "text-danger" })
+        </div>
+    </td>
+   
+
+
+</tr>
+

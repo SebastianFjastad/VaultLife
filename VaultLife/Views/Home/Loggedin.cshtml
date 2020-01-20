@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Loggedin";
+}
+
+
+<div class="product-strip" id="similar-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-uppercase text-center">
+                    Games you can <strong>Play</strong>
+                </h2>
+
+                <div class="product-set">
+                    @foreach (var item in Model)
+                    {
+                        <div class="product product-4">
+                            <a href="/Games/PlayGame/?GameID=@item.GameID" class="product-block" style="background-image: url('/Image?imageId=@item.ImageID');">
+                                <div class="product-info">
+                                    <div class="product-name">@item.ProductName</div>
+                                    <div class="old-price"> ZAR 40 000 </div>
+                                    <div class="price">
+                                        ZAR @item.PriceInGame
+                                    </div>
+                                    <div class="meta-tags">
+                                        <div class="status status-tycoon"></div>
+                                        <div class="flag"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

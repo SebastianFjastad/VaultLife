@@ -1,0 +1,348 @@
+﻿
+@{
+    ViewBag.Title = "ViewProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <br />
+    <div class="row" id="main-product-view">
+        <div class="col-md-6">  
+            <div class="carousel-canvas">
+                <div id="mainCarousel" class="carousel slide" data-interval="6000">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="http://placehold.it/540x450/E8117F/ffffff" alt="sample product image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/540x450/336699/ffffff" alt="sample product image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/540x450/cc0000/ffffff" alt="sample product image" />
+                        </div>
+                        <div class="item">
+                            <img src="http://placehold.it/540x450/336611/ffffff" alt="sample product image" />
+                        </div>
+                    </div>
+                    <a class="carousel-control left" href="#mainCarousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="carousel-control right" href="#mainCarousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    <ol class="carousel-indicators">
+                        <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#mainCarousel" data-slide-to="1"></li>
+                        <li data-target="#mainCarousel" data-slide-to="2"></li>
+                        <li data-target="#mainCarousel" data-slide-to="3"></li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6" id="product-info">
+            <h1 class="text-uppercase">Bulova Accutron Watch</h1>
+            <div class="price">
+                <div class="old-price">
+                    ZAR 40 000
+                </div>
+                <div class="special-price">
+                    ZAR 12 250 <div class="status status-tycoon"></div>
+                </div>
+            </div>
+            <div class="info-tabs">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+                    <li><a href="#delivery" role="tab" data-toggle="tab">Delivery</a></li>
+                    <li><a href="#terms" role="tab" data-toggle="tab">T's &amp; C's</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="description">
+                        <p>
+                            Bacon ipsum dolor sit amet chicken biltong shoulder ground round hamburger. Bresaola tenderloin fatback porchetta shank swine. Swine chicken drumstick turkey boudin. Ham hock chuck pork belly frankfurter ham bacon shank boudin biltong strip steak short ribs. Frankfurter ground round flank pig sirloin.
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="delivery">
+                        <p>
+                            Pancetta brisket kielbasa tongue bresaola. Pork chop andouille shank, ham ground round meatball pork loin sausage beef jowl tri-tip salami frankfurter fatback ball tip. Tail salami chuck strip steak, ground round flank venison short ribs cow drumstick. Biltong turkey hamburger venison doner corned beef sausage ball tip pork frankfurter bresaola bacon. Frankfurter drumstick flank tongue, t-bone ribeye beef ribs andouille chicken ground round swine sirloin boudin. Turkey tongue tri-tip t-bone filet mignon, sirloin beef ribs ribeye meatball porchetta flank pork chop corned beef short ribs beef.
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="terms">
+                        <p>
+                            Tenderloin bresaola pork belly, boudin shoulder pork chop turkey bacon strip steak capicola meatball kevin turducken frankfurter. Venison meatloaf tail, jerky prosciutto biltong kielbasa pork belly chicken sirloin. Tenderloin shank beef ribs pancetta boudin jerky turkey rump swine ground round strip steak. Tri-tip pork belly salami, shank ground round bacon beef ribs shankle doner brisket filet mignon shoulder. Beef fatback brisket tri-tip ribeye turducken ham hock venison pork belly meatball.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <div class="actions-left">
+                    <a href="#" class="btn btn-default btn-black">
+                        <i class="fa fa-star"></i> Add to My VAULT
+                    </a>
+                </div>
+                <div class="actions-right">
+                    <a href="#" class="btn btn-default btn-grey">Back</a>
+                    <a href="#" class="btn btn-default btn-white">Product Website</a>
+                </div>
+            </div>
+            <div class="big-actions">
+                <div class="unlocks-in">
+                    This item unlocks in:
+                    <div id="unlockCountdown" class="countdown-canvas countdown-green"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12" id="added-to-vaults">
+            <br />These members have added this to their VAULT:
+            <div class="members-list">
+                <div class="member"></div>
+                <div class="member"></div>
+                <div class="member"></div>
+                <div class="member"></div>
+                <div class="member"></div>
+                <div class="member"></div>
+                <div class="member"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product-strip" id="similar-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-uppercase text-center">
+                    Similar <strong>Items</strong>
+                </h2>
+                <div class="product-carousel">
+                    <div class="carousel slide" id="life-carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="product-set">
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product product-4">
+                                        <a href="#" class="product-block" style="background-image: url('http://placehold.it/540x450/E8117F/ffffff');">
+                                            <div class="product-info">
+                                                <div class="product-name">Silverseas Cruise</div>
+                                                <div class="old-price"> ZAR 40 000 </div>
+                                                <div class="price">
+                                                    ZAR 12 250
+                                                </div>
+                                                <div class="meta-tags">
+                                                    <div class="status status-tycoon"></div>
+                                                    <div class="flag"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#life-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control right" href="#life-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ol class="carousel-indicators clearfix">
+                            <li data-target="#life-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#life-carousel" data-slide-to="1"></li>
+                            <li data-target="#life-carousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Views/Shared/_FeaturedBrandsPartial.cshtml")
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            //required for carousel
+            $('.carousel').carousel('pause');
+
+            $('#unlockCountdown').countdown({ until: "+12h36m12s" });
+
+        });
+    </script>
+}

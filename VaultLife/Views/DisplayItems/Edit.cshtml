@@ -1,0 +1,56 @@
+﻿@model Vaultlife.Models.DisplayItem
+
+@{
+    ViewBag.Title = "Details";
+    var str = String.Format("../../Content/ProductImages/{0}", Model.DisplayItemURL.Replace(" ", "%20"));
+
+}
+
+<img src=@str style="width:20%" />
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <div class="checkbox">
+            @Html.EditorFor(model => model.Active)
+            @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>
+
+<h2>Details</h2>
+
+<div>
+    <h4>DisplayItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayItemType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplayItemType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayItemURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplayItemURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductSKUCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductSKUCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

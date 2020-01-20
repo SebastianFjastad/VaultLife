@@ -1,0 +1,106 @@
+﻿@model VaultLifeAdmin.Models.GameRule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GameRule</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameRuleCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameRuleCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilterCriteria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilterCriteria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChainGameRuleID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChainGameRuleID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameRuleDetail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameRuleDetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExcecuteTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExcecuteTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInserted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInserted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Game.GameCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Game.GameCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameTemplate.GameTemplateCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameTemplate.GameTemplateCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GameRuleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

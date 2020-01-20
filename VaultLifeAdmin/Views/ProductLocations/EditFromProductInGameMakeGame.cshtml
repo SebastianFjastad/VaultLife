@@ -1,0 +1,143 @@
+﻿@model VaultLifeAdmin.ViewModels.ProductLocationViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>ProductLocation</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ProductLocation.ProductLocationID)
+        @Html.HiddenFor(model => model.ProductLocation.ProductInGameID)
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductLocation.ProductInGameID, "ProductInGameID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               <label>@Model.ProductLocation.ProductInGame.Game.GameCode</label>
+                <label>@Model.ProductLocation.ProductInGame.Product.ProductName</label>
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductLocation.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProductLocation.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductLocation.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductLocation.DeliveryAgentName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProductLocation.DeliveryAgentName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductLocation.DeliveryAgentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductLocation.DateInserted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.ProductLocation.DateInserted)
+                @Html.DisplayFor(model => model.ProductLocation.DateInserted, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductLocation.DateInserted, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductLocation.DateUpdated, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.ProductLocation.DateUpdated)
+                @Html.DisplayFor(model => model.ProductLocation.DateUpdated, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductLocation.DateUpdated, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductLocation.USR, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.ProductLocation.USR)
+                @Html.DisplayFor(model => model.ProductLocation.USR, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductLocation.USR, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <h3>Vouchers (optional)</h3>
+       @Html.ActionLink("+ Create New Voucher", "CreateForProductLocationMakeGame", "Vouchers", new { productLocationID = @Model.ProductLocation.ProductLocationID }, null) <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+
+                    <th>
+                        Voucher Number
+                    </th>
+                    <th>
+                        Product Location
+                    </th>
+                    <th>
+                        Used
+                    </th>
+                    <th>
+                        DateInserted
+                    </th>
+                    <th>DateUsed</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.EditorFor(model => model.ProductLocation.Vouchers)
+
+            </tbody>
+
+        </table>
+
+        <h3>Serial Numbers (optional)</h3>
+        @Html.ActionLink("+ Create New Serial Number", "CreateForProductLocationMakeGame", "SerialNumbers", new { productLocationID = @Model.ProductLocation.ProductLocationID }, null)
+        <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+
+                    <th>
+                        Serial Number
+                    </th>
+                    <th>
+                        Product Location
+                    </th>
+                    <th>
+                        Used
+                    </th>
+                    <th>
+                        DateInserted
+                    </th>
+                    <th>DateUsed</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.EditorFor(model => model.ProductLocation.SerialNumbers)
+
+            </tbody>
+
+        </table>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

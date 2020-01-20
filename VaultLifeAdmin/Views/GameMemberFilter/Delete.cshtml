@@ -1,0 +1,88 @@
+﻿@model VaultLifeAdmin.Models.GameMemberFilter
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GameMemberFilter</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StateID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StateID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeBandID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeBandID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenderID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Territory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Territory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberSubscriptionTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberSubscriptionTypeID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

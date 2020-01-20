@@ -1,0 +1,3 @@
+﻿@model DateTime?
+@*<div class="display-label"><strong>@Html.LabelFor(model => model)</strong></div>*@
+<div class="display-field">@Html.Encode(Model.HasValue ? Model.Value.ToString("yyyy-MM-dd") : string.Empty)</div>

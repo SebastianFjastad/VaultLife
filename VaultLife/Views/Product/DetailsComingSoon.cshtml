@@ -1,0 +1,305 @@
+﻿@model Vaultlife.ViewModels.ProductDisplayViewModel
+
+@{
+
+    ViewBag.Title = "Coming Soon Product Details";
+    Vaultlife.Models.Member member = new Vaultlife.Models.Member();
+    string AddToWatchListLink = "";
+    string GameLink = "";
+    string ProductWebsiteLink = "";
+    int ImageCounter = 0;
+    int otherCounter = 0;
+
+}
+
+<div class="container">
+    <form id="GameForm" action="/Games/PlayGame/" method="Post">
+        <input type="Hidden" name="GameID" id="GameID" value="">
+    </form>
+    <br />
+    @Html.HiddenFor(model => model.GameScheduleStartJquery)
+    <div class="row" id="main-product-view">
+        <div class="col-md-6">
+            <div class="carousel-canvas">
+                <div id="mainCarousel" class="carousel slide" data-interval="6000">
+                    <div class="carousel-inner">
+
+                        @foreach (var item in Model.images)
+                        {
+                            string src = String.Format("/Image?imageId={0}", item.ImageID);
+
+                            if (ImageCounter == 0)
+                            {
+                                <div class="item active">
+                                    <img src="@src" alt="Product Image" />
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="item">
+                                    <img src="@src" alt="Product Image" />
+                                </div>
+                            }
+                            ImageCounter++;
+
+                        }
+
+                    </div>
+                    <a class="carousel-control left" href="#mainCarousel" data-slide="prev">
+                        <span class="circle">
+                            <i class="fa fa-angle-left"></i>
+                        </span>
+                        <span class="labelled">Previous</span>
+                    </a>
+                    <a class="carousel-control right" href="#mainCarousel" data-slide="next">
+                        <span class="labelled">Next</span>
+                        <span class="circle">
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                    </a>
+                    <ol class="carousel-indicators">
+                        <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+                        @for (int x = 1; x < ImageCounter; x++)
+                        {
+                            <li data-target="#mainCarousel" data-slide-to="@x"></li>
+                        }
+
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6" id="product-info">
+            &nbsp;<br class="visible-sm visible-xs" /><br class="visible-sm visible-xs" /><br class="visible-sm visible-xs" />
+            <h1 class="text-uppercase">@Html.DisplayFor(model => model.Product.ProductName)</h1>
+            <div class="price">
+                <div class="old-price">
+                    @Html.DisplayFor(model => model.CurrentProductInGame.Currency.CurrencyCode)
+                    @Html.DisplayFor(model => model.CurrentProductInGame.ReferencePrice)
+                </div>
+                <div class="special-price">
+                    @Html.DisplayFor(model => model.CurrentProductInGame.Currency.CurrencyCode)
+                    @Html.DisplayFor(model => model.CurrentProductInGame.PriceInGame)
+
+                    @if (Model.game.NextGameID != null)
+                    {
+                        <div class="fivemin-deal">
+                            <img src="~/Content/Images/5min-deal-sm.png" alt="5 minute deal" />
+                        </div>
+                    }
+                    <div class="status status-@Model.MembershipSubscriptionTypeDescription.MemberSubscriptionTypeDescription.ToLower()"></div>
+                    <div class="flag">
+                        <img src="~/Content/Images/flags/world.png" alt="World" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="info-tabs">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+                    <li><a href="#delivery" role="tab" data-toggle="tab">Delivery</a></li>
+                    <li><a href="#terms" role="tab" data-toggle="tab">T&amp;C's</a></li>
+                    <li><a href="#fivemindeal" class="fivemintab" role="tab" data-toggle="tab">5 Min Deal</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="description">
+                        <p>@Model.Product.ProductDescription;</p>
+                    </div>
+                    <div class="tab-pane fade" id="delivery">
+                        <p>
+                            <ul>
+                                @foreach (var location in Model.CurrentProductInGame.ProductLocations)
+                                {
+                                    <li>@location.Address - @location.DeliveryAgentName</li>
+                                }
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="terms">
+                        <p>
+                            @Model.Product.terms
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="fivemindeal">
+                        <h3>ZAR 250</h3>
+                        <div class="tagline">Experience the thrill of a unique driving experience, exclusive use of facilities!</div>
+                        <h4>5 Minute Deal Terms and Conditions</h4>
+                        <p>
+                            Tenderloin bresaola pork belly, boudin shoulder pork chop turkey bacon strip steak capicola meatball kevin turducken frankfurter. Venison meatloaf tail, jerky prosciutto biltong kielbasa pork belly chicken sirloin. Tenderloin shank beef ribs pancetta boudin jerky turkey rump swine ground round strip steak. Tri-tip pork belly salami, shank ground round bacon beef ribs shankle doner brisket filet mignon shoulder. Beef fatback brisket tri-tip ribeye turducken ham hock venison pork belly meatball.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons">
+
+                <div class="actions-left">
+                    @if (Model.LoggedInMemberID != 0)
+                    {
+                        if (!Model.IsInMyWatchList)
+                        {
+                            AddToWatchListLink = "../../GameInWatchLists/AddToWatchList?GameID=" + Model.game.GameID;
+                            @*<img alt="In Watch List" src="~/Content/Images/plus-7-32.png" />*@
+                            @*@Html.ActionLink("Add To WatchList", "AddToWatchList", "ProductInWatchLists", new { ProductID = Model.Product.ProductID, FromWhere = "detail" }, null)*@
+                            <a href="@AddToWatchListLink" class="btn btn-default btn-black">
+                                <i class="fa fa-star"></i> Add to My VAULT
+                            </a>
+                        }
+                        else
+                        {
+                            AddToWatchListLink = "../../GameInWatchLists/RemoveFromWatchList?GameID=" + Model.game.GameID;
+                            GameLink = "../../Games//PlayGame/?GameID=" + Model.game.GameID;
+                            @*<img alt="In Watch List" src="~/Content/Images/star-32.png" />*@
+                            @*@Html.ActionLink("Remove From WatchList", "RemoveFromWatchList", "ProductInWatchLists", new { ProductID = Model.Product.ProductID, FromWhere = "detail" }, null)*@
+                            <a href="@AddToWatchListLink" class="btn btn-default btn-black">
+                                <i class="fa fa-star"></i> Remove from My VAULT
+                            </a>
+                            <a href="#" onclick="populate(@Model.game.GameID); return false;" style="visibility:hidden" id="goToGameLink" class="btn btn-default btn-black"><i class="fa fa-star"></i> Go To Game</a>
+                        }
+                    }
+
+                </div>
+                <div class="actions-right">
+                    <a href="../../Home" class="btn btn-default btn-grey">Back</a>
+                    @if (Model.Product.link != null)
+                    {
+                        ProductWebsiteLink = Model.Product.link;
+                    }
+                    else
+                    {
+                        ProductWebsiteLink = "#";
+
+                    }
+                    <a href="@ProductWebsiteLink" class="btn btn-default btn-white" target="_blank">Product Website</a>
+                </div>
+            </div>
+            <div class="big-actions">
+                <div class="unlocks-in">
+                    This item unlocks in:
+                    <div id="unlockCountdown" class="countdown-canvas countdown-green"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    @{
+        string noOtherItems = "";
+        var totalDisplayItems = Model.otherGames.Count();
+        if (totalDisplayItems < 1)
+        {
+            noOtherItems = "hidden";
+        }
+    }
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-xs-12 text-center @noOtherItems">
+            <h2 class="text-uppercase">Other <strong><span class="text-@Model.MembershipSubscriptionTypeDescription.MemberSubscriptionTypeDescription.ToLower()">@Model.MembershipSubscriptionTypeDescription.MemberSubscriptionTypeDescription</span> Items</strong></h2>
+            <div class="product-strip product-strip-other">
+                <div class="product-carousel product-carousel-other">
+                    <div class="carousel slide" id="other-products-carousel">
+                        <div class="carousel-inner">
+                            @foreach (var GameItem in Model.otherGames)
+                            {
+                                if (otherCounter % 10 == 0)
+                                {
+                                    if (otherCounter == 0)
+                                    {
+                                        @Html.Raw("<div class=\"item active\">");
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw("<div class=\"item\">");
+                                    }
+                                }
+                                <a class="product" href="@String.Format("/Product/DetailsComingSoon/{0}", GameItem.gameID)">
+                                    <img src='@String.Format("/Image?imageId={0}",GameItem.imageID)' />
+                                </a>
+
+                                if (otherCounter % 10 == 9)
+                                {
+                                    @Html.Raw("</div>");
+
+                                }
+                                otherCounter++;
+                            }
+
+
+
+                        </div>
+                        @{
+                            var itemsPerSlide = 10;
+                            if (totalDisplayItems > itemsPerSlide)
+                            {
+
+                                <a class="carousel-control left" href="#other-products-carousel" data-slide="prev">
+                                    <span class="circle">
+                                        <i class="fa fa-angle-left"></i>
+                                    </span>
+                                    <span class="labelled">Previous</span>
+                                </a>
+                                <a class="carousel-control right" href="#other-products-carousel" data-slide="next">
+                                    <span class="labelled">Next</span>
+                                    <span class="circle">
+                                        <i class="fa fa-angle-right"></i>
+                                    </span>
+
+                                </a>
+                                <ol class="carousel-indicators clearfix">
+                                @{
+                                var numSlides = Math.Ceiling((decimal)totalDisplayItems / (decimal)itemsPerSlide);
+
+                                }
+                                @for (int i = 0; i < numSlides; i++)
+                                {
+                                    string activeString = (i == 0 ? "active" : "");
+                                    <li data-target="#other-products-carousel" data-slide-to="@i" class="@activeString"></li>
+                                }                        
+                                </ol>
+                            }
+}
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @*Scripts.Render("~/bundles/jqueryval");
+        @Scripts.Render("~/bundles/jquery.countdown.2.0.1")*@
+    <script src="/Scripts/jquery.countdown.2.0.1/jquery.plugin.min.js"></script>
+    <script src="/Scripts/jquery.countdown.2.0.1/jquery.countdown.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            //required for carousel
+            $('.carousel').carousel('pause');
+
+            var gamesScheduleStart = $('#GameScheduleStartJquery').val();
+
+            $('#unlockCountdown').countdown({ until: gamesScheduleStart, onExpiry: show, alwaysExpire: true }); //"+12h36m12s"
+
+            function show() {
+                var x = $('#goToGameLink');
+                x.attr("style", "visibility:visible");
+            }
+
+        });
+
+        function populate(GameID) {
+
+
+            document.getElementById("GameID").value = GameID;
+
+
+            document.forms['GameForm'].submit();
+
+        }
+    </script>
+}

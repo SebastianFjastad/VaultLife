@@ -1,0 +1,1 @@
+ALTER TABLE dbo.ProductInWatchList ADD IsExpired BIT NULL

@@ -1,0 +1,300 @@
+﻿
+@model Vaultlife.ViewModels.AccountManageViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h2>Identify yourself!</h2>
+            @TempData["messageSubmit"]
+        </div>
+    </div>    
+        @Html.HiddenFor(model => model.Member.MemberID)
+        @Html.HiddenFor(model => model.Address.AddressID)
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-layout">
+            <div class="form-row">
+                <div class="form-label">
+                    <span class="required">*</span> First name
+                </div>
+                <div class="form-field">                  
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    <span class="required">*</span> Last name
+                </div>
+                <div class="form-field">                 
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    <span class="required">*</span> Gender
+                </div>
+                <div class="form-field">                           
+                    @Html.RadioButtonFor(model => model.Gender, "M", new { id = "Male" })
+                    @Html.Label("Male", "Male")
+
+                    @Html.RadioButtonFor(model => model.Gender, "F", new { id = "Female" })
+                    @Html.Label("Female", "Female")
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    @Html.RadioButtonFor(model => model.Gender, "U", new { id = "Unspecified" })
+                    @Html.Label("Unspecified", "Unspecified")
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Mobile Number
+                </div>
+                <div class="form-field">                   
+                    @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-layout">
+            <div class="form-row">
+                <div class="form-label">
+                    <span class="required">*</span> Email
+                </div>
+                <div class="form-field">                  
+                    @Html.HiddenFor(model => model.Email)
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">                 
+                </div>
+                <div class="form-field">                   
+                    @Html.EditorFor(model => model.ConfirmEmail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ConfirmEmail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Date of Birth
+                </div>
+                <div class="form-field">                  
+                    @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    @*Identity Number*@
+                </div>
+                <div class="form-field">                                
+                    @*@Html.EditorFor(model => model.IDNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.IDNumber, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="text-center">
+            <h3>Delivery Address</h3>
+        </div>
+
+        <div class="form-layout">
+            <div class="form-row">
+                <div class="form-label">
+                    Address Line 1
+                </div>
+                <div class="form-field">                  
+                    @Html.EditorFor(model => model.AddressLineOne, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AddressLineOne, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Address Line 2
+                </div>
+                <div class="form-field">                  
+                    @Html.EditorFor(model => model.AddressLineTwo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AddressLineTwo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Postal / Zip code
+                </div>
+                <div class="form-field">                   
+                    @Html.EditorFor(model => model.AddressZip, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AddressZip, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Country
+                </div>
+                <div class="form-field">          
+                    @Html.DropDownList("Country", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CountryID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    State / Province
+                </div>
+                <div class="form-field">               
+                    @Html.DropDownList("State", null, "NA", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.StateID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    City
+                </div>
+                <div class="form-field">
+                    @Html.DropDownList("City", null, "NA", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CityID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="text-center">
+            <h3>Billing Address</h3>
+        </div>
+
+        <div class="form-layout">
+            <div class="form-row">
+                <div class="form-label">
+                    Address Line 1
+                </div>
+                <div class="form-field">                   
+                    @Html.EditorFor(model => model.AddressBillLineOne, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AddressBillLineOne, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Address Line 2
+                </div>
+                <div class="form-field">                   
+                    @Html.EditorFor(model => model.AddressBillLineTwo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AddressBillLineTwo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Postal / Zip code
+                </div>
+                <div class="form-field">                  
+                    @Html.EditorFor(model => model.AddressBillZip ,new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AddressBillZip, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Country
+                </div>
+                <div class="form-field">                   
+                    @Html.DropDownList("CountryBill", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CountryBillID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    State / Province
+                </div>
+                <div class="form-field">                   
+                    @Html.DropDownList("StateBill", null, "NA", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.StateBillID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    City
+                </div>
+                <div class="form-field">                   
+                    @Html.DropDownList("CityBill", null, "NA", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CityBillID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="text-center">
+    <h3>Additional Information</h3>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-layout">
+            <div class="form-row">
+                <div class="form-label">
+                    Ethnic Group
+                </div>
+                <div class="form-field">                   
+                    @Html.DropDownList("Ethnicity", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Ethnicity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Marital Status
+                </div>
+                <div class="form-field">                  
+                    @Html.DropDownList("MaritalStatus", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.MaritalStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Number of Children
+                </div>
+                <div class="form-field">                  
+                    @Html.DropDownList("Children", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Children, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-layout">
+            <div class="form-row">
+                <div class="form-label">
+                    Industry
+                </div>
+                <div class="form-field">                   
+                    @Html.DropDownList("Industry", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Industry, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-label">
+                    Designation
+                </div>
+                <div class="form-field">                  
+                    @Html.DropDownList("Designation", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Designation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="text-center">
+        <input type="submit" name="submitpersonal" value="Save" class="btn btn-primary btn-spaced" />
+        <a href="#" class="btn btn-default btn-spaced">Cancel</a><br/>
+      @TempData["messageSubmit"]
+    </div>
+}

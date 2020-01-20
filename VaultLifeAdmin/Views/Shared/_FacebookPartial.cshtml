@@ -1,0 +1,19 @@
+﻿@using VaultLifeAdmin.Models
+<div class="blue-bar color-bar" id="facebook-signup">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>
+                    Become a member for free
+                </h1>
+                <p>
+                    start playing the game and living the lifestyle!
+                </p>
+                    @Html.Partial("../Account/_ExternalLoginReg", new ExternalLoginListViewModel { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+                <p>
+                    Get playing faster! Use our <em>Quick and Easy</em> sign up through Facebook.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
